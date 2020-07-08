@@ -1,9 +1,16 @@
 import binascii
 import os
 from django.db import models
-from django.contrib.auth.models import User
 from django.utils.translation import gettext_lazy as _
+from django.contrib.auth.models import AbstractUser
 # Create your models here.
+from django.conf import settings
+
+'''
+loai_user:
+    1: tim viec
+    2: tuyen dung
+'''
 
 TOKEN_LENGTH = 64
 RESET_TOKEN_LENGTH = 10
@@ -19,6 +26,30 @@ def generate_access_token(user_id):
         token=token,
     )
     return access_token
+
+
+class User(AbstractUser):
+    fullname = models.CharField(max_length=200, default=None, null=True)
+    images_user = models.TextField(null = True, default=None)
+    gender = models.IntegerField(default=0)
+    birth_day = models.DateField(null=True)
+    dia_chi_tinh_thanh_pho = models.CharField(max_length=200, default=None, null=True)
+    dia_chi_quan_huyen = models.CharField(max_length=200, default=None, null=True)
+    dia_chi_chi_tiet = models.CharField(max_length=200, default=None, null=True)
+    loai_user = models.IntegerField(default=0)
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
+
+
+    def __str__(self):
+        return str(self.id)
+
+    class Meta:
+        verbose_name = 'User'
+        verbose_name_plural = 'User'
+
+    @property
+    def ref_link_invite(self):
+        return settings.BIHAMA_REGISTER_URL+"/dang-ky/"+"?ref="+self.link_info
 
 
 class Token(models.Model):
@@ -45,8 +76,12 @@ class LoginHistory(models.Model):
     end_date = models.DateField(auto_now=True)
     num_date = models.IntegerField(default=1)
 
+    def __str__(self):
+        return str(self.user)
+
     class Meta:
-        db_table = 'login_history'
+        verbose_name = 'Lịch sử đăng nhập login '
+        verbose_name_plural = 'Lịch sử đăng nhập login '
 
 
 class ResetToken(models.Model):
@@ -97,22 +132,14 @@ class ConfirmEmailToken(models.Model):
         return 'ConfirmEmailToken (user {}): {}'.format(self.user, self.token)
 
 
-class Notification(models.Model):
-    title = models.TextField(blank=True, default='')
-    body = models.TextField(blank=True, default='')
-    created_at = models.DateTimeField(auto_now_add=True)
+# class ForgotPassword(models.Model):
+#     user=models.ForeignKey(User, on_delete=models.CASCADE)
+#     forgot_pass=models.IntegerField(default=1)   #so lan thay doi duoc password
+#     ngay_thay_doi=models.DateTimeField()
 
-    class Meta:
-        db_table = 'notification'
-        ordering = ['-created_at']
+#     def __str__(self):
+#         return str(self.id)
 
-
-class UserNotification(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    notification = models.ForeignKey(Notification, on_delete=models.CASCADE, related_name='user_notifications')
-    is_read = models.BooleanField(default=False)
-    created_at = models.DateTimeField(auto_now_add=True)
-
-    class Meta:
-        db_table = 'user_notification'
-        ordering = ['-created_at']
+#     class Meta:
+#         verbose_name = 'Lấy lại mật khẩu'
+#         verbose_name_plural = 'Lấy lại mật khẩu'

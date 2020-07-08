@@ -1,0 +1,237 @@
+{% load i18n %}
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="referrer" content="origin-when-crossorigin" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="theme-color" content="#2e74e9" />
+    <meta name='keywords' content='' />
+    <meta name='description' content='' />
+    <title>Đăng nhập nckit.xyz</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'core/images/icon/iconbi1.1.png' %}">
+    <link rel="stylesheet" href="{% static 'core/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/flatpickr.min.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <style>
+        @import "compass/css3";
+        @import url(https://fonts.googleapis.com/css?family=Dosis:300|Lato:300,400,600,700|Roboto+Condensed:300,700|Open+Sans+Condensed:300,600|Open+Sans:400,300,600,700|Maven+Pro:400,700);
+        @import url('https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css');
+
+        html {
+            background: black;
+        }
+
+        body {
+            font-family: "Open Sans";
+            font-size: 16px;
+            color: White;
+            font-smoothing: antialiased;
+            font-weight: 600;
+        }
+
+        a {
+            color: #bbb;
+        }
+
+        .content:before {
+            content: "";
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            z-index: -1;
+            display: block;
+            background-color: black;
+            background-image: url('http://ultraimg.com/images/Ho6hQWs.jpg');
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+        }
+
+        .content {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 540px;
+            height: 540px;
+            background-color: rgba(10, 10, 10, 0.5);
+            margin: auto auto;
+            padding: 40px;
+        }
+
+        .content .title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 600;
+            padding-bottom: 30px;
+        }
+
+        .content input {
+            width: 100%;
+            font-size: 1.2rem;
+            font-family: "Open Sans";
+            margin: 10px 0px;
+            border: none;
+            padding: 10px;
+        }
+
+        .content input[type=checkbox] {
+            display: none;
+        }
+
+        .content #remem {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            position: relative;
+            margin-left: 5px;
+            margin-right: 10px;
+            top: 5px;
+        }
+
+        .content #remem:before {
+            content: "";
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            left: 0;
+            bottom: 1px;
+            background-color: #aaa;
+        }
+
+        .content input[type=checkbox]:checked+#remem:before {
+            content: "\2713";
+            font-size: 20px;
+            color: Black;
+            text-align: center;
+            line-height: 20px;
+        }
+
+        .content span {
+            font-size: 0.9rem;
+        }
+
+        .content button {
+            width: 100%;
+            font-size: 1.1rem;
+            padding: 10px;
+            margin: 20px 0px;
+            background-color: #66a756;
+            color: White;
+            border: none;
+        }
+
+        .content .social {
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .content .social span {
+            display: inline-block;
+            vertical-align: baseline;
+            padding: 0 20px;
+        }
+
+        .content .social span:before,
+        .content .social span:after {
+            content: '';
+            display: block;
+            width: 500px;
+            position: absolute;
+            top: 0.9em;
+            border-top: 1px solid White;
+        }
+
+        .content .social span:before {
+            right: 85%;
+        }
+
+        .content .social span:after {
+            left: 85%;
+        }
+
+        .content .buttons {
+            width: 100%;
+            margin: 30px 0px;
+        }
+
+        .content .buttons button {
+            float: left;
+            width: 30%;
+            margin: 0px 1.5%;
+        }
+
+        .content .buttons button i {
+            padding-right: 7px;
+        }
+
+        .content .buttons button.facebook {
+            background-color: #4464b2;
+        }
+
+        .content .buttons button.twitter {
+            background-color: #28a9e0;
+        }
+
+        .content .buttons button.google {
+            background-color: #da4735;
+        }
+
+        .content .buttons:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .content .already {
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 500px) {
+            .content {
+                width: 80%;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class="title">Đăng ký tài khoản</div>
+        <label for="loaitaikhoan">Lựa chọn loại tài khoản</label>
+        <select name="loaitaikhoan" id="loaitaikhoan">
+            <option value="0">!---Lựa chọn---!</option>
+            <option value="1">Nhà tuyển dụng</option>
+            <option value="2">Nguời tìm việc</option>
+        </select>
+        <input type="text" placeholder="E-mail" />
+        <input type="password" placeholder="Password" />
+        <input type="checkbox" id="rememberMe" />
+        <label id="remem" for="rememberMe"></label>
+        <span>Tôi đồng ý với các <a href="#">Điều khoản sử dụng</a>và <a href="#">Chính sách bảo mật</a></span>
+        <button>Tạo tài khoản</button>
+        <div class="social"> <span>Hoặc đăng nhập bằng tài khoản mạng xã hội </span></div>
+        <div class="buttons">
+            <button class="facebook"><i class="fa fa-facebook"></i>Facebook</button>
+            <button class="twitter"><i class="fa fa-twitter"></i>Twitter</button>
+            <button class="google"><i class="fa fa-google-plus"></i>Google</button>
+        </div>
+        <div class="already">Bạn đã có tài khoản? <a href="#">Đăng nhập</a></div>
+    </div>
+</body>
+
+</html>

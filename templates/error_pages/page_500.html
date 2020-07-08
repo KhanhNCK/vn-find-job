@@ -1,0 +1,24 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title_core %}500-Website đang nâng cấp !!! Vui lòng quý khách quay lại sau{% endblock %}
+
+{% block css_blocl %}
+<style>
+    .errorpages {
+        display: flex;
+        justify-content: center;
+    }
+    .errorpages img {
+        width: 50%;
+        height: auto;
+    }
+</style>
+
+{% endblock %}
+
+{% block content %}
+<div class="error_500 errorpages">
+    <img src="{% static 'core/500.png' %}" alt="">
+</div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% load static %}
+{% block css_blocl %}
+<style>
+    @media screen and(max-width: 425px){
+        .robotload {
+        width: 60% !important;
+    }
+    }
+    
+</style>
+{% endblock %}
+<div id="preload" class="preload-container text-center"
+    style="width: 100%;height: 100%;background: white;position: fixed;top: 0;bottom: 0;right: 0;left: 0;z-index: 99999999999;display: block;padding-right: 17px;overflow-x: hidden;overflow-y: auto; display: flex; justify-content: center; align-items: center; ">
+    <div class="robotload" style="width: 25%;">
+        <img style="width: 100%; " height="auto" src="{% static 'core/images/loading.gif' %}" alt="" />
+    </div>
+</div>

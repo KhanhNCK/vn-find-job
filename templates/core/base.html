@@ -1,0 +1,246 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    {% block seo_gg %} {% endblock %}
+    <title>{% block title_core %} {% endblock %}</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'core/images/icon2.svg' %}" />
+    <link rel="stylesheet" href="{% static 'core/bootstrap/dist/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'core/Font-Awesome/css/all.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'core/css/flatpickr.min.css' %}" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+    <link href="{% static 'core/css/main.css' %}" rel="stylesheet" property="stylesheet" type="text/css" media="all">
+    <link href="{% static 'core/css/main2.css' %}" rel="stylesheet" property="stylesheet" type="text/css" media="all">
+    <link href="{% static 'core/css/bootstrap.min.css' %}" rel="stylesheet" property="stylesheet" type="text/css" media="all">
+    <link href="{% static 'core/css/default.css' %}" rel="stylesheet" property="stylesheet" type="text/css" media="all">
+    <link href="{% static 'core/css/select2.css' %}" rel="stylesheet" property="stylesheet" type="text/css" media="all">
+    <link href="{% static 'core/css/styles.css' %}" rel="stylesheet" property="stylesheet" type="text/css" media="all">
+
+
+    {% block css_blocl %} {% endblock %}
+
+</head>
+
+
+<body class="preloading">
+    {% include "core/loading.html" %}
+    <div class="nopadding s00_20">
+        <div class="">
+            <div class="show-content w_100">
+                <div class="header_right header w_100">
+                    <div class="row content_center_970_aigo">
+                        <div class="pl_0 pr_0 pull-left">
+                            <img src="" alt="viec lam 24h" title="Việc Làm 24h" class="floatLeft">
+                        </div>
+                        <div class="w350 pull-right pl_0 pr_0 text-right">
+                            <ul class="links">
+                                <li class="pl_0"><i class="icon-24 icon_24 icon_user_s00_20"></i><a href="#"><span
+                                            class="pl_12">Đăng
+                                            nhập</span></a></li>
+                                <li><i class="icon-24 icon_24 icon_user_in_s00_20"></i><a href="#"
+                                        class="member_register_home"><span class="pl_12">Đăng ký</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="h_123">
+                    <div class="menu_cong_s00_20 w_100">
+                        <div class="content_center_970_aigo">
+                            <div class="col-left-menucong w678 floatLeft">
+                                <div class="title_menu_cong_20 font14 txc pt_8 pb_20">Dành cho Người tìm việc</div>
+                                <div class="bt_menu_cong_20">
+                                    <a class="floatLeft vlql" href="#"  style="margin-left: 55px">
+                                        <div class="icn_cong_20_menu vlql"></div>
+                                        <div class="title_cong_20_menu w_100 vlql">Việc làm Fulltime</div>
+                                    </a>
+                                    <a class="floatLeft ml_28 vlcm" href="#" style="margin-left: 55px">
+                                        <div class="icn_cong_20_menu vlcm"></div>
+                                        <div class="title_cong_20_menu w_100 vlcm">Việc làm Parttime</div>
+                                    </a>
+                                    <a class="floatLeft ml_28 ldpt" href="#" style="margin-left: 55px">
+                                        <div class="icn_cong_20_menu ldpt"></div>
+                                        <div class="title_cong_20_menu w_100 ldpt">Việc làm cho freelancer</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-right-menucong floatRight w228">
+                                <div class="line_menucong_s00_20 floatLeft" style="height: 100px; margin-top: 10px;">
+                                </div>
+                                <div class="floatLeft w186">
+                                    <div class="title_menu_cong_20 font14 txc pt_8 pb_20">Dành cho Nhà tuyển dụng</div>
+                                    <div class="bt_menu_cong_20">
+                                        <a class="floatLeft ntd" href="#">
+                                            <div class="icn_cong_20_menu ntd"></div>
+                                            <div class="title_cong_20_menu w_100 ntd">Nhà tuyển dụng</div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    {% block content %} {% endblock %}
+
+                    <div class="w_100 bg_grey2">
+                        <div class="content_cols-right content_center_970_aigo" id="footer">
+                            <ul class="menu font13 nomargin">
+                                <li><a target="_blank" href="#" rel="nofollow"><span>Cổng tra cứu lương</span></a></li>
+                                <li class="seq">|</li>
+                                <li><a href="#" target="_blank" rel="nofollow"><span>Cẩm nang nghề nghiệp</span></a>
+                                </li>
+                                <li class="seq">|</li>
+                                <li><a href="#" target="_blank" rel="nofollow"><span>Báo giá dịch vụ</span></a></li>
+                                <li class="seq">|</li>
+                                <li><a target="_blank" href="#" rel="nofollow"><span>Điều khoản sử dụng</span></a></li>
+                                <li class="seq">|</li>
+                                <li><a href="#" target="_blank" rel="nofollow"><span>Quy định bảo mật</span></a></li>
+                                <li class="seq">|</li>
+                                <li><a href="#"><span>Sơ đồ trang
+                                            web</span></a></li>
+                            </ul>
+                            <div class="row ds_tags pt_20 pb_20">
+
+                                <div class="w_33 floatLeft">
+                                    <a href="#">Tìm Việc Làm</a>
+                                </div>
+
+                                <div class="w_33 floatLeft">
+                                    <a href="#">Việc Làm Cho Sinh
+                                        Viên</a>
+                                </div>
+
+                                <div class="w_33 floatLeft">
+                                    <a href="#">Việc Làm Điện</a>
+                                </div>
+
+                                <div class="w_33 floatLeft">
+                                    <a href="#">Việc Làm Bất Động Sản</a>
+                                </div>
+
+                                <div class="w_33 floatLeft">
+                                    <a href="#">Tuyển Dụng</a>
+                                </div>
+
+                                <div class="w_33 floatLeft">
+                                    <a href="#">Việc Làm Thêm</a>
+                                </div>
+
+                                <div class="w_33 floatLeft">
+                                    <a href="#">Việc Làm Dầu Khí</a>
+                                </div>
+
+                                <div class="w_33 floatLeft">
+                                    <a href="#">Lao Động Phổ Thông</a>
+                                </div>
+
+                                <div class="w_33 floatLeft">
+                                    <a href="#">Danh Sách Tag</a>
+                                </div>
+
+                                <div class="w_33 floatLeft">
+                                    <a href="#">Việc Làm Du Lịch</a>
+                                </div>
+
+                                <div class="w_33 floatLeft">
+                                    <a href="#">Kỹ Sư Cơ Khí</a>
+                                </div>
+
+                                <div class="w_33 floatLeft">
+                                    <a href="#">Đăng Tin Tuyển Dụng</a>
+                                </div>
+
+                                <div class="w_33 floatLeft">
+                                    <a href="#">Mẫu Cv Xin Việc</a>
+                                </div>
+
+                                <div class="w_33 floatLeft">
+                                    <a href="#">Danh Sách Công Ty</a>
+                                </div>
+
+                                <div class="w_33 floatLeft">
+                                    <a href="#">Việc Làm Phiên Dịch</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="w_100 footer_tags pt_16 pb_16">
+                        <div class="content_cols-right content_center_970_aigo" style="color: #898989;">
+                            <div class="row ds_tags">
+                                <div class="w_66_5 floatLeft pr_5">
+                                    <div class="row info_company">
+                                        <div class="pb_6">
+                                            <a target="_blank" href="">
+                                                <img src="{% static 'core/images/icon-member-of-sv.png' %}">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="row info_company mt_10">
+                                        <p><strong>Vieclam24h.vn - Website việc làm lớn nhất Việt Nam</strong></p>
+                                        <p>Giấy phép hoạt động dịch vụ việc làm số: 17343/SLĐTBXH do Sở Lao Động Thương
+                                            Binh &amp; Xã Hội TP.HCM cấp</p>
+                                    </div>
+                                    <div class="row info_company mt_6">
+                                        <p><strong>Công Ty Cổ Phần Việc Làm 24H</strong></p>
+                                        <p><strong>Trụ sở: </strong>Tòa nhà Siêu Việt, 23 Trần Cao Vân, Phường Đa Kao,
+                                            Quận 1, TP. Hồ Chí Minh.</p>
+                                        <p><strong>Chi nhánh: </strong>Tầng 9, Tòa nhà Center Building, Số 1 Nguyễn Huy
+                                            Tưởng, Quận Thanh Xuân, Hà Nội</p>
+                                        <p><strong>Điện thoại: </strong>(028) 7108 2424 | (024) 7308 2424</p>
+                                        <p><strong>Email hỗ trợ NTV: </strong>ntv@vieclam24h.vn | <strong>Email hỗ trợ
+                                                NTD: </strong>ntd@vieclam24h.vn</p>
+                                    </div>
+                                </div>
+                                <div class="w_30 floatLeft">
+                                    <div class="row info_company">
+                                        <p><strong>Kết nối với Vieclam24h</strong></p>
+                                        <div class="mt_4">
+                                            <div class="">
+                                                <a target="_blank" href="#" title="">
+                                                    <img src="{% static 'core/images/icon_facebook.png' %}">
+                                                </a>
+                                                <a target="_blank" href="#" title="">
+                                                    <img src="{% static 'core/images/icon_youtube.png' %}">
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <p><strong>Chứng nhận bởi</strong></p>
+                                        <div class="mt_10">
+                                            <div class="">
+                                                <a target="_blank" href="#" title="DMCA.com Protection Status"
+                                                    class="dmca-badge">
+                                                    <img src="{% static 'core/images/icon_dmca.png' %}"
+                                                        alt="DMCA.com Protection Status">
+                                                </a>
+                                                <a href="#" title="" target="_blank" rel="nofollow">
+                                                    <img alt="" title="" src="{% static 'core/images/icon_dk_bct.png' %}">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- lib js -->
+    <script src="{% static 'core/js/jquery.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'core/bootstrap/dist/js/bootstrap.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'core/js/flatpickr.js' %}"></script>
+    <script type="text/javascript" src="{% static 'core/js/jquery.validate.min.js' %}"></script>
+    <script src="{% static 'core/js/sweetalert.min.js' %}"></script>
+    <script src="{% static 'core/js/loadingjs.js' %}"></script>
+    {% block javascript_block %} {% endblock %}
+
+</body>
+
+</html>

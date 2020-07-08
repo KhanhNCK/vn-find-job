@@ -1,0 +1,24 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title_core %}404-Trang bạn tìm kiếm không tồn tại{% endblock %}
+
+{% block css_blocl %}
+<style>
+    .errorpages {
+        display: flex;
+        justify-content: center;
+    }
+    .errorpages img {
+        width: 50%;
+        height: auto;
+    }
+</style>
+
+{% endblock %}
+
+{% block content %}
+<div class="error_404 errorpages">
+    <img src="{% static 'core/404.jpg' %}" alt="">
+</div>
+{% endblock %}

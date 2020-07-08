@@ -15,11 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from apps.dashboard import views as dash_views
 from apps.users import views as user_views
+from django.conf.urls import handler404, handler500 ,handler403
+
+handler404 = "apps.core.views.Error404Page"
+handler500 = "apps.core.views.Error500Page"
+handler403 = "apps.core.views.Error403Page"
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', dash_views.HomeView.as_view()),
     path('login/', user_views.LoginAPIView.as_view(), name='login_url'),
+    path('', include('apps.core.urls')),
+    path('tim-viec-lam', include('apps.seeker.urls')),
+    path('tim-ho-so', include('apps.company.urls')),
+
 ]

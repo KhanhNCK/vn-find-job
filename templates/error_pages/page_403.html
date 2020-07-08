@@ -1,0 +1,24 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title_core %}403-Bạn không có quyền truy cập vào hệ thống{% endblock %}
+
+{% block css_blocl %}
+<style>
+    .errorpages {
+        display: flex;
+        justify-content: center;
+    }
+    .errorpages img {
+        width: 50%;
+        height: auto;
+    }
+</style>
+
+{% endblock %}
+
+{% block content %}
+<div class="error_403 errorpages">
+    <img src="{% static 'core/403.png' %}" alt="">
+</div>
+{% endblock %}
