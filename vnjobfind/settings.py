@@ -151,7 +151,7 @@ STATICFILES_DIRS = [
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
-# STATIC_ROOT =  '/static/'
+STATIC_ROOT =  '/static/'
 
 # Setting cache framework
 CACHES = {

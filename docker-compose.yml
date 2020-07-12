@@ -2,6 +2,7 @@ version: '3.6'
 
 services:
   db:
+    restart: always
     image: postgres:10
     ports:
       - "5432:5432"
@@ -30,8 +31,9 @@ services:
     depends_on:
       - redis
   web:
+    restart: always
     build: .
-    command: bash -c "python manage.py migrate --noinput && python manage.py runserver 0.0.0.0:8002"
+    command: bash -c "python manage.py collectstatic --no-input && python manage.py migrate --noinput && gunicorn --workers=8 insecom.wsgi -b 0.0.0.0:8000 --reload"
     volumes:
       - .:/code
     ports:
@@ -48,6 +50,7 @@ services:
     environment:
       SWAGGER_JSON: /app/docs/openapi.json
   nginx:
+    restart: always
     build: ./nginx-config
     ports:
       - 80:80
@@ -55,6 +58,11 @@ services:
       - web
     depends_on:
       - web
+    volumes: 
+      - static:/code/static
+      - media:/code/media
 volumes:
   postgres_data:
   redis_data:
+  media:
+  static:
