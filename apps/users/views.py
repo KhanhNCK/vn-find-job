@@ -16,6 +16,7 @@ import requests
 from . import models as user_models
 from . import utils as user_utils
 from . import serializers as user_sers
+from .forms import LoginForm
 import urllib.request
 from django.conf import settings
 from datetime import datetime
@@ -113,62 +114,62 @@ class LogoutView(View):
         return redirect('index_page')
 
 
-# class RegisterView(View):
-#     def get(self, request):
-#         full_link_info = request.build_absolute_uri()
-#         # print("khanh=",full_link_info)
-#         ref_url = request.GET.get('ref')
-#         if not ref_url:
-#             return render(request, 'core/register.html')
-#         elif not User.objects.filter(link_info=full_link_info).exists():
-#             context={'message':"Link giới thiệu bạn nhập không chính xác"}
-#             return render(request, 'core/register.html',context)
-#         context={'ref_url': ref_url}
-#         return render(request, 'core/register.html',context)
+class RegisterView(View):
+    def get(self, request):
+        # full_link_info = request.build_absolute_uri()
+        # # print("khanh=",full_link_info)
+        # ref_url = request.GET.get('ref')
+        # if not ref_url:
+        #     return render(request, 'core/register.html')
+        # elif not User.objects.filter(link_info=full_link_info).exists():
+        #     context={'message':"Link giới thiệu bạn nhập không chính xác"}
+        #     return render(request, 'core/register.html',context)
+        # context={'ref_url': ref_url}
+        return render(request, 'core/register.html')
 
-#     def post(self, request):
-#         phone = request.POST.get('phone_number')
-#         password1 = request.POST.get('password')
-#         password2 = request.POST.get('repassword')
-#         ref_url1 = request.POST.get('id_person_invite')
+    def post(self, request):
+        # phone = request.POST.get('phone_number')
+        # password1 = request.POST.get('password')
+        # password2 = request.POST.get('repassword')
+        # ref_url1 = request.POST.get('id_person_invite')
 
-#         if password1 != password2:
-#             msg = {'message':'Bạn nhập lại mật khẩu không chính xác'}
-#             return render(request, 'core/register.html', msg)
+        # if password1 != password2:
+        #     msg = {'message':'Bạn nhập lại mật khẩu không chính xác'}
+        #     return render(request, 'core/register.html', msg)
 
-#         if User.objects.filter(username=phone, is_active=True).exists():
-#             msg = {'message':'Tài khoản này đã tồn tại'}
-#             return render(request, 'core/register.html', msg)
+        # if User.objects.filter(username=phone, is_active=True).exists():
+        #     msg = {'message':'Tài khoản này đã tồn tại'}
+        #     return render(request, 'core/register.html', msg)
 
-#         if not User.objects.filter(username=phone, is_active=False).exists():
-#             user =  User.objects.create_user(username=phone, email=None, password=password1, is_active=False)
-#             user.code_invite=ref_url1
-#             user.save()
+        # if not User.objects.filter(username=phone, is_active=False).exists():
+        #     user =  User.objects.create_user(username=phone, email=None, password=password1, is_active=False)
+        #     user.code_invite=ref_url1
+        #     user.save()
 
-#         if User.objects.filter(username=phone, is_active=False).exists():
-#             request.session['phone_number'] = phone
-#             otp_code = user_utils.generate_otp_code()
-#             cache.set(phone, otp_code, timeout=300)
-#             get_ip = get_client_ip(request)
-#             if user_models.CountOTP.objects.filter(phone_otp=phone, count_otp__gte=5, ip_client=get_ip).exists():
-#                 msg = {'message':'Bạn nhập quá số lần cho phép'}
-#                 return render(request, 'core/index-ver2.html',msg)
-#             else:
-#                 # otp_status = user_utils.send_otp(phone_number=phone, otp_code=otp_code)
-#                 if user_models.CountOTP.objects.filter(phone_otp=phone, ip_client=get_ip).exists():
-#                     count = user_models.CountOTP.objects.filter(phone_otp=phone, ip_client=get_ip).first()
-#                     count.count_otp += 1
-#                     count.save()
-#                 else:
-#                     user_models.CountOTP.objects.create(phone_otp=phone, ip_client=get_ip, count_otp=1)
-#                 otp_status=200
-#                 otp_status2 = 0
-#                 if otp_status != 200:
-#                     otp_status2 = user_utils.send_voic_call(phone_number=phone, otp_code=otp_code)
-#                 if otp_status == 200 or otp_status2 == 200:
-#                     return redirect('otp_verify')
+        # if User.objects.filter(username=phone, is_active=False).exists():
+        #     request.session['phone_number'] = phone
+        #     otp_code = user_utils.generate_otp_code()
+        #     cache.set(phone, otp_code, timeout=300)
+        #     get_ip = get_client_ip(request)
+        #     if user_models.CountOTP.objects.filter(phone_otp=phone, count_otp__gte=5, ip_client=get_ip).exists():
+        #         msg = {'message':'Bạn nhập quá số lần cho phép'}
+        #         return render(request, 'core/index-ver2.html',msg)
+        #     else:
+        #         # otp_status = user_utils.send_otp(phone_number=phone, otp_code=otp_code)
+        #         if user_models.CountOTP.objects.filter(phone_otp=phone, ip_client=get_ip).exists():
+        #             count = user_models.CountOTP.objects.filter(phone_otp=phone, ip_client=get_ip).first()
+        #             count.count_otp += 1
+        #             count.save()
+        #         else:
+        #             user_models.CountOTP.objects.create(phone_otp=phone, ip_client=get_ip, count_otp=1)
+        #         otp_status=200
+        #         otp_status2 = 0
+        #         if otp_status != 200:
+        #             otp_status2 = user_utils.send_voic_call(phone_number=phone, otp_code=otp_code)
+        #         if otp_status == 200 or otp_status2 == 200:
+        #             return redirect('otp_verify')
 
-#         #send otp
-#         # print('so dien thoai1: ', phone)
-#         # print('otp1 = ', otp_code)
-#         return render(request, 'core/register.html')
+        #send otp
+        # print('so dien thoai1: ', phone)
+        # print('otp1 = ', otp_code)
+        return render(request, 'core/register.html')

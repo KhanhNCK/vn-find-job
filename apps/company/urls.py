@@ -5,5 +5,5 @@ app_name = 'company'
 
 
 urlpatterns = [
-    # path('viec-lam/', company_views.ListJobView.as_view()),
+    path('tuyen-dung/', company_views.TuyenDungView.as_view(), name='tuyendung_url'),
 ]

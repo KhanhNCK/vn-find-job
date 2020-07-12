@@ -26,7 +26,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', user_views.LoginAPIView.as_view(), name='login_url'),
     path('', include('apps.core.urls')),
-    path('tim-viec-lam', include('apps.seeker.urls')),
-    path('tim-ho-so', include('apps.company.urls')),
+    path('tim-viec-lam/', include('apps.seeker.urls')),
+    path('tim-ho-so/', include('apps.company.urls')),
+    path('', include('apps.users.urls')),
 
 ]

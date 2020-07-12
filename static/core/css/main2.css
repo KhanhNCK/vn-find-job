@@ -357,7 +357,7 @@
     padding: 8px 0px 0px 0px!important;
     max-width: 4000px;
     min-width: 970px!important;
-	background:#4a1a67;
+	background:#3f51b5;
 	border-bottom:2px solid #eeeeee;
 }
 .text_puz4{
@@ -367,7 +367,7 @@ a.text_puz4:hover{
 	color:#FFFFFF;
 }
 .s00_20 .header_right .links li a {
-    color: #a88bb9;
+    color: #ffff;
 }
 .icon_user_s00_20 {
     background: url(../images/icon_puz_s00_1.png);
