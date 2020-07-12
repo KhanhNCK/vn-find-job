@@ -33,7 +33,7 @@ services:
   web:
     restart: always
     build: .
-    command: bash -c "python manage.py collectstatic --no-input && python manage.py migrate --noinput && gunicorn --workers=8 insecom.wsgi -b 0.0.0.0:8000 --reload"
+    command: bash -c "python manage.py collectstatic --no-input && python manage.py migrate --noinput && gunicorn --workers=8 vnjobfind.wsgi -b 0.0.0.0:8000 --reload"
     volumes:
       - .:/code
     ports:
