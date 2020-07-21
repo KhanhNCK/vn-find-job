@@ -6,5 +6,5 @@ urlpatterns = [
     path('', IndexView.as_view(), name='index_page'),
 
     #api
-    path('add-data-nghenghiep', AddDataThanhPhoAPI.as_view(), name='add-data-nghenghiep'),
+    path('add-data-thanh-pho/', AddDataThanhPhoAPI.as_view(), name='add-data-thanh-pho'),
 ]

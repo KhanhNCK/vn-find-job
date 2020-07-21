@@ -1,5 +1,7 @@
 from django.db import models
 from apps.users.models import User
+from apps.core.models import NgheNghiep,ThanhPho
+
 # Create your models here.
 '''
 trinh_do_hoc_van:
@@ -30,9 +32,9 @@ ky_nang:
 
 class HoSoUngTuyen(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    nganh_nghe = models.IntegerField(default=0, null=True)
+    nganh_nghe = models.ForeignKey(NgheNghiep, on_delete=models.CASCADE)
     vi_tri_mong_muon = models.CharField(max_length=255, default=None, null=True)
-    dia_diem_lam_viec = models.CharField(max_length=255, default=None, null=True)
+    dia_diem_lam_viec = models.ForeignKey(ThanhPho, on_delete=models.CASCADE)
     trinh_do_hoc_van = models.IntegerField(default=0, null=True)
     so_nam_kinh_nghiem = models.IntegerField(default=0, null=True)
     ten_cty_tung_lam = models.CharField(max_length=255, default=None, null=True)

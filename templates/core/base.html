@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     {% block seo_gg %} {% endblock %}
     <title>{% block title_core %} {% endblock %}</title>
-    <link rel="icon" type="image/x-icon" href="{% static 'core/images/icon2.svg' %}" />
+    <link rel="icon" type="image/png" href="{% static 'core/logo.png' %}">
     <link rel="stylesheet" href="{% static 'core/bootstrap/dist/css/bootstrap.min.css' %}" />
     <link rel="stylesheet" href="{% static 'core/Font-Awesome/css/all.min.css' %}" />
     <link rel="stylesheet" href="{% static 'core/css/flatpickr.min.css' %}" />
@@ -27,11 +27,10 @@
 
         .fixed-top {
             background-color: #333;
-            position: fixed;
+            position: sticky;
             top: 0;
-            width: 100%;
-            display: block;
             transition: top 0.3s;
+            z-index: 9999;
         }
     </style>
     {% block css_blocl %} {% endblock %}
@@ -44,7 +43,7 @@
     <div class="nopadding s00_20">
         <div class="">
             <div class="show-content w_100">
-                <div id="nvarbar_menudes">
+                <div id="nvarbar_menudes fixed-top">
                     <div class="header_right header w_100">
                         <div class="row content_center_970_aigo" style="display: flex;">
                             <div class="pl_0 pr_0 pull-left" style="width: 50%;">
@@ -58,14 +57,17 @@
                                         <a href="#">Xin chào: <strong>{{ user.username }}</strong></a>
                                     </li>
                                     <li class="pl_0">
-                                        <a href="{% url 'logout_url' %}" style="font-size: 13px; text-decoration: underline;"><span class="pl_12">Đăng xuất</span></a>
+                                        <a href="{% url 'logout_url' %}"
+                                            style="font-size: 13px; text-decoration: underline;"><span
+                                                class="pl_12">Đăng xuất</span></a>
                                     </li>
                                     {% else %}
                                     <li class="pl_0"><i class="icon-24 icon_24 icon_user_s00_20"></i>
                                         <a href="{% url 'login_url' %}"><span class="pl_12">Đăng nhập</span></a>
                                     </li>
                                     <li><i class="icon-24 icon_24 icon_user_in_s00_20"></i>
-                                        <a href="{% url 'register_url' %}" class="member_register_home"><span class="pl_12">Đăng ký</span></a>
+                                        <a href="{% url 'register_url' %}" class="member_register_home"><span
+                                                class="pl_12">Đăng ký</span></a>
                                     </li>
                                     {% endif %}
 
@@ -78,19 +80,19 @@
                             <div class="col-left-menucong w678 floatLeft">
                                 <div class="title_menu_cong_20 font14 txc pt_8 pb_20">Dành cho Người tìm việc</div>
                                 <div class="bt_menu_cong_20">
-                                    <a class="floatLeft vlql" href="#">
+                                    <a class="floatLeft vlql" href="{% url 'seeker:viec_lam_mana' %}">
                                         <div class="icn_cong_20_menu vlql"></div>
                                         <div class="title_cong_20_menu w_100 vlql">Việc làm Quản lý </div>
                                     </a>
-                                    <a class="floatLeft vlcm" href="#">
+                                    <a class="floatLeft vlcm" href="{% url 'seeker:viec_lam_full' %}">
                                         <div class="icn_cong_20_menu vlcm"></div>
                                         <div class="title_cong_20_menu w_100 vlcm">Việc làm Fulltime</div>
                                     </a>
-                                    <a class="floatLeft ldpt" href="#">
+                                    <a class="floatLeft ldpt" href="{% url 'seeker:viec_lam_free' %}">
                                         <div class="icn_cong_20_menu ldpt"></div>
                                         <div class="title_cong_20_menu w_100 ldpt">Việc làm cho Freelancer</div>
                                     </a>
-                                    <a class="floatLeft sv" href="#">
+                                    <a class="floatLeft sv" href="{% url 'seeker:viec_lam_part' %}">
                                         <div class="icn_cong_20_menu sv"></div>
                                         <div class="title_cong_20_menu w_100 sv">Việc làm cho Parttime</div>
                                     </a>
@@ -618,7 +620,7 @@
                     <div style="background-color: #f5f5f5">
                         <div class="pt_20 pb_20">
                             <div class="content_center_970_aigo">
-                    
+
                                 <div class="box_alert_content_dangkytuvan w_100 mt_24 font16">
                                     <div class="pt_10 txt-ghi">
                                         Để tuyển dụng hoặc tìm việc hiệu quả, vui lòng <span class="bold">ĐĂNG KÝ TƯ
@@ -626,12 +628,14 @@
                                     </div>
                                     <div class=" pb_14 pr_14 pl_14">
                                         <div class="col_list_left floatLeft">
-                                            <a href="#" class="btn btn-ntd-dky-tuvan btn-lg w340 fs18 pl_8" rel="nofollow">
+                                            <a href="#" class="btn btn-ntd-dky-tuvan btn-lg w340 fs18 pl_8"
+                                                rel="nofollow">
                                                 Nhà tuyển dụng đăng ký tư vấn
                                             </a>
                                         </div>
                                         <div class="col_list_right floatLeft">
-                                            <a href="#" class="btn btn-ntv-dky-tuvan btn-lg w340 fs18 pl_8" rel="nofollow">
+                                            <a href="#" class="btn btn-ntv-dky-tuvan btn-lg w340 fs18 pl_8"
+                                                rel="nofollow">
                                                 Người tìm việc đăng ký tư vấn
                                             </a>
                                         </div>
@@ -639,7 +643,7 @@
                                 </div>
                             </div>
                         </div>
-                    
+
                         <div class="pb_20">
                             <div class="content_center_970_aigo">
                                 <div class="row mt_30">
@@ -660,114 +664,21 @@
                                                         <div class="hr"></div>
                                                         <div class="title">
                                                             <span class="bg-white bold font16 ">
-                                                                Miền Bắc:<span class="bg-white text_purple font24 bold">(012) 3456
+                                                                Miền Bắc:<span
+                                                                    class="bg-white text_purple font24 bold">(012) 3456
                                                                     789</span>
                                                             </span>
                                                         </div>
                                                     </div>
-                                                    <!-- <div class="row font14  pl_14 pr_14">
-                                                        <div class="w_33 floatLeft">
-                                                            <p>
-                                                                <span class="text_purple bold">0911 737 530</span>
-                                                                Ms. Kiều Tuyết </p>
-                                                        </div>
-                                                        <div class="w_33 floatLeft">
-                                                            <p>
-                                                                <span class="text_purple bold">0911 737 529</span>
-                                                                Ms. Thu Thắm </p>
-                                                        </div>
-                                                        <div class="w_33 floatLeft">
-                                                            <p>
-                                                                <span class="text_purple bold">0919 290 896 </span>
-                                                                Ms. Kim Ngân </p>
-                                                        </div>
-                                                        <div class="w_33 floatLeft">
-                                                            <p>
-                                                                <span class="text_purple bold">0915 299 340</span>
-                                                                Ms. Trần Ninh </p>
-                                                        </div>
-                                                        <div class="w_33 floatLeft">
-                                                            <p>
-                                                                <span class="text_purple bold">0919 290 892</span>
-                                                                Ms. Nguyễn Thuý A </p>
-                                                        </div>
-                                                        <div class="w_33 floatLeft">
-                                                            <p>
-                                                                <span class="text_purple bold">0918 710 063</span>
-                                                                Ms. Thu Hương </p>
-                                                        </div>
-                                                        <div class="w_33 floatLeft">
-                                                            <p>
-                                                                <span class="text_purple bold">0911 736 338</span>
-                                                                Ms. Phương Nhung </p>
-                                                        </div>
-                                                        <div class="w_33 floatLeft">
-                                                            <p>
-                                                                <span class="text_purple bold">0911 737 521</span>
-                                                                Ms. Vũ Anh </p>
-                                                        </div>
-                                                        <div class="w_33 floatLeft">
-                                                            <p>
-                                                                <span class="text_purple bold">0911 737 527</span>
-                                                                Ms. Hải Yến </p>
-                                                        </div>
-                                                    </div> -->
-                    
                                                     <div class="hr_header">
                                                         <div class="hr"></div>
                                                         <div class="title">
                                                             <span class="bg-white bold font16 ">
-                                                                Miền Nam:<span class="bg-white text_purple font24 bold">(012) 3456
+                                                                Miền Nam:<span
+                                                                    class="bg-white text_purple font24 bold">(012) 3456
                                                                     789</span>
                                                         </div>
                                                     </div>
-                                                    <!-- <div class="row font14 pl_14 pr_14">
-                                                        <div class="w_33 floatLeft">
-                                                            <p>
-                                                                <span class="text_purple bold">0916 673 088</span>
-                                                                Ms. Minh Thư </p>
-                                                        </div>
-                                                        <div class="w_33 floatLeft">
-                                                            <p>
-                                                                <span class="text_purple bold">0918 416 978</span>
-                                                                Ms. Thục Quyên </p>
-                                                        </div>
-                                                        <div class="w_33 floatLeft">
-                                                            <p>
-                                                                <span class="text_purple bold">0918 968 800</span>
-                                                                Ms. Phạm Hạnh </p>
-                                                        </div>
-                                                        <div class="w_33 floatLeft">
-                                                            <p>
-                                                                <span class="text_purple bold">0918 078 809</span>
-                                                                Ms. Kim Thảo </p>
-                                                        </div>
-                                                        <div class="w_33 floatLeft">
-                                                            <p>
-                                                                <span class="text_purple bold">0919 743 306</span>
-                                                                Ms. Tú Nhi </p>
-                                                        </div>
-                                                        <div class="w_33 floatLeft">
-                                                            <p>
-                                                                <span class="text_purple bold">0917 998 673</span>
-                                                                Ms. Thanh Tuyền </p>
-                                                        </div>
-                                                        <div class="w_33 floatLeft">
-                                                            <p>
-                                                                <span class="text_purple bold">0918 859 778</span>
-                                                                Ms. Kim Cúc </p>
-                                                        </div>
-                                                        <div class="w_33 floatLeft">
-                                                            <p>
-                                                                <span class="text_purple bold">0911 403 938</span>
-                                                                Ms. Diệu An </p>
-                                                        </div>
-                                                        <div class="w_33 floatLeft">
-                                                            <p>
-                                                                <span class="text_purple bold">0914 653 088</span>
-                                                                Ms. Kim Uyên </p>
-                                                        </div>
-                                                    </div> -->
                                                 </div>
                                             </div>
                                         </div>
@@ -895,7 +806,7 @@
     <script type="text/javascript" src="{% static 'core/js/jquery.validate.min.js' %}"></script>
     <script src="{% static 'core/js/sweetalert.min.js' %}"></script>
     <script src="{% static 'core/js/loadingjs.js' %}"></script>
-    <script>
+    <!-- <script>
         if ($(window).width() > 992) {
             $(window).scroll(function () {
                 if ($(this).scrollTop() > 350) {
@@ -909,7 +820,7 @@
                 }
             });
         } // end if
-    </script>
+    </script> -->
     {% block javascript_block %} {% endblock %}
 
 </body>

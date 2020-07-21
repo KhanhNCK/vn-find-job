@@ -1,0 +1,43 @@
+{% extends 'job_detail/base.html' %}
+{% load static %}
+{% block seo_gg %}
+{% endblock %}
+
+{% block content %}
+<div class="content_cols-right pt_16 pl_24 pb_24">
+    <br>
+    <div class="content_dangky_register_choice bg_white">
+        <div class="pt_20 pr_16 pl_16 mb_10 pb_12">
+            <div class="block_message_success pr0 pt_0 clearfix">
+                <div class="block_message_success pr0">
+                    <div class="msg-dong-trang txt-color-363636 fs16 font14">
+                        <p>Vui lòng đăng nhập tài khoản người tìm việc , ứng viên để truy cập kho dữ liệu hàng triệu bài
+                            đăng tuyển việc làm
+                            của Việc Làm nckit.</p>
+                    </div>
+                    <div class="mt_22 mb_6 text-center">
+                        <a href="{% url 'login_url' %}" class="w357 btn btn-pink bold font16 uppercase p10"
+                            style="height: 48px;padding:10px;">
+                            Đăng nhập tài khoản người tìm việc, ứng viên
+                        </a>
+                        <a href="/" class="w357 btn btn-blue  bold font16 uppercase btn_xemvieclamphuhop p10"
+                            style="height: 48px;padding:10px;">Bỏ qua</a>
+                    </div>
+                </div>
+                <div class="block_reg_footer_common regis_footer h_72">
+                    <div class="footer_login_common fs14 txt-color-363636 bold">
+                        <span class="bold">Quý khách gặp khó khăn? Liên hệ Hotline hỗ trợ:</span><br>
+                        Giờ hành chính:
+                        <span class="italic">miền Bắc</span> <span class="txt-hong bold" style="color:#ffa726">(012)
+                            3456 789</span>,
+                        <span class="italic">miền Nam</span> <span class="txt-hong bold" style="color:#ffa726">(012)
+                            3456 789</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block javascript_block %}
+{% endblock %}

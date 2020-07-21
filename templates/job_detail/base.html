@@ -1,0 +1,549 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+   <title>Tuyển dụng việc làm, tìm hồ sơ ứng viên hiệu quả</title>
+   {% block seo_gg %} {% endblock %}
+   <link rel="icon" type="image/png" href="{% static 'core/logo.png' %}">
+   <link rel="stylesheet" href="{% static 'core/bootstrap/dist/css/bootstrap.min.css' %}" />
+   <link rel="stylesheet" href="{% static 'core/Font-Awesome/css/all.min.css' %}" />
+   <link rel="stylesheet" href="{% static 'core/css/flatpickr.min.css' %}" />
+   <link href="{% static 'core/css/main.css' %}" rel="stylesheet" property="stylesheet" type="text/css" media="all">
+   <link href="{% static 'core/css/main2.css' %}" rel="stylesheet" property="stylesheet" type="text/css" media="all">
+   <link href="{% static 'core/css/bootstrap.min.css' %}" rel="stylesheet" property="stylesheet" type="text/css"
+      media="all">
+   <link href="{% static 'core/css/default.css' %}" rel="stylesheet" property="stylesheet" type="text/css" media="all">
+   <link href="{% static 'core/css/select2.css' %}" rel="stylesheet" property="stylesheet" type="text/css" media="all">
+   <link href="{% static 'core/css/styles.css' %}" rel="stylesheet" property="stylesheet" type="text/css" media="all">
+
+
+   <link href="{% static 'company/tuyendung/sliding_menu.min.css' %}" rel="stylesheet" property="stylesheet"
+      type="text/css" media="all">
+
+   <link href="{% static 'company/tuyendung/mfb.min.css' %}" rel="stylesheet" property="stylesheet" type="text/css"
+      media="all">
+   <link href="{% static 'company/tuyendung/style_menu.min.css' %}" rel="stylesheet" property="stylesheet"
+      type="text/css" media="all">
+   <link href="{% static 'company/tuyendung/styles.min.css' %}" rel="stylesheet" property="stylesheet" type="text/css"
+      media="all">
+   <link href="{% static 'company/tuyendung/default_ntd.min.css' %}" rel="stylesheet" property="stylesheet"
+      type="text/css" media="all">
+   <link href="{% static 'company/tuyendung/main_ntd.min.css' %}" rel="stylesheet" property="stylesheet" type="text/css"
+      media="all">
+   <link href="{% static 'company/tuyendung/jquery-ui.min.css' %}" rel="stylesheet" property="stylesheet"
+      type="text/css" media="all">
+   <link rel="stylesheet" type="text/css" href="{% static 'company/tuyendung/slick.css' %}">
+   <link rel="stylesheet" type="text/css" href="{% static 'company/tuyendung/slick-theme.css' %}">
+   <link href="{% static 'company/tuyendung/admin_ntd.css' %}" rel="stylesheet" type="text/css" media="all">
+   <!-- css all -->
+   <style type="text/css">
+      .breadcrum {
+         /*margin-bottom: 10px;*/
+      }
+
+      .breadcrum-l {
+         float: left;
+         background-color: #63248a;
+         color: #d1bedc;
+         padding: 8px;
+         width: 4%;
+      }
+
+      .breadcrum-r {
+         float: left;
+         background-color: #e6e2e8;
+         padding: 8px;
+         width: 96%;
+      }
+
+      .breadcrum-icon-home {
+         font-size: 15px;
+      }
+
+      .breadcrum-icon-menu {
+         font-size: 10px;
+         padding: 0px 5px;
+         position: initial !important;
+         color: #63248a;
+         font-weight: 700 !important;
+      }
+
+      .breadcrum-ul {
+         padding-left: 0px;
+         margin-bottom: 0px;
+      }
+
+      .breadcrum-ul li {
+         display: inline;
+         font-size: 12px;
+      }
+
+      .breadcrum-ul li a {
+         color: #63248a;
+      }
+
+      .breadcrum-ul li a:hover {
+         text-decoration: none;
+      }
+   </style>
+   <!-- <style>
+      .bg-adv-td {
+         background: url("asset/default/images/background-ntdtn_new.png") center center no-repeat !important;
+         width: 100%;
+         height: 400px;
+      }
+
+      .icon-hs-ut {
+         background: url("asset/default/images/icon-round-hsut_new.png") no-repeat !important;
+         width: 100px;
+         height: 100px;
+         position: relative;
+         margin: 0 auto;
+      }
+
+      .icon-vl-td {
+         background: url("asset/default/images/icon-round-vldtd_new.png") no-repeat !important;
+         width: 100px;
+         height: 100px;
+         position: relative;
+         margin: 0 auto;
+      }
+   </style> -->
+   <style>
+      /* Slideshow container */
+      .slideshow-container {
+         max-width: 1000px;
+         position: relative;
+         margin: auto;
+      }
+
+      .prev_banner,
+      .next_banner {
+         background-color: #5C5F64;
+         width: 20px;
+         height: 50px;
+      }
+
+      .prev_banner:before {
+         background: url(/asset/default/images/sprite_icn_small.png) no-repeat;
+         content: " ";
+         height: 20px;
+         width: 20px;
+         z-index: 10;
+         margin-top: 15px;
+         background-size: 222px auto;
+         background-position: -180px 0;
+         display: inline-block;
+      }
+
+      .next_banner:before {
+         background: url(/asset/default/images/sprite_icn_small.png) no-repeat;
+         content: " ";
+         height: 20px;
+         width: 20px;
+         z-index: 10;
+         margin-top: 15px;
+         background-size: 199px auto;
+         background-position: -178px 0;
+         display: inline-block;
+      }
+
+      /* Next & previous buttons */
+      .prev_banner,
+      .next_banner {
+         font-size: 0;
+         line-height: 0;
+         position: absolute;
+         top: 50%;
+         display: block;
+         padding: 0;
+         margin-top: -10px\9;
+         -webkit-transform: translate(0, -50%);
+         -ms-transform: translate(0, -50%);
+         transform: translate(0, -50%);
+         cursor: pointer;
+         color: transparent;
+         border: none;
+         outline: none;
+         opacity: 0.8;
+      }
+
+      /* Position the "next button" to the right */
+      .next_banner {
+         right: -6px;
+      }
+
+      /* On hover, add a black background color with a little bit see-through */
+      .prev_banner:hover,
+      .next_banner:hover {
+         background-color: rgba(0, 0, 0, 0.8);
+      }
+
+      /* The dots/bullets/indicators */
+      .dot {
+         cursor: pointer;
+         height: 8px;
+         width: 8px;
+         margin: 0 5px;
+         background-color: #bbb;
+         border-radius: 50%;
+         display: inline-block;
+         transition: background-color 0.6s ease;
+      }
+
+      .dot.active {
+         background-color: #63248a;
+         height: 9px;
+         width: 9px;
+      }
+
+      .user-info .drop_filter_top::after {
+         content: '';
+         position: absolute;
+         height: 24px;
+         width: 24px;
+         background: url(../asset/default/images/sprites_24_NTD.png) no-repeat scroll left center transparent !important;
+         ;
+         background-position: -96px -48px !important;
+         top: 12px;
+         right: -4px;
+      }
+
+      .icn_cong_head_chuyenmon {
+         margin-left: 10px;
+      }
+
+      .icn_cong_head_phothong {
+         margin-left: 20px;
+      }
+   </style>
+   {% block css_blocl %} {% endblock %}
+
+</head>
+
+<body class="no_scroll s21_home preloading" id="s22_chi_tiet_ho_so">
+   {% include "core/loading.html" %}
+   <div class="container-fluid nopadding">
+      <!-- header -->
+      <div id="block_header">
+         <div class="header pos_relative w_100 h56 bg_blue">
+            <div class="pos_relative w_100 h56 bg_blue box_header">
+               <div class="col_head1 pos_relative floatLeft">
+                  <div class=" pos_absolute">
+                     <a href="/"><img src="{% static 'core/logo.png' %}" alt="vieclamnckit" title="việc làm 24h">
+                     </a>
+                  </div>
+               </div>
+               <div class="menu_cong_header floatLeft pos_absolute" style="max-width: 640px;">
+                  <a class="bt_head_cong mana floatLeft " href="{% url 'seeker:viec_lam_mana' %}" data-toggle="tooltip"
+                     data-placement="bottom" title="Cổng việc làm Quản lý" style="margin-left: 28px;">
+                     <div class="icn_cong_menu icn_cong_head_quanly mt_10"></div>
+                     <div class="title_cong_menu w_100">Quản lý</div>
+                  </a>
+                  <a class="bt_head_cong full floatLeft " href="{% url 'seeker:viec_lam_full' %}" data-toggle="tooltip"
+                     data-placement="bottom" title="Cổng việc làm Fulltime" style="margin-left: 28px;">
+                     <div class="icn_cong_menu icn_cong_head_chuyenmon mt_10"></div>
+                     <div class="title_cong_menu w_100">Fulltime</div>
+                  </a>
+                  <a class="bt_head_cong free floatLeft " href="{% url 'seeker:viec_lam_free' %}" data-toggle="tooltip"
+                     data-placement="bottom" title="Cổng việc làm Freelandcer" style="margin-left: 28px;">
+                     <div class="icn_cong_menu icn_cong_head_phothong mt_10"></div>
+                     <div class="title_cong_menu w_100">Freelandcer</div>
+                  </a>
+                  <a class="bt_head_cong part floatLeft " href="{% url 'seeker:viec_lam_part' %}" data-toggle="tooltip"
+                     data-placement="bottom" title="Cổng việc làm Parttime" style="margin-left: 28px;">
+                     <div class="icn_cong_menu icn_cong_head_sinhvien mt_10" style="margin-left: 20px;"></div>
+                     <div class="title_cong_menu w_100" style="margin-left: 6px">Parttime</div>
+                  </a>
+                  <a class="bt_head_cong floatLeft " href="{% url 'company:tuyendung_url' %}" data-toggle="tooltip"
+                     data-placement="bottom" title="Cổng dành cho Nhà tuyển dụng" style="margin-left: 28px;">
+                     <div class="icn_cong_menu icn_cong_head_ntd mt_10"></div>
+                     <div class="title_cong_menu w_100">Nhà tuyển dụng</div>
+                  </a>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- content -->
+      <div class="pos_relative content_body">
+         <!-- col left -->
+         <div class="show-title floatLeft w232 box_shadow_righ box_left bg_white bg_white" id="sidebar_left">
+            <div id="cols-left" tabindex="0"
+               style="width: 232px; padding-right: 10px; outline: none; overflow: scroll; height: 830px;">
+               <div class="header_left title_box_left bg_grey w232" style="height: 44px">
+                  <div class="row pt_7">
+                     <ul class=" nav nav-tabs" role="tablist" id="myTab">
+                        <li role="presentation" class="col-xs-6 tab-video active" id="tab_taikhoan">
+                           <a href="#tab_taikhoan_content" aria-controls="tab_taikhoan_content" role="tab"
+                              data-toggle="tab" class="tab_superhot font16">Tài khoản</a>
+                        </li>
+                        <li role="presentation" class="col-xs-6 tab-video" id="tab_support">
+                           <a href="#tab_support_content" aria-controls="tab_support_content" role="tab"
+                              data-toggle="tab" class="tab_superhot font16">Hỗ trợ</a>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+               <div id="left_sidebar" class="tab-content tab-bg-ct ">
+                  <div role="tabpanel" class="tab-pane active" id="tab_taikhoan_content">
+                     <div class="block_1 bgWhite">
+                        <div class="block-content  ml12 mr14 pt16">
+                           <div class="mb8">
+                              <div class="center-p12p24 ">
+                                 <ul class="links" style="list-style: none;">
+                                    {% if user.is_authenticated %}
+                                    <li>
+                                       <a href="#">Xin chào: <strong>{{ user.username }}</strong></a>
+                                    </li>
+                                    <li class="pl_0">
+                                       <a href="{% url 'logout_url' %}"
+                                          style="font-size: 13px; text-decoration: underline;"><span class="pl_12">Đăng
+                                             xuất</span></a>
+                                    </li>
+                                    {% else %}
+                                    <li class="pl_0"><i class="icon-24 icon_24 icon_user_s00_20"></i>
+                                       <a href="{% url 'login_url' %}"><span class="pl_12">Đăng nhập</span></a>
+                                    </li>
+                                    <li><i class="icon-24 icon_24 icon_user_in_s00_20"></i>
+                                       <a href="{% url 'register_url' %}" class="member_register_home"><span
+                                             class="pl_12">Đăng ký</span></a>
+                                    </li>
+                                    {% endif %}
+                                 </ul>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="mb12">
+                           <div class="line-break02 w232"></div>
+                        </div>
+                        <div class="block-content  ml12 mr14">
+                           <a href="{% url 'seeker:hoso_url' %}" class="btn btn-pink btn-lg btn-creat-hs font16"
+                              style="display: flex; justify-content: center; align-items: center;">
+                              <i class="fas fa-paper-plane"></i> TẠO HỒ SƠ XIN VIỆC
+                           </a>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="w232">
+                           <ul class="request-line mb_8">
+                              <li class="pb_6 pos_relative"> <span class="text_blue ml_10 fs15 fw500">Quản lý
+                                    tài khoản</span>
+                              </li>
+                              <li class="pb_6 pos_relative">
+                                 <span class="icon_24 icon-24 icon-quan-ly-tai-khoan pos_absolute"></span>
+                                 <a rel="nofollow" href="" class="txt-ghi pl12 w232 ablock_menu  ">Tài khoản
+                                 </a>
+                              </li>
+                              <li class="pb_6 pos_relative"> <span class="text_blue ml_10 fs15 fw500">Quản lý
+                                    dịch vụ</span>
+                              </li>
+                              <li class="pb_6 pos_relative">
+                                 <span class="icon_24 icon-24 bank-service-icon pos_absolute"></span>
+                                 <a rel="nofollow" href="" class="txt-ghi pl12 w232 ablock_menu" target="_blank">Đăng ký
+                                    dịch
+                                    vụ</a>
+                              </li>
+                              <li class="pb_6 pos_relative"> <span class="text_blue ml_10 fs15 fw500">Quản lý
+                                    tin tuyển dụng</span>
+                              </li>
+                              <li class="pb_6 pos_relative">
+                                 <span class="bg_blue pos_absolute number-notifi">0</span>
+                                 <span class="icon_24 icon-24 icon-quan-ly-tin-tuyen-dung pos_absolute"></span>
+                                 <a rel="nofollow" href="" class="txt-ghi pl12 w232 ablock_menu ">Danh sách tin tuyển
+                                    dụng</a>
+                              </li>
+                              <li class="pb_6 pos_relative">
+                                 <span class="icon_24 icon-24 icon-quan-ly-tao-hso pos_absolute"></span>
+                                 <a rel="nofollow" href="" class="txt-ghi pl12 w232 ablock_menu">Đăng tin
+                                    tuyển dụng</a>
+                              </li>
+                              <li class="pb_6 pos_relative"> <span class="text_blue ml_8 fs15 fw500">Quản lý
+                                    ứng viên</span>
+                              </li>
+                              <li class="pb_6 pos_relative">
+                                 <span class="icon_24 icon-24 icon-sprite-new icon-search-ntd pos_absolute"
+                                    style="margin-left: 10px;margin-top: 5px"></span>
+                                 <a class="txt-ghi pl12 w232 ablock_menu" href="">
+                                    Tìm kiếm hồ sơ
+                                 </a>
+                              </li>
+                              <li class="pb_6 pos_relative">
+                                 <span class="bg_blue pos_absolute number-notifi">0</span>
+                                 <span class="icon_24 icon-24 icon-vl-ung-tuyen pos_absolute"></span>
+                                 <a rel="nofollow" href="" class="txt-ghi pl12 w232 ablock_menu ">Hồ sơ đã ứng tuyển</a>
+                              </li>
+                              <li class="pb_6 pos_relative">
+                                 <span class="bg_blue pos_absolute number-notifi">0</span>
+                                 <span class="icon_24 icon-24 icon-vl-da-luu pos_absolute"></span>
+                                 <a rel="nofollow" href="" class="txt-ghi pl12 w232 ablock_menu ">Hồ sơ đã lưu</a>
+                              </li>
+                              <li class="pb_6 pos_relative ntd-icon-new">
+                                 <span class="icon_24 icon-24 icon-tb-hsph pos_absolute"></span>
+                                 <a rel="nofollow" href="nha-tuyen-dung/ho-so-phu-hop.html"
+                                    class="txt-ghi pl12 w232 ablock_menu ">Thông báo hồ sơ phù hợp</a>
+                              </li>
+                              <li class="pb_6 pos_relative"> <span class="text_blue ml_10 fs15 fw500">Hỗ trợ
+                                    và thông báo</span>
+                              </li>
+                              <li class="pb_6 pos_relative">
+                                 <span class="complain-icon"></span>
+                                 <a href="" class="txt-ghi pl12 w232 ablock_menu ">Gửi yêu cầu đến ban quản trị</a>
+                              </li>
+                              <li class="pb_6 pos_relative">
+                                 <span class="icon-cnnn"></span>
+                                 <a href="cam-nang-nghe-nghiep" class="txt-ghi pl12 w232 ablock_menu"
+                                    target="_blank">Cẩm nang nghề nghiệp </a>
+                              </li>
+                           </ul>
+                           <div class="clearfix"></div>
+                        </div>
+                        <div class="mb8">
+                           <div class="line-break02 w232"></div>
+                        </div>
+                     </div>
+                  </div>
+                  <div role="tabpanel" class="tab-pane" id="tab_support_content">
+                     <div class="block_1 bgWhite">
+                        <div class="ml12 mr12 pt10 pb_18">
+                           <div class="block-content pb14">
+                              <span>Để tuyển dụng hoặc tìm việc nhanh, vui lòng
+                                 <span class="fwb">ĐĂNG KÝ TƯ VẤN</span> để được hỗ trợ ngay!</span>
+                           </div>
+                           <a rel="nofollow" href="nha-tuyen-dung-dang-ky-tu-van"
+                              class="btn btn-pink btn-block font12 pt10 pb10">Nhà tuyển dụng đăng ký tư
+                              vấn</a>
+                           <a rel="nofollow" href="nguoi-tim-viec-dang-ky-tu-van"
+                              class="btn btn-blue mt_16 btn-block font12 pt10 pb10" style="margin-left: unset">Người tìm
+                              việc đăng ký tư vấn</a>
+                        </div>
+                     </div>
+                     <div class="block_2 pt12 clearfix bg_grey w232"></div>
+                     <div class="block_1 bgWhite">
+                        <div class="ml12 mr16 pt16 mb_14">
+                           <div class="title_text_line mt0 mb_0 mb_18">
+                              <div class="text-tim-nhat uppercase">
+                                 <p class="line">HOTLINE</p>
+                                 <p class="mb_0">cho nhà tuyển dụng</p>
+                              </div>
+                           </div>
+                           <p class="mb4 font16">Miền Bắc: <span class="text_pink bold"
+                                 style="font-size: 15px !important;font-weight: 500 !important;">(012) 3456
+                                 789</span>
+                           </p>
+                           <p class="mb4m font16">Miền Nam: <span class="text_pink bold"
+                                 style="font-size: 15px !important;font-weight: 500 !important;">(012) 3456
+                                 789</span>
+                           </p>
+                        </div>
+                     </div>
+                     <div class="block_2 pt12 clearfix bg_grey w232"></div>
+                     <div class="block_1 bgWhite">
+                        <div class="ml12 mr4 pt16 mb_14">
+                           <div class="title_text_line">
+                              <div class="text-tim-nhat uppercase">
+                                 <p class="line">HOTLINE</p>
+                                 <p class="mb_0">cho người tìm việc</p>
+                              </div>
+                           </div>
+                           <div class="box_title_content left mt_20 font16 pos_relative mb_20">
+                              <span class="title_title_box pl_4 pr_4 bold text_blue bgWhite">Giờ hành
+                                 chính</span>
+                           </div>
+                           <div class="mt_14 text-center font16">
+                              <p class="mb4"><span>Miền Bắc:</span> <span class="text_pink bold">(012) 3456
+                                 789</span>
+                              </p>
+                              <p class="mb4"><span>Miền Nam:</span> <span class="text_pink bold">(012) 3456
+                                 789</span>
+                              </p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- col main -->
+         <div class="show-content w_100 box_right">
+            <div id="cols-right" class="bg_grey" style="height: 830px;">
+               {% block content %} {% endblock %}
+               <div class="w_100 footer_tags pt_16 pb_16" style="padding: 5%;">
+                  <div class="content_cols-right content_center_970_aigo" style="color: #898989;">
+                     <div class="row ds_tags">
+                        <div class="w_66_5 floatLeft pr_5">
+                           <div class="row info_company">
+                              <div class="pb_6">
+                                 <a href="/">
+                                    <img src="{% static 'core/logo.png' %}">
+                                 </a>
+                              </div>
+                           </div>
+                           <div class="row info_company mt_10">
+                              <p><strong>nckit.xyz - Website việc làm lớn nhất Việt Nam</strong></p>
+                              <p>Giấy phép hoạt động &amp; TP.HN cấp</p>
+                           </div>
+                           <div class="row info_company mt_6">
+                              <p><strong>Công Ty Cổ Phần Việc Làm nckit</strong></p>
+                              <p><strong>Trụ sở: </strong>Tòa nhà Quận Thanh Xuân, Hà Nội</p>
+                              <p><strong>Chi nhánh: </strong>Tòa nhà Quận 1, TP. Hồ Chí Minh.</p>
+                              <p><strong>Điện thoại: </strong>(0123) 456 789 | (0123) 456 789 </p>
+                              <p><strong>Email hỗ trợ NTV: </strong>ntv@nckit.xyz | <strong>Email hỗ trợ
+                                    NTD: </strong>ntd@nckit.xyz</p>
+                           </div>
+                        </div>
+                        <div class="w_30 floatLeft">
+                           <div class="row info_company">
+                              <p><strong>Kết nối với Vieclam NCKit</strong></p>
+                              <div class="mt_4">
+                                 <div class="">
+                                    <a target="_blank" href="#" title="">
+                                       <img src="{% static 'core/images/icon_facebook.png' %}">
+                                    </a>
+                                    <a target="_blank" href="#" title="">
+                                       <img src="{% static 'core/images/icon_youtube.png' %}">
+                                    </a>
+                                 </div>
+                              </div>
+
+                              <p><strong>Chứng nhận bởi</strong></p>
+                              <div class="mt_10">
+                                 <div class="">
+                                    <a target="_blank" href="#" title="DMCA.com Protection Status" class="dmca-badge">
+                                       <img src="{% static 'core/images/icon_dmca.png' %}"
+                                          alt="DMCA.com Protection Status">
+                                    </a>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins ) --->
+      {% include "core/fb_chat.html" %}
+      <!-- lib js -->
+      <script src=" {% static 'core/js/jquery.min.js' %}" type="text/javascript">
+      </script>
+      <script src="{% static 'core/bootstrap/dist/js/bootstrap.min.js' %}" type="text/javascript"></script>
+      <script src="{% static 'core/js/flatpickr.js' %}"></script>
+      <script type="text/javascript" src="{% static 'core/js/jquery.validate.min.js' %}"></script>
+      <script src="{% static 'core/js/sweetalert.min.js' %}"></script>
+      <script src="{% static 'core/js/loadingjs.js' %}"></script>
+      <script>
+         $(function () {
+            $(".tab-video").click(function () {
+               parentid = $(this).parents("#myTab")
+               parentid.find('.tab-video').removeClass('active')
+               $(this).addClass('active')
+            })
+         })
+      </script>
+      {% block javascript_block %} {% endblock %}
+</body>
+
+</html>

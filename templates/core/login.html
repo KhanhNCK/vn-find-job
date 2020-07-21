@@ -48,7 +48,7 @@
             z-index: -1;
             display: block;
             background-color: black;
-            background-image: url('http://ultraimg.com/images/Ho6hQWs.jpg');
+            background-image: url('../static/core/company.jpg');
             width: 100%;
             height: 100%;
             background-size: cover;
@@ -66,7 +66,7 @@
             left: 0;
             right: 0;
             width: 540px;
-            height: 700px;
+            height: 645px;
             background-color: rgba(10, 10, 10, 0.5);
             margin: auto auto;
             padding: 40px;
@@ -211,9 +211,10 @@
 
 <body class="preloading">
     {% include "core/loading.html" %}
-    <div class="pl_0 pr_0 pull-left" style="width: 50%;">
+    <div class="pl_0 pr_0 pull-left" style="width: 100%; display: flex; justify-content: center;">
         <a href="/"><img src="{% static 'core/logo.png' %}" alt="viec lam nckit"
-                title="Việc Làm nckit" class="floatLeft"></a>
+                title="Việc Làm nckit" class="floatLeft">
+           </a>
     </div>
     <div class="content">
         <div class="title">Đăng nhập</div>

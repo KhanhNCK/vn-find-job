@@ -5,8 +5,8 @@ from ckeditor_uploader.fields import RichTextUploadingField
 
 
 class NgheNghiep(models.Model):
-    name_job = models.IntegerField(default=0, null=True)
-    code_job = models.CharField(max_length=255, default=None, null=True)
+    code_job = models.IntegerField(default=0, null=True)
+    name_job = models.CharField(max_length=255, default=None, null=True)
     job_info = RichTextUploadingField(default='')
 
     def __str__(self):

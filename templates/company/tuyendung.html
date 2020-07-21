@@ -1,0 +1,746 @@
+{% extends 'company/base.html' %}
+{% load static %}
+{% block seo_gg %}
+{% endblock %}
+{% block css_blocl %}
+<link href="{% static 'core/css/swiper.min.css' %}" rel="stylesheet" property="stylesheet" type="text/css" media="all">
+<style>
+    .mg_b5 {
+        margin-bottom: 5%;
+    }
+
+    .mg_b5 select {
+        background: #fafafa;
+        height: 30px;
+    }
+</style>
+{% endblock %}
+{% block content %}
+<div class="content_cols-right pt_16 pl_24 pb_24">
+    <div class="breadcrum">
+        <div class="breadcrum-l">
+            <span class="glyphicon glyphicon-home breadcrum-icon-home"></span>
+        </div>
+        <div class="breadcrum-r">
+            <ul class="breadcrum-ul" itemscope="" itemtype="http://schema.org/BreadcrumbList">
+                <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+                    <a href="" itemprop="item">
+                        <span itemprop="name">Trang chủ</span>
+                    </a>
+                    <span class="glyphicon glyphicon-menu-right breadcrum-icon-menu"></span>
+                    <meta itemprop="position" content="1">
+                </li>
+                <li>
+                    Tuyển dụng
+                </li>
+            </ul>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <br>
+
+    <div class="">
+        <div class="box_alert_content box_alert_content_dangkytuvan w_100 font14 " id="box_alert_message">
+            <div class="col_msg_left">
+                Hôm qua có <span class="text_orange font18 bold">2,132</span> hồ sơ mới và <span
+                    class="text_orange font18 bold">10,104</span> hồ sơ cập nhật mới, trong tổng số
+                <span class="text_orange font18 bold">2,947,566</span> hồ sơ đang tìm việc
+            </div>
+            <div class="col_msg_right">
+                <a href="ho-so-cap-nhat-trong-ngay.html" class="btn btn-blue"><span
+                        class="icon_24 icon_arrow_orange icon-24"></span><span class="text_orange bold font16 pt_2">BẤM
+                        XEM NGAY!</span></a>
+            </div>
+        </div>
+        <div class="box_title_content w_100 font16 pos_relative mb_30 mt_16">
+            <h1 class="title_title_box pl_8 pr_8 uppercase bold text_blue">Cổng dành cho nhà tuyển
+                dụng (2,947,566)
+            </h1>
+        </div>
+        <div class="box_filter_content w_100 mt_16 pos_relative" id="box_search_ntd">
+            <div class="box_filter_search pos_absolute">
+                <form method="get" action="tim-kiem-ung-vien-nhanh/" id="search_box_hosoungvien">
+                    <div class="">
+                        <div class="filter_content_line1 pos_relative">
+                            <div class="col-xs-12 pr_2  mg_b5">
+                                <input type="search" class="input_search_all noboder pl_10 w_100 pr_10 font14"
+                                    id="key_hoso" value="" name="hdn_tu_khoa" placeholder="Nhập từ khóa">
+                            </div>
+                            <div class="col-xs-12 pr_2  mg_b5">
+                                <select name="nganh_nghe" id="nganh_nghe" class="col-xs-12 pr_2 ">
+                                    <option value="0">--- Tất các ngành nghề ---</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-12 pr_2  mg_b5">
+                                <select name="thanh_pho" id="thanh_pho" class="col-xs-12 pr_2 ">
+                                    <option value="0">--- Tất các tỉnh thành ---</option>
+                                    {% for item in list_provincial %}
+                                    <option value="{{ item.code }}">{{ item.name }} </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="col-xs-12 pr_2  mg_b5">
+                                <select name="muc_luong" id="muc_luong" class="col-xs-12 pr_2 ">
+                                    <option value="0">--- Tất các mức lương ---</option>
+                                    <option value="1">--- 1-3 triệu ---</option>
+                                    <option value="2">--- 3-5 triệu ---</option>
+                                    <option value="3">--- 5-10 triệu ---</option>
+                                    <option value="4">--- 10-20 triệu ---</option>
+                                    <option value="5">--- 20-30 triệu ---</option>
+                                    <option value="6">--- 30-40 triệu ---</option>
+                                    <option value="7">--- 40-50 triệu ---</option>
+                                    <option value="8">--- trên 50 triệu ---</option>
+
+                                </select>
+                            </div>
+                            <div class="col-xs-12 pr_2  mg_b5">
+                                <select name="trinh_do" id="trinh_do" class="col-xs-12 pr_2 ">
+                                    <option value="0">--- Tất các trình độ ---</option>
+                                    <option value="1">--- Trên đại học ---</option>
+                                    <option value="2">--- Đại học ---</option>
+                                    <option value="3">--- Cao đẳng ---</option>
+                                    <option value="4">--- Trung cấp ---</option>
+                                    <option value="5">--- Chứng chỉ nghề ---</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-12 pr_2  mg_b5">
+                                <select name="kinh_nghiem" id="kinh_nghiem" class="col-xs-12 pr_2 ">
+                                    <option value="0">--- Tất các năm kinh nghiệm ---</option>
+                                    <option value="1">--- 1 năm (hoặc < 1 năm) ---</option>
+                                    <option value="2">--- 2 năm ---</option>
+                                    <option value="3">--- 3 năm ---</option>
+                                    <option value="4">--- 4 năm ---</option>
+                                    <option value="5">--- 5 năm ---</option>
+                                    <option value="5">--- trên 5 năm ---</option>
+
+                                </select>
+                            </div>
+                            <div class="col-xs-12 pr_2  mg_b5">
+                                <select name="gioi_tinh" id="gioi_tinh" class="col-xs-12 pr_2 ">
+                                    <option value="0">--- Tất các giới tính ---</option>
+                                    <option value="1">--- Nữ ---</option>
+                                    <option value="2">--- Nam ---</option>
+
+                                </select>
+                            </div>
+                            <div class="col-xs-12 pr_2  mg_b5">
+                                <select name="ngoai_ngu" id="ngoai_ngu" class="col-xs-12 pr_2 ">
+                                    <option value="0">--- Tất các ngoại ngữ ---</option>
+                                    <option value="1">--- Tiếng Anh ---</option>
+                                    <option value="2">--- Tiếng Hàn ---</option>
+                                    <option value="3">--- Tiếng Trung ---</option>
+                                    <option value="4">--- Tiếng Nhật ---</option>
+                                    <option value="5">--- Tiếng Pháp ---</option>
+                                    <option value="6">--- Tiếng Đức ---</option>
+
+                                </select>
+                            </div>
+                            <div class="col-xs-12 pr_2  mg_b5" style="display: flex; justify-content: center;">
+                                <input type="button" name="search_hoso" id="search_hoso" class="btn btn-danger"
+                                    value="Tìm kiếm hồ sơ" style="background-color: #d9534f;">
+                            </div>
+
+
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            <!-- 08/08 tuyển dụng nhân sự-->
+            <div class="box-adv-td text-center s21_home_ntd ">
+                <div class="bor-adv-td">
+                    <div class="bg-color-opac">
+                        <div class="bg-adv-td">
+                        </div>
+                    </div>
+                    <div class="pos_absolute box-txt-td" style="width: 480px;margin-left: 60px;">
+                        <div class="box-icon-td" style="min-height: 100px;margin-top: 8px !important;">
+                            <p class="font500 text-center mt30 ml45 mr45 lh19" style="font-size: 25px;">
+                                NCKIT.XYZ TỰ HÀO</p>
+                            <p class="font16 font500 text-center mt30 ml45 mr45 lh19" style="line-height: 28px;"> 15 năm
+                                làm cầu nối cho hơn 15 triệu lượt
+                                tuyển dụng và tìm việc thành công
+                            </p>
+                        </div>
+                        <div class="box-icon-td">
+                            <div class="hs-tn">
+                                <div class="icon-hs-ut"></div>
+                                <p class="font25 bolder text-blue mt5 mb0" style="font-size:25px;color:#63248a">
+                                    2,947,566</p>
+                                <p class="font20 font500 mt30 ml35 mr35 lh19" style="font-size: 20px;">HỒ SƠ ỨNG
+                                    VIÊN</p>
+                            </div>
+                            <div class="vl-td">
+                                <div class="icon-vl-td"></div>
+                                <p class="font25 bolder  text-blue mt5 mb0" style="font-size:25px;color:#63248a">
+                                    590,111</p>
+                                <p class="font20 font500 mt30 ml45 mr45 lh19" style="font-size: 20px;">DOANH
+                                    NGHIỆP</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="box_filter_content w_100 mt_16 pos_relative" id="box_ntd_doanh_nghiep"
+            style="margin-bottom:20px;height: 350px; overflow-x: hidden;overflow-y: hidden;">
+            <div class="employer-top-premium-main"
+                style="padding-top: 15px; padding-bottom: 6px;margin-top: 22px; height: 100%;">
+                <div class="box-ntd-hangdau clearfix" style="height: 100%;">
+                    <div class="main-content">
+                        <div class="title txc">
+                            <span class="text_grey2 font20" style="color: #63248a;font-weight: 500;">KHÁCH HÀNG
+                                CỦA CHÚNG TÔI</span>
+                        </div>
+                        <div class="title txc" style="padding-top: 5px;padding-bottom: 5px">
+                            <span class="text_grey2 font14">Việc Làm nckit tự hào là điểm chọn tuyển
+                                dụng của hàng ngàn doanh nghiệp hàng đầu</span>
+                        </div>
+                        <div class="bg-white-2 col-md-12" style="height: 100%;">
+                            <div class="employer-top-premium slick-initialized slick-slider" style="height: 100%;">
+                                <div class="swiper-wrapper"
+                                    style="transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;">
+                                    <figure class="swiper-slide swiper-slide-active"
+                                        style="padding-top: 5px; width: 198px;">
+                                        <div style="width: 100%">
+                                            <div class="ntd-hangdau-box-items">
+                                                <div class="ntd-hangdau-items">
+                                                    <div class="ntd-hangdau-logo">
+                                                        <a target="_blank" data-position="1" href="#">
+                                                            <img src="/static/core/images/logo1.jpg" class="mw_100"
+                                                                title="Hoa Sen Group" alt="Hoa Sen Group">
+                                                        </a>
+                                                    </div>
+                                                    <p>
+                                                        <a target="_blank" data-position="1" href="#"
+                                                            title="Hoa Sen Group">
+                                                            Hoa Sen Group </a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </figure>
+                                    <figure class="swiper-slide swiper-slide-next"
+                                        style="padding-top: 5px; width: 198px;">
+                                        <div style="width: 100%">
+                                            <div class="ntd-hangdau-box-items">
+                                                <div class="ntd-hangdau-items">
+                                                    <div class="ntd-hangdau-logo">
+                                                        <a target="_blank" data-position="3" href="#">
+                                                            <img src="/static/core/images/logo2.png" class="mw_100"
+                                                                title="MANULIFE" alt="MANULIFE">
+                                                        </a>
+                                                    </div>
+                                                    <p>
+                                                        <a target="_blank" data-position="3" href="#" title="MANULIFE">
+                                                            MANULIFE </a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </figure>
+                                    <figure class="swiper-slide" style="padding-top: 5px; width: 198px;">
+                                        <div style="width: 100%">
+                                            <div class="ntd-hangdau-box-items">
+                                                <div class="ntd-hangdau-items">
+                                                    <div class="ntd-hangdau-logo">
+                                                        <a target="_blank" data-position="5" href="#">
+                                                            <img src="/static/core/images/logo3.png" class="mw_100"
+                                                                title="CENHOMES " alt="CENHOMES ">
+                                                        </a>
+                                                    </div>
+                                                    <p>
+                                                        <a target="_blank" data-position="5" href="#" title="CENHOMES ">
+                                                            CENHOMES </a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </figure>
+                                    <figure class="swiper-slide" style="padding-top: 5px; width: 198px;">
+                                        <div style="width: 100%">
+                                            <div class="ntd-hangdau-box-items">
+                                                <div class="ntd-hangdau-items">
+                                                    <div class="ntd-hangdau-logo">
+                                                        <a target="_blank" data-position="8" href="#">
+                                                            <img src="/static/core/images/logo4.jpg" class="mw_100"
+                                                                title="Ngân Hàng TMCP Hàng Hải Việt Nam"
+                                                                alt="Ngân Hàng TMCP Hàng Hải Việt Nam">
+                                                        </a>
+                                                    </div>
+                                                    <p>
+                                                        <a target="_blank" data-position="8" href="#"
+                                                            title="Ngân Hàng TMCP Hàng Hải Việt Nam">
+                                                            Ngân Hàng TMCP Hàng Hải Việt Nam </a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </figure>
+                                    <figure class="swiper-slide" style="padding-top: 5px; width: 198px;">
+                                        <div style="width: 100%">
+                                            <div class="ntd-hangdau-box-items">
+                                                <div class="ntd-hangdau-items">
+                                                    <div class="ntd-hangdau-logo">
+                                                        <a target="_blank" data-position="1" href="#">
+                                                            <img src="/static/core/images/logo1.jpg" class="mw_100"
+                                                                title="Hoa Sen Group" alt="Hoa Sen Group">
+                                                        </a>
+                                                    </div>
+                                                    <p>
+                                                        <a target="_blank" data-position="1" href="#"
+                                                            title="Hoa Sen Group">
+                                                            Hoa Sen Group </a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </figure>
+                                    <figure class="swiper-slide" style="padding-top: 5px; width: 198px;">
+                                        <div style="width: 100%">
+                                            <div class="ntd-hangdau-box-items">
+                                                <div class="ntd-hangdau-items">
+                                                    <div class="ntd-hangdau-logo">
+                                                        <a target="_blank" data-position="3" href="#">
+                                                            <img src="/static/core/images/logo2.png" class="mw_100"
+                                                                title="MANULIFE" alt="MANULIFE">
+                                                        </a>
+                                                    </div>
+                                                    <p>
+                                                        <a target="_blank" data-position="3" href="#" title="MANULIFE">
+                                                            MANULIFE </a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </figure>
+                                    <figure class="swiper-slide" style="padding-top: 5px; width: 198px;">
+                                        <div style="width: 100%">
+                                            <div class="ntd-hangdau-box-items">
+                                                <div class="ntd-hangdau-items">
+                                                    <div class="ntd-hangdau-logo">
+                                                        <a target="_blank" data-position="5" href="#">
+                                                            <img src="/static/core/images/logo3.png" class="mw_100"
+                                                                title="CENHOMES " alt="CENHOMES ">
+                                                        </a>
+                                                    </div>
+                                                    <p>
+                                                        <a target="_blank" data-position="5" href="#" title="CENHOMES ">
+                                                            CENHOMES </a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </figure>
+                                    <figure class="swiper-slide" style="padding-top: 5px; width: 198px;">
+                                        <div style="width: 100%">
+                                            <div class="ntd-hangdau-box-items">
+                                                <div class="ntd-hangdau-items">
+                                                    <div class="ntd-hangdau-logo">
+                                                        <a target="_blank" data-position="8" href="#">
+                                                            <img src="/static/core/images/logo4.jpg" class="mw_100"
+                                                                title="Ngân Hàng TMCP Hàng Hải Việt Nam"
+                                                                alt="Ngân Hàng TMCP Hàng Hải Việt Nam">
+                                                        </a>
+                                                    </div>
+                                                    <p>
+                                                        <a target="_blank" data-position="8" href="#"
+                                                            title="Ngân Hàng TMCP Hàng Hải Việt Nam">
+                                                            Ngân Hàng TMCP Hàng Hải Việt Nam </a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </figure>
+                                </div>
+                                <div class="swiper-pagination-container">
+                                    <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets"
+                                        style="margin-left: 30%;">
+                                        <span class="swiper-pagination-bullet" tabindex="0" role="button"
+                                            aria-label="Go to slide 1"></span>
+                                        <span class="swiper-pagination-bullet swiper-pagination-bullet-active"
+                                            tabindex="0" role="button" aria-label="Go to slide 2"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="box_filter_content w_100 mt_16 pos_relative" id="box_search_ntd"
+            style="margin-bottom:20px;height: 573px;">
+            <div class="box-icon-td" style="min-height: 60px;padding-top:25px;">
+                <p class="font500 textBlue text-center mt30 ml45 mr45 lh19" style="font-size: 20px;">THÔNG
+                    TIN DỊCH VỤ</p>
+                <p class="font14 text-center mt30 ml45 mr45 lh19">Để tuyển dụng nhân sự nhanh nhất,
+                    Nhà tuyển dụng có thể tham gia các gói dịch vụ ưu tiên
+                </p>
+            </div>
+            <section class="bgGray paddingTop30" style="padding-left: 12px !important;padding-top: 18px !important;">
+                <div class="col-lg-3 col-md-3 col-sm-3 boxContentHome pst-rel" style="width: 295px;padding-right:25px;">
+                    <div class="headerBoxContent bgBlue">
+                        <i class="icon-sprite-60 icon-post-employment"></i>
+                    </div>
+                    <div class="centerBoxContent bgWhite" style="height: 340px">
+                        <h2 class="margin0 fontSize18 alignCenter textBlue paddingTop30 paddingBottom30 font600">
+                            Đăng tin cơ bản
+                        </h2>
+                        <ul>
+                            <li style="margin-right:20px;"><i class="fas fa-check icon-check-green"></i>Được
+                                đăng
+                                tin và hiển
+                                thị trên website
+                            </li>
+                            <li style="margin-right:20px;"><i class="fas fa-check icon-check-green"></i>Tin đăng
+                                được tìm kiếm
+                                bởi hàng triệu Người tìm việc
+                            </li>
+                            <li style="margin-right:20px;"><i class="fas fa-check icon-check-green"></i>Nhận
+                                được
+                                hồ sơ ứng
+                                tuyển
+                            </li>
+                        </ul>
+                        <p class="w100p alignCenter pst-abs pr31"><a
+                                style="font-size:16px !important;color:white;padding: 7px 16px;"
+                                class="btn btn-default btn-pink buttonBoxHome btn-lg w176 pl_16" target="_blank"
+                                href="thong-tin-dich-vu.html?type=1">Xem chi
+                                tiết</a>
+                        </p>
+                    </div>
+                </div>
+                <!-- /.col-lg-3 -->
+                <div class="col-lg-3 col-md-3 col-sm-3 boxContentHome pst-rel" style="width: 295px;padding-right:25px;">
+                    <div class="headerBoxContent bgBlue">
+                        <i class="icon-sprite-60 icon-post-banner"></i>
+                    </div>
+                    <div class="centerBoxContent bgWhite" style="height: 340px">
+                        <h2 class="margin0 fontSize18 alignCenter textBlue paddingTop30 paddingBottom30 font600">
+                            Đăng tin nổi bật
+                        </h2>
+                        <ul>
+                            <li style="margin-right:20px;padding-bottom: 15px"><i
+                                    class="fas fa-check icon-check-green"></i>Tin đăng hiển thị tại
+                                các vị trí nổi bật
+                            </li>
+                            <li style="margin-right:20px;padding-bottom: 15px"><i
+                                    class="fas fa-check icon-check-green"></i>Thu hút tối đa ứng
+                                viên, tuyển dụng hiệu quả nhất
+                            </li>
+                            <li style="margin-right:20px;padding-bottom: 15px"><i
+                                    class="fas fa-check icon-check-green"></i>Tặng website tuyển dụng
+                                riêng trị giá 10 triệu đồng
+                            </li>
+                            <li style="margin-right:20px;padding-bottom: 15px"><i
+                                    class="fas fa-check icon-check-green"></i>Hưởng chính sách bảo
+                                hành dịch vụ.<a href="chinh-sach-bao-hanh" target="_blank"
+                                    style="color: #63248a!important;text-decoration:unset"> Tìm hiểu
+                                    thêm</a>
+                            </li>
+                        </ul>
+                        <p class="w100p alignCenter pst-abs pr31"><a
+                                style="font-size:16px !important;color:white;padding: 7px 16px;"
+                                class="btn btn-default btn-pink buttonBoxHome btn-lg w176 pl_16" target="_blank"
+                                href="thong-tin-dich-vu.html?type=2">Xem chi
+                                tiết</a>
+                        </p>
+                    </div>
+                </div>
+                <!-- /.col-lg-3 -->
+                <div class="col-lg-3 col-md-3 col-sm-3 boxContentHome pst-rel" style="width: 295px;padding-right:25px;">
+                    <div class="headerBoxContent bgBlue">
+                        <i class="icon-sprite-60 icon-post-minisite"></i>
+                    </div>
+                    <div class="centerBoxContent bgWhite" style="height: 340px">
+                        <h2 class="margin0 fontSize18 alignCenter textBlue paddingTop30 paddingBottom30 font600">
+                            Lọc hồ sơ
+                        </h2>
+                        <ul>
+                            <li style="margin-right:20px;padding-bottom: 15px;"><i
+                                    class="fas fa-check icon-check-green"></i>Sàng lọc hồ sơ theo
+                                tiêu chí tìm kiếm
+                            </li>
+                            <li style="margin-right:20px;padding-bottom: 15px;"><i
+                                    class="fas fa-check icon-check-green"></i>Tiếp cận ứng viên phù
+                                hợp nhanh chóng
+                            </li>
+                            <li style="margin-right:20px;padding-bottom: 15px;"><i
+                                    class="fas fa-check icon-check-green"></i>Thời gian sử dụng lên
+                                đến 1 năm
+                            </li>
+                            <li style="margin-right:20px;padding-bottom: 15px;"><i
+                                    class="fas fa-check icon-check-green"></i>Hưởng chính sách bảo
+                                hành dịch vụ.<a href="chinh-sach-bao-hanh" target="_blank"
+                                    style="color: #63248a!important;text-decoration:unset"> Tìm hiểu
+                                    thêm</a>
+                            </li>
+                        </ul>
+                        <p class="w100p alignCenter pst-abs pr31"><a
+                                style="font-size:16px !important;color:white;padding: 7px 16px;"
+                                class="btn btn-default btn-pink buttonBoxHome btn-lg w176 pl_16" target="_blank"
+                                href="thong-tin-dich-vu.html?type=5">Xem chi
+                                tiết</a>
+                        </p>
+                    </div>
+                </div>
+                <!-- /.col-lg-3 -->
+            </section>
+        </div>
+        <div class="slideshow-container mt24 text-center">
+            <div class="box_filter_content w_100 mt_16 pos_relative" id="box_search_ntd"
+                style="margin-bottom:30px;height:425px">
+                <div class="box-cam-nang box-news-hot">
+                    <div>
+                        <h2 class="tit-cam-nang">CẩM NANG TUYểN DụNG</h2>
+                    </div>
+                    <div class="list-news-hot row" style="margin-top:20px;">
+                        <a class="news" target="_blank" href="">
+                            <div style="height: 160px;">
+                                <img style="height: 100%;width: 100%"
+                                    src="{% static 'company/tuyendung/hr-la-gi-cac-vi-tri-trong-nganh-hr-bao-gom-nhung-gi-hinh-2-280x186.jpg' %}"
+                                    alt="Bạn đã biết cách tạo động lực giúp nhân viên làm việc..."
+                                    title="Bạn đã biết cách tạo động lực giúp nhân viên làm việc...">
+                            </div>
+                            <div class="txt-tit" style="line-height: 1.4;padding: 0px 5px 10px 10px;">
+                                <h3 class="title mb0 txt-3-line title-cam-nang"
+                                    style="font-size: 16px !important;margin-bottom:15px !important;">Bạn đã biết
+                                    cách tạo động lực giúp nhân viên làm việc...</h3>
+                                <div class="txt-descript txt-3-line mt5">Đối với một nhà lãnh đạo hay quản lý,
+                                    nhân viên&nbsp;là tài sản quan trọng giúp xây dựng và phát triển doanh nghiệp,
+                                    họ&nbsp;cũng&nbsp;là...</div>
+                            </div>
+                        </a>
+                        <a class="news" target="_blank" href="">
+                            <div style="height: 160px;">
+                                <img style="height: 100%;width: 100%"
+                                    src="{% static 'company/tuyendung/cq5dam.web_.1280.1280.jpeg' %}"
+                                    alt="4 tố chất không thể thiếu ở một nhà lãnh đạo thực thụ"
+                                    title="4 tố chất không thể thiếu ở một nhà lãnh đạo thực thụ">
+                            </div>
+                            <div class="txt-tit" style="line-height: 1.4;padding: 0px 5px 10px 10px;">
+                                <h3 class="title mb0 txt-3-line title-cam-nang"
+                                    style="font-size: 16px !important;margin-bottom:15px !important;">4 tố chất
+                                    không thể thiếu ở một nhà lãnh đạo thực thụ</h3>
+                                <div class="txt-descript txt-3-line mt5">Đa số mọi người đều nghĩ đến&nbsp;kinh
+                                    nghiệm chuyên môn hay khả năng giám sát, điều hành,...là các yếu tố cần ở
+                                    một...</div>
+                            </div>
+                        </a>
+                        <a class="news" target="_blank" href="">
+                            <div style="height: 160px;">
+                                <img style="height: 100%;width: 100%"
+                                    src="{% static 'company/tuyendung/988919f81523e8e4303f5c74d45c3095x-280x186.jpg' %}"
+                                    alt="4 yếu tố nhận diện ứng viên phù hợp với vị trí chăm..."
+                                    title="4 yếu tố nhận diện ứng viên phù hợp với vị trí chăm...">
+                            </div>
+                            <div class="txt-tit" style="line-height: 1.4;padding: 0px 5px 10px 10px;">
+                                <h3 class="title mb0 txt-3-line title-cam-nang"
+                                    style="font-size: 16px !important;margin-bottom:15px !important;">4 yếu tố
+                                    nhận diện ứng viên phù hợp với vị trí chăm...</h3>
+                                <div class="txt-descript txt-3-line mt5">Nhân viên chăm sóc khách hàng là một
+                                    phần không thể thiếu đối với bất kỳ công ty dịch vụ nào. Tuy nhiên, việc
+                                    tuyển...</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="mt5 cam_nang_td" style="margin-top:20px !important;">
+                        <a target="_blank" href="" class="btn btn-view">
+                            <i class="icon icon-add" aria-hidden="true"></i>
+                            <span>Xem thêm Cẩm nang tuyển dụng</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="box_alert_content_dangkytuvan w_100 mt_24 font16">
+                <div class="pt_10 txt-ghi">
+                    Để tuyển dụng hoặc tìm việc hiệu quả, vui lòng <span class="bold">ĐĂNG KÝ TƯ VẤN</span> để
+                    được hỗ trợ ngay
+                </div>
+                <div class=" pb_14 pr_14 pl_14">
+                    <div class="col_list_left floatLeft">
+                        <a href="nha-tuyen-dung-dang-ky-tu-van" class="btn btn-ntd-dky-tuvan btn-lg w340 fs18 pl_8"
+                            rel="nofollow">
+                            Nhà tuyển dụng đăng ký tư vấn
+                        </a>
+                    </div>
+                    <div class="col_list_right floatLeft">
+                        <a href="nguoi-tim-viec-dang-ky-tu-van" class="btn btn-ntv-dky-tuvan btn-lg w340 fs18 pl_8"
+                            rel="nofollow">
+                            Người tìm việc đăng ký tư vấn
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt_24 ">
+                <div class="box_tab pl_0 pr_0">
+                    <div class="panel no-border box_tab">
+                        <div class="panel-heading bg_blue title_box_panel">
+                            <div class="panel-title fwb">
+                                <i class="icon_24 icon-call icon-24"></i> Hotline cho nhà tuyển dụng
+                            </div>
+                            <div class="tools">
+                                <a class="ico" href="nha-tuyen-dung#"></a>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="hr_header">
+                                <div class="hr"></div>
+                                <div class="title">
+                                    <span class="bg-white bold font16 text_blue">
+                                        Miền Bắc:<span class="bg-white text_pink font24 bold">(024) 7308
+                                            2424</span>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="hr_header">
+                                <div class="hr"></div>
+                                <div class="title">
+                                    <span class="bg-white bold font16 text_blue">
+                                        Miền Nam:<span class="bg-white text_pink font24 bold">(028) 7108
+                                            2424</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}
+{% block javascript_block %}
+<script src="{% static 'core/js/swiper.min.js' %}"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        var swiper = new Swiper('.employer-top-premium', {
+            slidesPerView: 5,
+            // spaceBetween: 30,
+            slidesPerGroup: 5,
+            loopFillGroupWithBlank: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+                type: "bullets",
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            autoplay: {
+                delay: 15000,
+                disableOnInteraction: false
+            },
+        });
+
+        swiper.on('paginationUpdate', function (swiper, el) {
+            var currentPage = swiper.snapIndex;
+            var totalPage = swiper.pagination.el.childElementCount;
+            if (totalPage > 5) {
+                var j = Math.abs(135 - 15 * totalPage) / (totalPage - 1);
+                var x = '-' + (j * currentPage) + "px";
+
+                el.style.transform = 'translateX(' + x + ')';
+            }
+        });
+
+        $('.swiper-pagination').css('margin-left', '30%')
+
+        if (false) {
+            $(".employer-top-premium").slick({
+                dots: true,
+                infinite: true,
+                slide: 'figure',
+                slidesToScroll: 5,
+                slidesToShow: 5,
+                prevArrow: null,
+                nextArrow: null,
+                speed: 300,
+                lazyLoad: 'ondemand',
+                autoplay: true,
+                autoplaySpeed: 15000,
+                responsive: [
+                    {
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 3,
+                            infinite: true,
+                            dots: true
+                        }
+                    },
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 2
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 2
+                            //dots:false
+                        }
+                    }
+                ]
+            });
+            $(".employer-top-premium").removeClass('Overflow');
+
+            $(".employer-top-premium .slick-dots").on("click", function () {
+                reinitSlick();
+            });
+
+            var reinitSlick = function () {
+                $slick.slick(
+                    "slickSetOption",
+                    {
+                        autoplay: false
+                    },
+                    true
+                );
+            };
+
+            $('.employer-top-premium .slick-dots').on('click', function () {
+                $slick.slick('slickPause');
+                $slick.slick('slickPlay');
+            });
+        }
+    })
+</script>
+<script>
+    $(function () {
+        $("#search_hoso").click(function () {
+            let mydata = JSON.stringify({
+                key_hoso: $("#key_hoso").val(),
+                thanh_pho: parseInt($("#thanh_pho").val()),
+                nganh_nghe:  parseInt($("#nganh_nghe").val()),
+                muc_luong:  parseInt($("#muc_luong").val()),
+                trinh_do:  parseInt($("#trinh_do").val()),
+                kinh_nghiem: parseInt($("#kinh_nghiem").val()),
+                gioi_tinh:  parseInt($("#gioi_tinh").val()),
+                ngoai_ngu:  parseInt($("#ngoai_ngu").val()),
+            });
+            // termlife/update-view/
+            $.ajax({
+                type: 'POST',
+                url: '/tim-ho-so/change-spp-tl/',
+                data: mydata,
+                contentType: "application/json",
+                dataType: 'json'
+            }).done(function (data, statusText, xhr) {
+                location.assign('')
+            }).fail(function (xhr, textStatus, errorThrown) {
+                swal("Cảnh báo!", "Lỗi kết nối", "error");
+            });
+        })
+    })
+</script>
+{% endblock %}
