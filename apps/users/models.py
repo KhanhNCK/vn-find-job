@@ -29,14 +29,15 @@ def generate_access_token(user_id):
 
 
 class User(AbstractUser):
-    fullname = models.CharField(max_length=200, default=None, null=True)
-    images_user = models.TextField(null = True, default=None)
+    fullname = models.CharField(max_length=200, default="", null=True)
+    images_user = models.TextField(null = True, default="")
     gender = models.IntegerField(default=0)
     birth_day = models.DateField(null=True)
-    dia_chi_tinh_thanh_pho = models.CharField(max_length=200, default=None, null=True)
-    dia_chi_quan_huyen = models.CharField(max_length=200, default=None, null=True)
-    dia_chi_chi_tiet = models.CharField(max_length=200, default=None, null=True)
+    dia_chi_tinh_thanh_pho = models.CharField(max_length=200, default="", null=True)
+    dia_chi_quan_huyen = models.CharField(max_length=200, default="", null=True)
+    dia_chi_chi_tiet = models.CharField(max_length=200, default="", null=True)
     loai_user = models.IntegerField(default=0)
+    sdt=models.CharField(max_length=255, default="", null=True)
     created_at = models.DateTimeField(auto_now_add=True, null=True)
 
 

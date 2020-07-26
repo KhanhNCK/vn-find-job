@@ -10,6 +10,12 @@ class AddDataThanhPhoAPISer(serializers.Serializer):
 
 
 class AddDataNgheNghiepAPISer(serializers.Serializer):
-    ten_nganh_nghe = serializers.CharField()
-    code_nganh_nghe = serializers.IntegerField()
-    thong_tin_ve_nghe = serializers.CharField()
+    name_job = serializers.CharField()
+    job_info = serializers.CharField()
+    code_job = serializers.IntegerField()
+
+
+class SearchHomeAPISer(serializers.Serializer):
+    key_job = serializers.CharField(allow_blank=True)
+    nganh_nghe = serializers.IntegerField()
+    thanh_pho = serializers.IntegerField()

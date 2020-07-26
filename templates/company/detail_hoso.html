@@ -1,0 +1,201 @@
+{% extends 'company/base.html' %}
+{% load static %}
+{% block seo_gg %}
+{% endblock %}
+{% block css_blocl %}
+<style>
+
+</style>
+{% endblock %}
+{% block content %}
+<div class="">
+    {% for it in hoso %}
+    <div class="box_chi_tiet_cong_viec bg_white mt16 box_shadow">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1 class="text_blue font28 mb_10 mt_20 fws title_big">Ứng viên: {{it.fullname}}-Nghề
+                    nghiệp:{{it.nghe_nghiep}}
+                </h1>
+                <p class="font16"><a href="" class="text_grey3">{{it.fullname}}-Nghề nghiệp:{{it.nghe_nghiep}}</a></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="pull-left mt_6 mb_6 col-md-8">
+                <a id="btn-save-job" class="btn btn-white mr_8 btn-save-job no-shadow " onclick="luutin(this)"
+                    data-idtin="3127967" data-idnganh="26">
+                    <span class="line-icon">
+                        <i class="icon-star icon_free_style"></i> <span class="pl_28">Lưu hồ sơ</span>
+                    </span>
+                </a>
+
+                <div class="dropdown" style="display: inline-block;">
+                    <button data-toggle="dropdown" class="btn btn-white mr_8 btn-share-job no-shadow ">
+                        <span class="line-icon">
+                            <i class="icon-share icon_free_style"></i> <span class="pl_28">Chia sẻ</span>
+                        </span>
+                    </button>
+
+                    <div style="width: 262px;" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <div class="share-rate box-post-facebook">
+
+                            <button class="btn btn-facebook">
+                                <i class="icon-sprite-facebook"></i>
+                                <span class="lable_share">Chia sẻ</span>
+                            </button>
+
+                            <div class="btnZalo zalo-share-button zb-btn-blue-small2" data-oaid="579745863508352884"
+                                data-layout="icon-text" data-customize="true">
+                                <span class="zb-logo-zalo2"></span>
+                                <span class="lable_share lable_zalo">Chia sẻ</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="text_grey2 font12 mt8 mb12">
+                    <span>Lượt xem: 941</span> | <span>Mã: {{it.code_hoso}} </span> | <span>Ngày làm mới:
+                        {{it.create_at}}</span>
+                </p>
+            </div>
+            <div class="pull-right col-md-4">
+                <a href="#" class=" btn-nophoso btn-pink  btn btn-xlg font16 pt_18 pb_16">CHỌN HỒ SƠ</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="bg_grey pt_1"></div>
+            </div>
+        </div>
+
+        <div class="row job_detail text_grey2 fw500 mt_6 mb_4">
+            <div class="col-xs-6">
+                <p class="line-icon mb_12">
+                    <i class="icon-money icon-16 icon_16"></i> <span class="pl_28">Mức lương: <span
+                            class="job_value">{{it.muc_luong}} VND</span>
+                    </span>
+                </p>
+                <p class="line-icon mb_12">
+                    <i class="icon-exp icon-16 icon_16"></i> <span class="pl_28">Kinh nghiệm: <span
+                            class="job_value">{{it.so_nam_kinh_nghiem}} năm</span></span>
+                </p>
+                <p class="line-icon mb_12">
+                    <i class="icon-edu icon-16 icon_16"></i> <span class="pl_28">Học vấn: <span
+                            class="job_value">{{it.trinh_do_hoc_van}}</span></span>
+                </p>
+                <p class="line-icon mb_12">
+                    <i class="icon-quantity icon-16 icon_16"></i> <span class="pl_28">Hình thức làm việc: <span
+                            class="job_value">{{it.hinh_thuc_lam_viec}}</span></span>
+                </p>
+                <div class="line-icon mb_12">
+                    <i class="icon-career icon-16 icon_16"></i>
+                    <h2 class="pl_28 font14 fwb">Ngành nghề:
+                        <a href="" class="job_value text_pink">{{it.nghe_nghiep}}</a></h2>
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <p class="line-icon mb_12">
+                    <i class="icon-address icon-16 icon_16"></i> <span class="pl_28">Địa điểm làm việc:
+                        <a href="" class="job_value text_pink">{{it.dia_diem}}</a> </span></p>
+                <p class="line-icon mb_12">
+                    <i class="icon-position icon-16 icon_16"></i> <span class="pl_28">Công ty đã từng làm: <span
+                            class="job_value">{{it.ten_cty_tung_lam}}</span></span>
+                </p>
+                <p class="line-icon mb_12">
+                    <i class="icon-job-type icon-16 icon_16"></i> <span class="pl_28">Trình độ ngoại ngữ: <span
+                            class="job_value">{{it.ngoai_ngu}}</span></span>
+                </p>
+                <p class="line-icon mb_12">
+                    <i class="icon-gender icon-16 icon_16"></i> <span class="pl_28">Giới tính: <span
+                            class="job_value">{{it.gender}}</span></span>
+                </p>
+                <p class="line-icon mb_12">
+                    <i class="icon-age icon-16 icon_16"></i> <span class="pl_28"> Ngày sinh: <span
+                            class="job_value">{{it.birth_day}}</span></span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div id="ttd_detail">
+        <div class="job_description bg_white mt_16 pb_18 box_shadow ">
+            <div class="item row pt_18 pb_18">
+                <h3 class="text_blue mb_0 pl_24 pr_24 bold font14">Thông tin ứng viên: {{it.fullname}}-Nghề
+                    nghiệp:{{it.nghe_nghiep}}</h3>
+            </div>
+            <div class="pl_24 pr_24">
+
+                <div class="item row">
+                    <div class="col-md-3 pl_0 mb_0">
+                        <p class="title uppercase text_grey">Kỹ năng chính :</p>
+                    </div>
+                    <p class="col-md-9 pr_0 mb_0 word_break">{{it.ky_nang}}</p>
+                </div>
+                <div class="item row">
+                    <div class="col-md-3 pl_0">
+                        <p class="title uppercase text_grey">Sở thích</p>
+                    </div>
+                    <p class="col-md-9 pr_0 mb_0 word_break">{{it.so_thich}}</p>
+                </div>
+
+                <div class="pt_8 row pt_2">
+                    <p class="mb_0">Bạn đang xem hồ sơ: <span class="text_pink"><strong>{{it.fullname}}</strong></span>,
+                        Ngành nghề: <span class="text_pink">{{it.nghe_nghiep}}</span></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="job_description bg_white pl_24 pr_24 mt_16 pb_18 box_shadow">
+            <div class="item row pt_20">
+                <span class="uppercase text_blue bold font16">Thông tin liên hệ</span>
+            </div>
+            <div class="item row pt_14 pb_14">
+                <div class="col-md-3 pl_0">
+                    <p class="title uppercase text_grey">Họ và tên</p>
+                </div>
+                <p class="col-md-9 pr_0 mb_0">{{it.fullname}}</p>
+            </div>
+            <div class="item row pt_14 pb_14">
+                <div class="col-md-3 pl_0">
+                    <p class="title uppercase text_grey">Địa chỉ liên hệ</p>
+                </div>
+                <p class="col-md-9 pr_0 mb_0">{{it.dia_chi_chi_tiet}}</p>
+            </div>
+            <div class="item row pt_14 pb_14">
+                <div class="col-md-3 pl_0">
+                    <p class="title uppercase text_grey">Email liên hệ</p>
+                </div>
+                <div class="col-md-9 pr_0">
+                    <p class="text-underline mb_0">{{it.dia_chi_chi_tiet}}</p>
+                </div>
+            </div>
+            <div class="item row pt_14 pb_14">
+                <div class="col-md-3 pl_0">
+                    <p class="title uppercase text_grey">Điện thoại liên hệ</p>
+                </div>
+                <p class="col-md-9 pr_0 mb_0">{{it.sdt}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="box_alert_content_dangkytuvan box_alert_content w_100 mt_16 font14"
+        style="padding: 10px 0px;height: 69px !important;">
+        <div class="dang-ky-vl col_list_left floatLeft" style="width:64% !important;text-align:right;margin-top: 10px;">
+            <span class="text-email-vl" style="font-weight: 400;">Đăng ký và nhận các hồ sơ tương tự qua email:
+                <strong>{{it.username}}</strong> </span>
+        </div>
+        <div class="col_list_right floatLeft" style="width:28% !important;">
+            <a href=""
+                target="_blank" class="show_s09_ntv_register btn btn-ntv-dky-tuvan btn-lg w340 fs18 pl_8" rel="nofollow"
+                style="color: #fff !important; margin-top: -1px !important;margin-left:10px !important;min-width: 250px!important;max-width: 280px!important;padding: 8px 12px 12px !important;">
+                <span class="bold font14"> Nhận hồ sơ ứng viên tương tự</span>
+            </a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
+{% block javascript_block %}
+<script>
+    $(function () {
+        console.log(`{{hoso_ungvien}}`)
+    })
+</script>
+{% endblock %}

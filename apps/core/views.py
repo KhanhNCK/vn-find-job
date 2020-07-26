@@ -8,6 +8,9 @@ from rest_framework import permissions,status
 from apps.core.utils import validate_data, validate_response ,convert_price_to_string 
 from . import models as core_models
 from . import serializers as core_serializers
+import json
+import requests
+from apps.company import models as company_models
 
 # Create your views here.
 
@@ -31,7 +34,13 @@ def Error403Page(request, exception):
 
 class IndexView(View):
     def get(self, request):
-        return render(request, 'core/index.html')
+        nghe_nghiep=core_models.NgheNghiep.objects.all().order_by("name_job")
+        thanh_pho=core_models.ThanhPho.objects.all().order_by("name")
+        context={
+            'list_nghe_nghiep':nghe_nghiep,
+            'list_thanh_pho':thanh_pho
+        }
+        return render(request, 'core/index.html',context)
 
 
 class AddDataThanhPhoAPI(APIView):
@@ -58,12 +67,36 @@ class AddDataNgheNghiepAPI(APIView):
     def post(self, request, format=None):
         valid_data = validate_data(core_serializers.AddDataNgheNghiepAPISer, request.data)
 
-        ten_nganh_nghe = valid_data.get('ten_nganh_nghe')
-        code_nganh_nghe = valid_data.get('code_nganh_nghe')
-        thong_tin_ve_nghe = valid_data.get('thong_tin_ve_nghe')
+        name_job = valid_data.get('name_job')
+        job_info = valid_data.get('job_info')
+        code_job = int(valid_data.get('code_job'))
 
-        if core_models.NgheNghiep.objects.filter(ten_nganh_nghe=ten_nganh_nghe,code_nganh_nghe=code_nganh_nghe, thong_tin_ve_nghe = thong_tin_ve_nghe).exists():
+        if core_models.NgheNghiep.objects.filter(name_job=name_job,job_info=job_info, code_job = code_job).exists():
             return Response(1, status=status.HTTP_400_BAD_REQUEST)
         else:
-            gsp = core_models.NgheNghiep.objects.create(ten_nganh_nghe=ten_nganh_nghe,code_nganh_nghe=code_nganh_nghe, thong_tin_ve_nghe = thong_tin_ve_nghe)
-            return Response(1, status=status.HTTP_200_OK)  
+            core_models.NgheNghiep.objects.create(name_job=name_job,job_info=job_info, code_job = code_job)
+            return Response(1, status=status.HTTP_200_OK)
+
+
+class SearchHomeAPI(APIView):
+    permission_classes = (permissions.AllowAny, )
+    renderer_classes = (JSONRenderer, TemplateHTMLRenderer, )
+    def post(self, request, format=None):
+        valid_data = validate_data(core_serializers.SearchHomeAPISer, request.data)
+
+        key_job = valid_data.get('key_job')
+        nganh_nghe = int(valid_data.get('nganh_nghe'))
+        thanh_pho = int(valid_data.get('thanh_pho'))
+
+        # if nganh_nghe == 0:
+        #     if thanh_pho == 0:
+        #         tintd=company_models.TinTuyenDung.objects.filter(tag_search__unaccent__icontains=key_job)
+        #     else:
+        #         tintd=company_models.TinTuyenDung.objects.filter(dia_diem_lam_viec=thanh_pho)
+        # else:
+        #     tintd=company_models.TinTuyenDung.objects.filter(nganh_nghe=nganh_nghe)
+
+
+        # request.session['tintuyendung_find'] = tintd
+
+        return Response(1, status=status.HTTP_200_OK)

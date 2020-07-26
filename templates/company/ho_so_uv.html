@@ -1,8 +1,12 @@
-{% extends 'job_detail/base.html' %}
+{% extends 'company/base.html' %}
 {% load static %}
 {% block seo_gg %}
 {% endblock %}
+{% block css_blocl %}
+<style>
 
+</style>
+{% endblock %}
 {% block content %}
 <div class="">
     <div class="breadcrum">
@@ -16,9 +20,8 @@
                         <span itemprop="name">Trang chủ</span>
                     </a>
                     <span class="glyphicon glyphicon-menu-right breadcrum-icon-menu"></span>
-                    <meta itemprop="position" content="1">
                 </li>
-                <li>Việc làm fulltime </li>
+                <li>Hồ sơ ứng viên </li>
             </ul>
         </div>
         <div class="clearfix"></div>
@@ -43,7 +46,7 @@
             </h1>
         </div>
         <h1 class="title_text_line mt24">
-            <span class="text-tim-nhat uppercase">Việc làm fulltime</span>
+            <span class="text-tim-nhat uppercase"></span>
         </h1>
         <div class="box_tab bg_white box_shadow" id="box_vieclam_tuyengap">
             <div class="w_100">
@@ -55,113 +58,77 @@
                 </div>
                 <div class="list_item_two bg_white">
                     <div>
-                        {% if job_full == None %}
+                        {% for it in hoso_ungvien %}
                         <div class="list-items ">
                             <div class="detail-link pos_relative">
                                 <div class="pos_absolute w30">
-                                    <a class="bookmark-link"
-                                        href="/taikhoan/login_ntv?referral_url=aHR0cHM6Ly92aWVjbGFtMjRoLnZuL3ZpZWMtbGFtLXR1eWVuLWdhcC5odG1sP3NvcnQ9aGFuX25vcA,,"
-                                        data-idtin="3147916" data-idnganh="63" data-toggle="tooltip"
-                                        data-placement="bottom" title="" data-original-title="Lưu việc làm"><i
-                                            class="icon-star-line icon-24 icon_24 "></i></a>
-
+                                    <a class="bookmark-link" href="{% url 'company:ho-so' it.slug %}" data-idtin="3147916" data-idnganh="63"
+                                        data-toggle="tooltip" data-placement="bottom" title=""
+                                        data-original-title="Lưu việc làm">
+                                        <i class="icon-star-line icon-24 icon_24 "></i>
+                                    </a>
                                 </div>
                                 <div class="content_list_item_line w_100">
                                     <span class="title-blockjob-main truncate-ellipsis font14 pos_relative pr_28">
-                                        Xin lỗi chưa có tin tuyển dụng
-                                    </span>
-                                    <span class="title-blockjob-sub truncate-ellipsis font14 text_grey"><a href=""
-                                            class="text_grey" title="">Xin lỗi</a></span>
-                                </div>
-                                <div class="line_list"></div>
-                            </div>
-                        </div>
-                        {% else %}
-                        {% for it in list_full %}
-                        <div class="list-items ">
-                            <div class="detail-link pos_relative">
-                                <div class="pos_absolute w30">
-                                    <a class="bookmark-link" href="" data-idtin="3146869" data-idnganh="30"
-                                        data-toggle="tooltip" data-placement="bottom" title="Lưu việc làm"><i
-                                            class="icon-star-line icon-24 icon_24 "></i></a>
-
-                                </div>
-                                <div class="content_list_item_line w_100">
-                                    <span class="title-blockjob-main truncate-ellipsis font14 pos_relative pr_28">
-                                        <a title="{{it.caption_tin_tuc}}" href="" class="text_grey2">
-                                            {{it.caption_tin_tuc}}
+                                        <a title=""
+                                            href="{% url 'company:ho-so' it.slug %}"
+                                            class="text_grey2">
+                                            <i class="hot-icon icon-24 icon_24"></i>
+                                            {{it.fullname}} {{it.nganh_nghe}}
                                         </a>
                                     </span>
                                     <span class="title-blockjob-sub truncate-ellipsis font14 text_grey"><a
-                                            href="{% url 'seeker:tin_tuyen_dung_url' it.slug %}" class="text_grey"
-                                            title="{{it.congty}}">{{it.congty}}</a></span>
+                                            href="{% url 'company:ho-so' it.slug %}"
+                                            class="text_grey"
+                                            title="">{{it.fullname}} {{it.nganh_nghe}}</a></span>
                                 </div>
                                 <div class="pos_absolute list_note_icon">
                                     <div class="note_mucluong text-center font12 text_black floatLeft"
                                         data-toggle="tooltip" data-placement="bottom" title=""
                                         data-original-title="Mức lương">
                                         <i class="icon_select_box icon_moneybox2 icon_24 icon-24 pos_relative"></i><br>
-                                        {{it.muc_luong}} VND </div>
+                                        {{it.muc_luong_toi_thieu}} VND</div>
                                     <div class="note_mucluong text-center font12 text_black floatLeft "
                                         data-toggle="tooltip" data-placement="bottom" title=""
-                                        data-original-title="{{it.nghe_nghiep}}">
+                                        data-original-title="Nam Định">
                                         <i class="icon_select_box icon_local_list icon_24 icon-24 pos_relative"></i><br>
-                                        <span class="onecol_province">{{it.nghe_nghiep}}</span>
+                                        <span class="onecol_province">{{it.dia_diem_lam_viec}}</span>
                                     </div>
                                     <div class="note_mucluong text-center font12 text_black floatLeft"
                                         data-toggle="tooltip" data-placement="bottom" title=""
                                         data-original-title="Hạn nộp hồ sơ">
                                         <i class="icon_select_box icon_time_list icon_24 icon-24 pos_relative"></i><br>
-                                        {{it.ngay_het_han}} </div>
+                                        31/07/2020 </div>
                                 </div>
                                 <div class="line_list"></div>
                             </div>
                         </div>
                         {% endfor %}
-                        {% endif %}
-
                     </div>
                 </div>
 
                 <div class="box_pagination_footer text-center">
-                    {% if list_full.has_other_pages %}
-                    <ul class="pagination">
-                        {% if list_full.has_previous %}
-                        <li class="page-item" style="height: 30px;">
-                            <a class="page-link" href="?page={{ list_full.previous_page_number }}">
-                                <i class="fas fa-chevron-left"></i>
-                            </a>
-                        </li>
-                        {% else %}
-                        <li class="page-item disabled" style="height: 30px;"><span style="height: 100%;"><i class="fas fa-chevron-left"></i></span>
-                        </li>
-                        {% endif %}
-
-                        {% for it in list_full.paginator.page_range %}
-                        {% if list_full.number == it %}
-                        <li class="page-item active" style="height: 30px;"><span class="page-link" style="height: 100%;">{{it}}</span></li>
-                        {% else %}
-                        <li class="page-item " style="height: 30px;"><a class="page-link" style="height: 100%;" href="?page={{it}}">{{it}}</a></li>
-                        {% endif %}
-                        {% endfor %}
-
-                        {% if list_full.has_next %}
-                        <li class="page-item" style="height: 30px;">
-                            <a class="page-link" style="height: 100%;" href="?page={{ list_full.next_page_number }}">
-                                <i class="fas fa-chevron-right"></i>
-                            </a>
-                        </li>
-                        {% else %}
-                        <li class="disabled" style="height: 30px;"><span style="height: 100%;"><i class="fas fa-chevron-right"></i></span>
-                        </li>
-                        {% endif %}
-
-                    </ul>
-                    {% endif %}
                 </div>
             </div>
         </div>
-
+        <div class="box_pagination_footer text-center">
+            <ul class="pagination">
+                <li class="active">
+                    <a href="">1</a>
+                </li>
+                <li><a href="">2</a>
+                </li>
+                <li><a href="">3</a>
+                </li>
+                <li><a href="">4</a>
+                </li>
+                <li class="next">
+                    <a href="" aria-label="Next">
+                        <i class="arrow-next icon_24 icon-24"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
 
     </div>
 
@@ -170,10 +137,7 @@
 {% block javascript_block %}
 <script>
     $(function () {
-        let type = `{{type_page}}`
-        if (type == 2) {
-            $(".bt_head_cong.full").addClass("active")
-        }
+        console.log(`{{hoso_ungvien}}`)
     })
 </script>
 {% endblock %}

@@ -16,7 +16,7 @@
 </style>
 {% endblock %}
 {% block content %}
-<div class="content_cols-right pt_16 pl_24 pb_24">
+<div class="">
     <div class="breadcrum">
         <div class="breadcrum-l">
             <span class="glyphicon glyphicon-home breadcrum-icon-home"></span>
@@ -63,12 +63,15 @@
                     <div class="">
                         <div class="filter_content_line1 pos_relative">
                             <div class="col-xs-12 pr_2  mg_b5">
-                                <input type="search" class="input_search_all noboder pl_10 w_100 pr_10 font14"
-                                    id="key_hoso" value="" name="hdn_tu_khoa" placeholder="Nhập từ khóa">
+                                <input type="search" class="input_search_all pl_10 w_100 pr_10 font14" id="key_hoso"
+                                    value="" name="hdn_tu_khoa" placeholder="Nhập từ khóa">
                             </div>
                             <div class="col-xs-12 pr_2  mg_b5">
                                 <select name="nganh_nghe" id="nganh_nghe" class="col-xs-12 pr_2 ">
                                     <option value="0">--- Tất các ngành nghề ---</option>
+                                    {% for item in list_nghe_nghiep %}
+                                    <option value="{{ item.code_job }}">{{ item.name_job }}</option>
+                                    {% endfor %}
                                 </select>
                             </div>
                             <div class="col-xs-12 pr_2  mg_b5">
@@ -82,57 +85,58 @@
                             <div class="col-xs-12 pr_2  mg_b5">
                                 <select name="muc_luong" id="muc_luong" class="col-xs-12 pr_2 ">
                                     <option value="0">--- Tất các mức lương ---</option>
-                                    <option value="1">--- 1-3 triệu ---</option>
-                                    <option value="2">--- 3-5 triệu ---</option>
-                                    <option value="3">--- 5-10 triệu ---</option>
-                                    <option value="4">--- 10-20 triệu ---</option>
-                                    <option value="5">--- 20-30 triệu ---</option>
-                                    <option value="6">--- 30-40 triệu ---</option>
-                                    <option value="7">--- 40-50 triệu ---</option>
-                                    <option value="8">--- trên 50 triệu ---</option>
+                                    <option value="3000000"> 1-3 triệu </option>
+                                    <option value="5000000"> 3-5 triệu </option>
+                                    <option value="10000000"> 5-10 triệu </option>
+                                    <option value="20000000"> 10-20 triệu </option>
+                                    <option value="30000000"> 20-30 triệu </option>
+                                    <option value="40000000"> 30-40 triệu </option>
+                                    <option value="50000000"> 40-50 triệu </option>
+                                    <option value="60000000"> trên 50 triệu </option>
 
                                 </select>
                             </div>
                             <div class="col-xs-12 pr_2  mg_b5">
                                 <select name="trinh_do" id="trinh_do" class="col-xs-12 pr_2 ">
-                                    <option value="0">--- Tất các trình độ ---</option>
-                                    <option value="1">--- Trên đại học ---</option>
-                                    <option value="2">--- Đại học ---</option>
-                                    <option value="3">--- Cao đẳng ---</option>
-                                    <option value="4">--- Trung cấp ---</option>
-                                    <option value="5">--- Chứng chỉ nghề ---</option>
+                                    <option value="0">--- Chọn Trình độ học vấn cao nhất ---</option>
+                                    <option value="1">Trên đại học </option>
+                                    <option value="2">Đại học </option>
+                                    <option value="3">Cao đẳng </option>
+                                    <option value="4">Trung cấp </option>
+                                    <option value="5">Chứng chỉ nghề </option>
                                 </select>
                             </div>
                             <div class="col-xs-12 pr_2  mg_b5">
                                 <select name="kinh_nghiem" id="kinh_nghiem" class="col-xs-12 pr_2 ">
-                                    <option value="0">--- Tất các năm kinh nghiệm ---</option>
-                                    <option value="1">--- 1 năm (hoặc < 1 năm) ---</option>
-                                    <option value="2">--- 2 năm ---</option>
-                                    <option value="3">--- 3 năm ---</option>
-                                    <option value="4">--- 4 năm ---</option>
-                                    <option value="5">--- 5 năm ---</option>
-                                    <option value="5">--- trên 5 năm ---</option>
+                                    <option value="0">--- Chọn Kinh nghiệm ---</option>
+                                    <option value="1">1 năm</option>
+                                    <option value="2">2 năm</option>
+                                    <option value="3">3 năm</option>
+                                    <option value="4">4 năm</option>
+                                    <option value="5">5 năm</option>
+                                    <option value="6">Hơn 5 năm </option>
 
                                 </select>
                             </div>
                             <div class="col-xs-12 pr_2  mg_b5">
                                 <select name="gioi_tinh" id="gioi_tinh" class="col-xs-12 pr_2 ">
                                     <option value="0">--- Tất các giới tính ---</option>
-                                    <option value="1">--- Nữ ---</option>
-                                    <option value="2">--- Nam ---</option>
+                                    <option value="1"> Nữ </option>
+                                    <option value="2"> Nam </option>
 
                                 </select>
                             </div>
                             <div class="col-xs-12 pr_2  mg_b5">
                                 <select name="ngoai_ngu" id="ngoai_ngu" class="col-xs-12 pr_2 ">
-                                    <option value="0">--- Tất các ngoại ngữ ---</option>
-                                    <option value="1">--- Tiếng Anh ---</option>
-                                    <option value="2">--- Tiếng Hàn ---</option>
-                                    <option value="3">--- Tiếng Trung ---</option>
-                                    <option value="4">--- Tiếng Nhật ---</option>
-                                    <option value="5">--- Tiếng Pháp ---</option>
-                                    <option value="6">--- Tiếng Đức ---</option>
-
+                                    <option value="">--- Ngoại ngữ ---</option>
+                                    <option value="EN">Tiếng Anh </option>
+                                    <option value="JP">Tiếng Nhật </option>
+                                    <option value="FR">Tiếng Pháp </option>
+                                    <option value="CN">Tiếng Trung </option>
+                                    <option value="RU">Tiếng Nga </option>
+                                    <option value="KR">Tiếng Hàn </option>
+                                    <option value="IT">Tiếng Ý </option>
+                                    <option value="OTHER">Ngoại ngữ khác </option>
                                 </select>
                             </div>
                             <div class="col-xs-12 pr_2  mg_b5" style="display: flex; justify-content: center;">
@@ -721,24 +725,24 @@
             let mydata = JSON.stringify({
                 key_hoso: $("#key_hoso").val(),
                 thanh_pho: parseInt($("#thanh_pho").val()),
-                nganh_nghe:  parseInt($("#nganh_nghe").val()),
-                muc_luong:  parseInt($("#muc_luong").val()),
-                trinh_do:  parseInt($("#trinh_do").val()),
+                nganh_nghe: parseInt($("#nganh_nghe").val()),
+                muc_luong: parseInt($("#muc_luong").val()),
+                trinh_do: parseInt($("#trinh_do").val()),
                 kinh_nghiem: parseInt($("#kinh_nghiem").val()),
-                gioi_tinh:  parseInt($("#gioi_tinh").val()),
-                ngoai_ngu:  parseInt($("#ngoai_ngu").val()),
+                gioi_tinh: parseInt($("#gioi_tinh").val()),
+                ngoai_ngu: $("#ngoai_ngu").val(),
             });
             // termlife/update-view/
             $.ajax({
                 type: 'POST',
-                url: '/tim-ho-so/change-spp-tl/',
+                url: '/nha-tuyen-dung/tim-kiem-ho-so/',
                 data: mydata,
                 contentType: "application/json",
                 dataType: 'json'
             }).done(function (data, statusText, xhr) {
-                location.assign('')
+                location.assign(`{% url 'company:danh-sach-ho-so' %}`)
             }).fail(function (xhr, textStatus, errorThrown) {
-                swal("Cảnh báo!", "Lỗi kết nối", "error");
+                swal("Xin lỗi!", "Rất tiếc không có hồ sơ phù hợp với bạn", "error");
             });
         })
     })

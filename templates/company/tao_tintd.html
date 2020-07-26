@@ -1,130 +1,24 @@
-{% extends 'job_detail/base.html' %}
+{% extends 'company/base.html' %}
 {% load static %}
 {% block seo_gg %}
 {% endblock %}
 {% block css_blocl %}
-<style type="text/css">
-    .hstb-list-knlm-listnews:last-child {
-        border: none;
-    }
-</style>
-<style type="text/css">
-    .hstb-list-tdbc-listnews:last-child {
-        border: none;
-    }
-</style>
-<style type="text/css">
-    .hstb-list-nn-listnews:last-child {
-        border: none;
-    }
-</style>
-<style type="text/css">
-    .hstb-list-th-listnews:last-child {
-        border: none;
-    }
-</style>
-<style type="text/css">
-    .hstb-list-knst-listnews:last-child {
-        border: none;
-    }
-</style>
-<style type="text/css">
-    .hstb-list-ntk-listnews:last-child {
-        border: none;
-    }
-</style>
-<style type="text/css">
-    .xemtruoc-title {
-        background-color: #fff;
-        border-bottom: 1px solid #eee;
-        padding: 15px;
-        color: #3f51b5;
-        font-weight: 500;
-    }
+<style>
 
-    .xemtruoc-title p {
-        margin-bottom: 0px;
-    }
-
-    .xemtruoc-content {
-        background-color: #fff;
-        padding: 10px 20px;
-        /*box-shadow: 0 1px 4px rgba(0,0,0,.25);*/
-    }
-
-    .xemtruoc-content p {
-        margin-bottom: 5px;
-    }
-
-    .xemtruoc-content p i {
-        top: 5px;
-        margin-right: 5px;
-    }
-
-    .xemtruoc-content button {
-        background-color: #3f51b5;
-        padding: 10px 20px;
-    }
-
-    .xemtruoc-content button:hover,
-    .xemtruoc-content button:active {
-        background-color: #7584d8;
-    }
-
-    .xemtruoc-content .btn-danghs {
-        background-color: #f98a20;
-        border-color: #f98a20;
-    }
-
-    .xemtruoc-content .btn-danghs:hover,
-    .xemtruoc-content .btn-danghs:active {
-        background-color: #ff6d00;
-        border-color: #ff6d00;
-    }
-
-    .modal-body h4 {
-        color: #00999f;
-        font-size: 16px;
-        font-weight: 700;
-    }
-
-    .xemtruoc-items:first-child {
-        margin-top: 0px;
-        padding-top: 0px;
-        border-top: none;
-    }
-
-    .xemtruoc-items {
-        margin-top: 10px;
-        padding-top: 10px;
-        border-top: 1px solid #eee;
-    }
-
-    .xemtruoc-footer {
-        /*padding-left: 15px;*/
-    }
-
-    .xemtruoc-footer p {
-        margin-bottom: 5px;
-    }
-
-    .xemtruoc-shadow {
-        box-shadow: 0 1px 4px rgba(0, 0, 0, .25);
-    }
 </style>
 {% endblock %}
-
 {% block content %}
-<div class="content_dangky content_cols-right pt_16 pl_24 pb_24 " id="frm-login-info">
+<div class="" id="frm-login-info">
     <div class="">
         <div class="w_50 floatLeft">
-            <span class="title_text_line"></span><span class="uppercase bold fs16 text-xanh-nuocbien">Tạo hồ sơ tìm việc
+            <span class="title_text_line"></span>
+            <span class="uppercase bold fs16 text-xanh-nuocbien">Tạo tin tuyển dụng theo
                 từng bước</span>
         </div>
         <div class="w_50 floatLeft block-right-ntv txr mt6">
             <span class="text-co-tai-khoan">
-                <a href="" target="_blank" class="text-ntd-dang-ky underline font14 text_grey">Bấm vào đây xem Hồ sơ
-                    mẫu</a>
+                <a href="" target="_blank" class="text-ntd-dang-ky underline font14 text_grey">Bấm vào đây xem các tin
+                    đã đăng</a>
             </span>
         </div>
     </div>
@@ -139,7 +33,7 @@
             <div id="block-thong-tin-dang-nhap" class="mb_30 pt_6">
 
                 <div class="head-box-child-ths">
-                    <span class="uppercase bold text-tim-nhat">THÔNG TIN TÀI KHOẢN</span>
+                    <span class="uppercase bold text-tim-nhat">THÔNG TIN CÔNG TY</span>
                     <span class="required_l">(bắt buộc)</span>
                     <span class="required_r">(<label>*</label>)Thông tin bắt buộc nhập</span>
                 </div>
@@ -151,8 +45,8 @@
                 <div class="body-box-child-ths pb16 mt16">
                     <div id="box-tttk-save" style="">
                         <div class="form-group clearfix mb_16">
-                            <label for="c_ten_day_du" class="control-label-info bold txt-ghi fs14 w180">Ảnh đại
-                                diện</label>
+                            <label for="c_ten_day_du" class="control-label-info bold txt-ghi fs14 w180">Logo công
+                                ty</label>
                             <div class="fr_ip_vtmm col-xs-8">
                                 <div class="mb_10">
                                     <div style="display: none;" id="remove_icon">
@@ -182,72 +76,59 @@
                         <form id="form_tt_tai_khoan" novalidate="novalidate">
                             <!-- input c_ten_day_du -->
 
-
                             <!-- input c_ten_day_du -->
                             <div class="form-group clearfix mb_16">
-                                <label for="ten_day_du" class="control-label-info bold txt-ghi fs14 w180">Họ tên<span
-                                        class="colorRed">*</span></label>
+                                <label for="ten_cong_ty" class="control-label-info bold txt-ghi fs14 w180">Tên công
+                                    ty<span class="colorRed">*</span></label>
                                 <div class="fr_ip_vtmm col-xs-8">
-                                    <input type="text" class="form-control error_border_c_ten_day_du" id="ten_day_du"
-                                        name="ten_day_du" value="{{user.fullname}}">
+                                    <input type="text" class="form-control " id="ten_cong_ty" name="ten_cong_ty"
+                                        value="">
                                 </div>
                             </div>
 
                             <!-- input c_dien_thoai_lien_he -->
                             <div class="form-group clearfix mb_16">
-                                <label for="dien_thoai_lien_he" class="control-label-info bold txt-ghi fs14 w180">Số
+                                <label for="dien_thoai_cty" class="control-label-info bold txt-ghi fs14 w180">Số
                                     điện
-                                    thoại<span class="colorRed">*</span></label>
+                                    thoại công ty<span class="colorRed">*</span></label>
                                 <div class="fr_ip_vtmm col-xs-8">
-                                    <input type="text" class="form-control error_border_c_dien_thoai_lien_he"
-                                        id="dien_thoai_lien_he" name="dien_thoai_lien_he" value="{{user.sdt}}">
+                                    <input type="text" class="form-control " id="dien_thoai_cty" name="dien_thoai_cty"
+                                        value="">
                                 </div>
                             </div>
 
                             <!-- input c_ngay_sinh -->
                             <div class="form-group mb_16 w660">
-                                <label for="ngay_sinh" class="control-label-info bold txt-ghi fs14 w180">Ngày sinh <span
-                                        class="colorRed">*</span></label>
+                                <label for="ng_cty" class="control-label-info bold txt-ghi fs14 w180">Tên người liên hệ
+                                    <span class="colorRed">*</span></label>
                                 <div class="fr_ip_vtmm city_select col-xs-8 w470">
-                                    <div class="filter_box style-flat reg_box_tinhthanh box_tinhthanh_reg floatLeft mr_10 error_border_c_ngay_sinh_ngay"
+                                    <div class="filter_box style-flat reg_box_tinhthanh box_tinhthanh_reg floatLeft mr_10 "
                                         style="padding-left: 0px;">
-                                        <input type="date" name="ngay_sinh" id="ngay_sinh" class="ngay_sinh"
-                                            value="{{user.birth_day}}">
+                                        <input type="text" name="ng_cty" id="ng_cty" class="ng_cty form-control "
+                                            value="">
                                     </div>
-                                </div>
-                                <div
-                                    class="clearfix error_reg_mess clearfix fs14 italic error_c_ngay_sinh_ngay error_c_ngay_sinh_thang error_c_ngay_sinh_nam">
                                 </div>
                             </div>
 
                             <!-- input c_dia_chi_lien_he -->
                             <div class="form-group clearfix mb_16">
-                                <label for="dia_chi_lien_he" class="control-label-info bold txt-ghi fs14 w180">Địa chỉ
-                                    hiện tại<span class="colorRed">*</span></label>
+                                <label for="dia_chi_cty" class="control-label-info bold txt-ghi fs14 w180">Địa chỉ
+                                    công ty<span class="colorRed">*</span></label>
                                 <div class="fr_ip_vtmm col-xs-8">
-                                    <input type="text" class="form-control error_border_c_dia_chi_lien_he"
-                                        id="dia_chi_lien_he" name="dia_chi_lien_he"
-                                        placeholder="Ví dụ: Số nhà 98A, phố Ngụy Như Kon Tum, phường ..."
-                                        value="{{user.dia_chi_chi_tiet}}">
+                                    <input type="text" class="form-control " id="dia_chi_cty" name="dia_chi_cty"
+                                        placeholder="Ví dụ: Số nhà 98A, phố Ngụy Như Kon Tum, phường ..." value="">
                                 </div>
                             </div>
 
                             <!-- input tttk_fk_tinh -->
                             <div class="form-group clearfix mb_18">
-                                <label class="control-label-info bold txt-ghi fs14 w180" for="thanh_pho_song">
-                                    Tỉnh/Thành phố <span class="colorRed">*</span>
+                                <label class="control-label-info bold txt-ghi fs14 w180" for="email_cty">
+                                    Email liên hệ <span class="colorRed">*</span>
                                 </label>
                                 <div class="fr_ip_vtmm col-xs-8 pt8 city_select">
-                                    <div class="filter_box font12 style-flat reg_box_tinhthanh box_tinhthanh_reg w180 error_border_tttk_fk_tinh"
-                                        style="color: black;">
-
-                                        <select name="thanh_pho_song" class="style_sel" id="thanh_pho_song"
-                                            tabindex="-1">
-                                            <option value="0">Chọn Tỉnh thành</option>
-                                            {% for item in list_thanh_pho %}
-                                            <option value="{{ item.code }}">{{ item.name }}</option>
-                                            {% endfor %}
-                                        </select>
+                                    <div class="filter_box style-flat box_tinhthanh_reg w180 " style="color: black;">
+                                        <input type="email" class="form-control " id="email_cty" name="email_cty"
+                                            placeholder="Ví dụ: abc@gmail.com ..." value="">
                                     </div>
                                 </div>
                             </div>
@@ -255,36 +136,14 @@
                             <!-- input c_gioi_tinh -->
                             <div class="form-group clearfix mb0 ">
                                 <label class="control-label-info bold txt-ghi fs14 w180">
-                                    Giới tính <span class="colorRed">*</span>
+                                    Thông tin về công ty <span class="colorRed">*</span>
                                 </label>
-                                <div class="fr_ip_vtmm col-xs-8 pt8 city_select">
-                                    <div class="filter_box font12 style-flat reg_box_tinhthanh box_tinhthanh_reg w180 error_border_tttk_fk_tinh"
-                                        style="color: black;">
-                                        <select name="gioi_tinh" class="style_sel" id="gioi_tinh" tabindex="-1">
-                                            <option selected value="1">Nữ</option>
-                                            <option value="2">Nam</option>
-
-                                        </select>
-                                    </div>
+                                <div class="fr_ip_vtmm col-xs-8">
+                                    <textarea class="form-control " rows="3" id="info_cty" name="info_cty"></textarea>
                                 </div>
                             </div>
 
-                            <!-- input c_tinh_trang_hon_nhan -->
-                            <div class="form-group clearfix mb_18">
-                                <label class="control-label-info bold txt-ghi fs14 w180" for="tinh_trang_hn">
-                                    Tình trạng hôn nhân <span class="colorRed">*</span>
-                                </label>
-                                <div class="fr_ip_vtmm col-xs-8 pt8 city_select">
-                                    <div class="filter_box font12 style-flat reg_box_tinhthanh box_tinhthanh_reg w180 error_border_tttk_fk_tinh"
-                                        style="color: black;">
-                                        <select name="tinh_trang_hn" class="style_sel" id="tinh_trang_hn" tabindex="-1">
-                                            <option value="1">Độc thân</option>
-                                            <option value="2">Có gia đình</option>
 
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
                         </form>
                         <div class="form-group clearfix mb_18" style="margin-top: -18px;">
                             <div class="form-group mb1 input-phone" style="padding-top: 18px;">
@@ -319,11 +178,13 @@
                     <form id="form-hstb-tttq" novalidate="novalidate">
                         <!-- input c_tieu_de -->
                         <div class="form-group clearfix mb_10">
-                            <label for="vi_tri" class="control-label-info bold txt-ghi fs14 w180">Vị trí mong
-                                muốn<span class="colorRed">*</span></label>
+                            <label for="title_tin" class="control-label-info bold txt-ghi fs14 w180">Tiêu đề tin tuyển
+                                dụng
+                                <span class="colorRed">*</span></label>
                             <div class="fr_ip_vtmm col-xs-8">
-                                <input type="text" class="form-control error_border_c_tieu_de" id="vi_tri" name="vi_tri"
-                                    placeholder="Ví dụ: Nhân viên kinh doanh, Nhân viên hành chính ..." value="">
+                                <input type="text" class="form-control" id="title_tin" name="title_tin"
+                                    placeholder="Ví dụ: Tuyển gấp nhân viên kinh doanh, Nhân viên hành chính ..."
+                                    value="">
                             </div>
                         </div>
 
@@ -333,8 +194,7 @@
                                 for="nganh_nghe_lv">Ngành nghề
                             </label>
                             <div class="fr_ip_vtmm col-xs-8 pt8 city_select">
-                                <div
-                                    class="filter_box style-flat reg_box_tinhthanh box_tinhthanh_reg w350 error_border_fk_nganhnghe">
+                                <div class="filter_box style-flat reg_box_tinhthanh box_tinhthanh_reg w350 ">
                                     <select name="nganh_nghe_lv" class="style_sel" id="nganh_nghe_lv" tabindex="-1"
                                         style="color: black;">
                                         <option value="0">Tất cả Ngành nghề</option>
@@ -353,8 +213,7 @@
                                 Địa điểm làm việc
                             </label>
                             <div class="fr_ip_vtmm col-xs-8 pt8 city_select">
-                                <div
-                                    class="filter_box style-flat reg_box_tinhthanh box_tinhthanh_reg w350 error_border_fk_tinh">
+                                <div class="filter_box style-flat reg_box_tinhthanh box_tinhthanh_reg w350 ">
                                     <select name="thanh_pho_lv" class="style_sel" id="thanh_pho_lv" tabindex="-1"
                                         style="color: black;">
                                         <option value="0">Chọn địa điểm làm việc</option>
@@ -364,18 +223,16 @@
                                     </select>
                                 </div>
                             </div>
-                            <input type="hidden" id="fk_tinh" name="fk_tinh" value="">
-                            <div class="clearfix error_reg_mess clearfix fs14 italic pt_6 error_fk_tinh"></div>
+
                         </div>
 
                         <!-- input c_trinh_do_hv -->
                         <div class="form-group clearfix mb_10">
                             <label class="control-label-info bold txt-ghi fs14 w180 pt_8" for="trinh_do">
-                                Trình độ học vấn cao nhất <span class="colorRed">*</span>
+                                Trình độ học vấn yêu cầu <span class="colorRed">*</span>
                             </label>
                             <div class="fr_ip_vtmm col-xs-8 pt8 city_select">
-                                <div
-                                    class="filter_box style-flat reg_box_tinhthanh box_tinhthanh_reg w350 error_border_c_trinh_do_hv">
+                                <div class="filter_box style-flat reg_box_tinhthanh box_tinhthanh_reg w350 ">
                                     <select name="trinh_do" class="style_sel" id="trinh_do" tabindex="-1"
                                         style="color: black;">
                                         <option value="0">Chọn Trình độ học vấn cao nhất</option>
@@ -392,11 +249,10 @@
                         <!-- input c_so_nam_kinh_nghiem -->
                         <div class="form-group clearfix mb_10">
                             <label class="control-label-info bold txt-ghi fs14 w180 pt_8" for="nam_kn">
-                                Tổng số năm kinh nghiệm <span class="colorRed">*</span>
+                                Số năm kinh nghiệm cần có <span class="colorRed">*</span>
                             </label>
                             <div class="fr_ip_vtmm col-xs-8 pt8 city_select">
-                                <div
-                                    class="filter_box style-flat reg_box_tinhthanh box_tinhthanh_reg w350 error_border_c_so_nam_kinh_nghiem">
+                                <div class="filter_box style-flat reg_box_tinhthanh box_tinhthanh_reg w350 ">
                                     <select name="nam_kn" class="style_sel" id="nam_kn" tabindex="-1"
                                         style="color: black;">
                                         <option value="0">Chọn Kinh nghiệm</option>
@@ -417,8 +273,7 @@
                                 Hình thức làm việc <span class="colorRed">*</span>
                             </label>
                             <div class="fr_ip_vtmm col-xs-8 pt8 city_select">
-                                <div
-                                    class="filter_box style-flat reg_box_tinhthanh box_tinhthanh_reg w350 error_border_c_thoi_gian_lam_viec">
+                                <div class="filter_box style-flat reg_box_tinhthanh box_tinhthanh_reg w350 ">
                                     <select name="hinhthuc_lv" class="style_sel" id="hinhthuc_lv" tabindex="-1"
                                         style="color: black;">
                                         <option value="">Chọn Hình thức làm việc</option>
@@ -437,13 +292,34 @@
                         <div class="form-group clearfix mb_10">
                             <label for="luong_sal" class="control-label-info bold txt-ghi fs14 w180"
                                 style="line-height: 20px;">
-                                Mong muốn mức lương <br>tối thiểu <em>(VND/Tháng)</em> <span class="colorRed">*</span>
+                                Mức lương <br><em>(VND/Tháng)</em> <span class="colorRed">*</span>
                             </label>
                             <div class="fr_ip_vtmm col-xs-8">
-                                <input type="text"
-                                    class="form-control w150 pull-left format_number error_border_c_muc_luong_toi_thieu"
-                                    id="luong_sal" name="luong_sal" value="" placeholder="Nhập số" data-real-amount="">
+                                <input type="text" class="form-control w150 pull-left format_number " id="luong_sal"
+                                    name="luong_sal" value="" placeholder="Nhập số" data-real-amount="">
                                 <input type="text" name="luong_mong_muon" id="luong_mong_muon" hidden>
+                            </div>
+                        </div>
+
+                        <div class="form-group clearfix mb_10">
+                            <label for="so_luong_tuyen" class="control-label-info bold txt-ghi fs14 w180"
+                                style="line-height: 20px;">
+                                Số lượng tuyển <br><em></em> <span class="colorRed">*</span>
+                            </label>
+                            <div class="fr_ip_vtmm col-xs-8">
+                                <input type="number" class="form-control w150 pull-left format_number "
+                                    id="so_luong_tuyen" name="so_luong_tuyen" value="0" placeholder="Nhập số"
+                                    data-real-amount="">
+                            </div>
+                        </div>
+                        <div class="form-group clearfix mb_10">
+                            <label for="ngay_het_han" class="control-label-info bold txt-ghi fs14 w180"
+                                style="line-height: 20px;">
+                                Ngaỳ hết hạn: <br>
+                                <span class="colorRed">*</span>
+                            </label>
+                            <div class="fr_ip_vtmm col-xs-8">
+                                <input type="date" name="ngay_het_han" id="ngay_het_han" class="ngay_het_han">
                             </div>
                         </div>
 
@@ -468,182 +344,8 @@
         <div class="block-pop-dangky" style="padding: 0px !important;">
             <div id="block-thong-tin-dang-nhap" class="mb_30 pt_6">
                 <div class="head-box-child-ths">
-                    <a href="javascript:" class="accordion" data-toggle="collapse" data-target="#collapse-hstb-tdbc">
-                        <span class="uppercase bold text-tim-nhat">KINH NGHIỆM LÀM VIỆC &amp; TRÌNH ĐỘ &amp; BẰNG
-                            CẤP</span>
-                        <span class="required_l" id="tdbc_required_l">(bắt buộc)</span>
-                        <span class="required_r"><i class="icn-main-menu icn-arr-down"></i></span>
-                    </a>
-                </div>
-
-                <div class="clearfix"></div>
-                <div class="row">
-                    <div class="ln_hr_head"></div>
-                </div>
-                <div class="clearfix"></div>
-
-                <div class="collapse in" id="collapse-hstb-tdbc">
-                    <div class="body-box-child-ths">
-                        <div class="box-knlv clearfix mb_20">
-                            <p>- Liệt kê các kinh nghiệm công việc từ thời gian gần nhất trở về trước.</p>
-                            <p>- Kinh nghiệm có thể trong công việc hoặc các hoạt động đoàn thể.</p>
-                            <p>- Không yêu cầu nếu chưa có kinh nghiệm</p>
-                        </div>
-                        <div class="pb_10" id="box-hstb-save-tdbc">
-                            <form id="form-hstb-tdbc" novalidate="novalidate">
-                                <div class="form-group clearfix mb_10">
-                                    <label for="cty_lv" class="control-label-info bold txt-ghi fs14 w180">Tên
-                                        Công ty/Tổ chức<span class="colorRed">*</span></label>
-                                    <div class="fr_ip_vtmm col-xs-8">
-                                        <input type="text" class="form-control error_border_cty_lv" id="cty_lv"
-                                            name="cty_lv" value="">
-                                    </div>
-                                </div>
-
-                                <!-- input tdbc_c_bang_cap -->
-                                <div class="form-group clearfix mb_10">
-                                    <label for="bang_cap" class="control-label-info bold txt-ghi fs14 w180">Tên
-                                        Bằng cấp/Chứng chỉ <span class="colorRed">*</span></label>
-                                    <div class="fr_ip_vtmm col-xs-8">
-                                        <input type="text" class="form-control error_border_bang_cap" id="bang_cap"
-                                            name="bang_cap" value=""
-                                            placeholder="Ví dụ: Cử nhân kinh tế, Trung cấp du lịch, Tốt nghiệp THPT...">
-                                    </div>
-                                </div>
-
-                                <!-- input tdbc_c_truong -->
-                                <div class="form-group clearfix mb_10">
-                                    <label for="dao_tao" class="control-label-info bold txt-ghi fs14 w180">Trường/Đơn vị
-                                        đào tạo <span class="colorRed">*</span></label>
-                                    <div class="fr_ip_vtmm col-xs-8">
-                                        <input type="text" class="form-control error_border_dao_tao" id="dao_tao"
-                                            name="dao_tao" value="">
-                                    </div>
-                                </div>
-
-                                <!-- input tdbc_c_chuyen_nganh -->
-                                <div class="form-group clearfix mb_10">
-                                    <label for="chuyen_nganh" class="control-label-info bold txt-ghi fs14 w180">Chuyên
-                                        ngành <span class="colorRed">*</span></label>
-                                    <div class="fr_ip_vtmm col-xs-8">
-                                        <input type="text" class="form-control error_border_chuyen_nganh"
-                                            id="chuyen_nganh" name="chuyen_nganh" value="">
-                                    </div>
-                                </div>
-
-                                <!-- input tdbc_c_thoi_gian -->
-                                <div class="form-group clearfix mb_10">
-                                    <label class="control-label-info bold txt-color-363636 fs14 w181">Thời gian <span
-                                            class="colorRed">*</span></label>
-                                    <div class="fr_ip_vtmm pl_18 select_style31 city_select">
-                                        <span class="txt-color-757575 fs14 italic pr12 floatLeft lbl_from_bangcap"
-                                            style="line-height: 36px">từ</span>
-                                        <div
-                                            class="filter_box font12 style-flat reg_box_tinhthanh box_tinhthanh_reg floatLeft mr_10 error_border_tdbc_c_thoi_gian_bat_dau_nam">
-                                            <select name="bat_dau" class="style_sel" id="bat_dau" tabindex="-1"
-                                                style="color: black;">
-                                                <option value="0">Năm</option>
-                                                <option value="2020">2020 </option>
-                                                <option value="2019">2019 </option>
-                                                <option value="2018">2018 </option>
-                                                <option value="2017">2017 </option>
-                                                <option value="2016">2016 </option>
-                                                <option value="2015">2015 </option>
-                                                <option value="2014">2014 </option>
-                                                <option value="2013">2013 </option>
-                                                <option value="2012">2012 </option>
-                                                <option value="2011">2011 </option>
-                                                <option value="2010">2010 </option>
-                                                <option value="2009">2009 </option>
-                                                <option value="2008">2008 </option>
-                                                <option value="2007">2007 </option>
-                                                <option value="2006">2006 </option>
-                                                <option value="2005">2005 </option>
-                                                <option value="2004">2004 </option>
-                                                <option value="2003">2003 </option>
-                                                <option value="2002">2002 </option>
-                                                <option value="2001">2001 </option>
-                                                <option value="2000">2000 </option>
-                                            </select>
-                                        </div>
-                                        <span class="txt-color-757575 fs14 italic pl_18 pr12 floatLeft lbl_from_bangcap"
-                                            style="line-height: 36px">đến</span>
-                                        <p class="text-tim-nhat text-lowercase fs14  pr12 floatLeft lbl_from_bangcap tdbc_c_cong_viec_hien_tai"
-                                            style="display: none;"> Hiện tại</p>
-                                        <div
-                                            class="filter_box font12 style-flat reg_box_tinhthanh box_tinhthanh_reg floatLeft mr_10 tdbc_c_thoi_gian_ket_thuc error_border_tdbc_c_thoi_gian_ket_thuc_nam">
-                                            <select name="ket_thuc" class="style_sel" id="ket_thuc" tabindex="-1"
-                                                style="color: black;">
-                                                <option value="0">Năm</option>
-                                                <option value="2020">2020 </option>
-                                                <option value="2019">2019 </option>
-                                                <option value="2018">2018 </option>
-                                                <option value="2017">2017 </option>
-                                                <option value="2016">2016 </option>
-                                                <option value="2015">2015 </option>
-                                                <option value="2014">2014 </option>
-                                                <option value="2013">2013 </option>
-                                                <option value="2012">2012 </option>
-                                                <option value="2011">2011 </option>
-                                                <option value="2010">2010 </option>
-                                                <option value="2009">2009 </option>
-                                                <option value="2008">2008 </option>
-                                                <option value="2007">2007 </option>
-                                                <option value="2006">2006 </option>
-                                                <option value="2005">2005 </option>
-                                                <option value="2004">2004 </option>
-                                                <option value="2003">2003 </option>
-                                                <option value="2002">2002 </option>
-                                                <option value="2001">2001 </option>
-                                                <option value="2000">2000 </option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- input tdbc_c_loai_tot_nghiep -->
-                                <div class="form-group clearfix mb_10">
-                                    <label class="control-label-info bold txt-ghi fs14 w180 pt_8">
-                                        Loại tốt nghiệp <span class="colorRed">*</span>
-                                    </label>
-                                    <div class="fr_ip_vtmm col-xs-8 pt8 city_select">
-                                        <div
-                                            class="filter_box font12 style-flat reg_box_tinhthanh box_tinhthanh_reg w350 error_border_tdbc_c_loai_tot_nghiep">
-                                            <select name="loai_tot_nghiep" class="style_sel" id="loai_tot_nghiep"
-                                                tabindex="-1" style="color: black;">
-                                                <option value="0">Chọn loại tốt nghiệp</option>
-                                                <option value="1">Xuất sắc </option>
-                                                <option value="2">Giỏi </option>
-                                                <option value="3">Khá </option>
-                                                <option value="4">Trung bình </option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                            <div class="form-group clearfix">
-                                <div class="form-group mb1 input-phone" style="padding-top: 18px;">
-                                    <label id="label_hidden" class="control-label-info bold txt-ghi fs14 w180"></label>
-                                    <div class="fr-input-wd153">
-                                        <div class="fr-input-wd153 floatLeft" style="margin-left: 5px;">
-                                            <button type="button" id="btn_submit3"
-                                                class="mr_10 ml_10 btn btnluu w153 fwb uppercase fs16">Lưu</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="box-child-ths">
-        <div class="block-pop-dangky" style="padding: 0px !important;">
-            <div id="block-thong-tin-dang-nhap" class="mb_30 pt_6">
-                <div class="head-box-child-ths">
                     <a href="javascript:" class="accordion" data-toggle="collapse" data-target="#collapse-hstb-nn">
-                        <span class="uppercase bold text-tim-nhat">NGOẠI NGỮ &amp; KỸ NĂNG SỞ TRƯỜNG</span>
+                        <span class="uppercase bold text-tim-nhat">YÊU CẦU NGOẠI NGỮ &amp; MÔ TẢ CÔNG VIỆC</span>
                         <span class="required_l_n">(không bắt buộc)</span>
                         <span class="required_r"><i class="icn-main-menu icn-arr-down"></i></span>
                     </a>
@@ -658,8 +360,6 @@
                 <div class="collapse in" id="collapse-hstb-nn">
                     <div class="body-box-child-ths">
                         <div class="box-knlv clearfix mb_20">
-                            <p>- Liệt kê các kỹ năng chính của bạn. Ví dụ tư duy sáng tạo, tố chất lãnh đạo</p>
-                            <p>- Kỹ năng có thể trong công việc hoặc các hoạt động đoàn thể.</p>
                             <p>- Không yêu cầu nếu chưa có kinh nghiệm</p>
                         </div>
                         <div class="pb_10" id="box-hstb-save-nn">
@@ -672,7 +372,7 @@
                                     </label>
                                     <div class="fr_ip_vtmm col-xs-8 pt8 city_select">
                                         <div
-                                            class="filter_box font12 style-flat reg_box_tinhthanh box_tinhthanh_reg w350 error_border_nn_c_ma_ngoai_ngu">
+                                            class="filter_box font12 style-flat reg_box_tinhthanh box_tinhthanh_reg w350 ">
                                             <select name="ngoai_ngu" class="style_sel" id="ngoai_ngu" tabindex="-1"
                                                 style="color: black;">
                                                 <option value="">Ngoại ngữ</option>
@@ -696,7 +396,7 @@
                                     </label>
                                     <div class="fr_ip_vtmm col-xs-8 pt8 city_select">
                                         <div
-                                            class="filter_box font12 style-flat reg_box_tinhthanh box_tinhthanh_reg w350 error_border_tdbc_c_loai_tot_nghiep">
+                                            class="filter_box font12 style-flat reg_box_tinhthanh box_tinhthanh_reg w350 ">
                                             <select name="trinh_do_nn" class="style_sel" id="trinh_do_nn" tabindex="-1"
                                                 style="color: black;">
                                                 <option value="0">Trình độ ngoại ngữ</option>
@@ -711,23 +411,32 @@
 
                                 <!-- input knst_c_ky_nang_chinh -->
                                 <div class="form-group clearfix mb_10">
-                                    <label for="ky_nang" class="control-label-info bold txt-ghi fs14 w180">
-                                        Kỹ năng chính
+                                    <label for="mota_cviec" class="control-label-info bold txt-ghi fs14 w180">
+                                        Mô tả công việc
                                     </label>
                                     <div class="fr_ip_vtmm col-xs-8">
-                                        <textarea class="form-control error_border_ky_nang" rows="3" id="ky_nang"
-                                            name="ky_nang"></textarea>
+                                        <textarea class="form-control " rows="3" id="mota_cviec"
+                                            name="mota_cviec"></textarea>
                                     </div>
                                 </div>
 
                                 <!-- input knst_c_so_thich -->
                                 <div class="form-group clearfix mb_10">
-                                    <label for="so_thich" class="control-label-info bold txt-ghi fs14 w180">
-                                        Sở thích
+                                    <label for="ql_cviec" class="control-label-info bold txt-ghi fs14 w180">
+                                        Quyền lợi công việc
                                     </label>
                                     <div class="fr_ip_vtmm col-xs-8">
-                                        <textarea class="form-control error_border_so_thich" rows="3" id="so_thich"
-                                            name="so_thich"></textarea>
+                                        <textarea class="form-control " rows="3" id="ql_cviec"
+                                            name="ql_cviec"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group clearfix mb_10">
+                                    <label for="yc_cviec" class="control-label-info bold txt-ghi fs14 w180">
+                                        Yêu cầu công việc
+                                    </label>
+                                    <div class="fr_ip_vtmm col-xs-8">
+                                        <textarea class="form-control " rows="3" id="yc_cviec"
+                                            name="yc_cviec"></textarea>
                                     </div>
                                 </div>
 
@@ -753,20 +462,19 @@
 
     <div class="mb10">
         <div class="demo-list mr_24 mb_10">
-            <label for="is_search_allowed_1" class="font14 job_value">Cho phép Nhà tuyển dụng tìm kiếm thông tin của bạn
-                và chủ động liên hệ mời phỏng vấn. Đồng thời bạn có thể tự ứng tuyển với hồ sơ này</label>
+            <label for="is_search_allowed_1" class="font14 job_value">Cho phép Nguời tìm việc tìm kiếm thông tin của bạn
+                và chủ động liên hệ với để phỏng vấn.</label>
         </div>
     </div>
     <div class="text-center mb10">
         <ul class="list-inline">
             <li>
                 <button type="button" id="btn_dhs" class="btn-loading btn-dhs w180 btn_dhs">
-                    ĐĂNG HỒ SƠ
+                    ĐĂNG TIN
                 </button>
             </li>
             <li>
-                <button type="button" data-toggle="modal" data-target="#show_hoso" class="btn-xt w180">XEM
-                    TRƯỚC</button>
+                <button type="button" data-toggle="modal" data-target="#show_hoso" class="btn-xt w180">XEM TRƯỚC</button>
             </li>
         </ul>
         <div class="clearfix"></div>
@@ -780,7 +488,7 @@
                 <div class="modal-header">
                     <h4 class="modal-title fs16">
                         <span class="title_xem_truoc_ho_so "></span>
-                        <span>XEM TRƯỚC HỒ SƠ</span>
+                        <span>XEM TIN TUYỂN DỤNG</span>
                     </h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
@@ -820,14 +528,14 @@
                         <div class="row mt10">
                             <h4>THÔNG TIN TỔNG QUAN</h4>
                             <div class="row xemtruoc-content xemtruoc-shadow">
-                                <p><span class="fws font16">Tiêu đề hồ sơ:</span> <span class="fws font16"
+                                <p><span class="fws font16">Tiêu đề tin tuyển dụng:</span> <span class="fws font16"
                                         style="color: #ff6d00;"></span></p>
                                 <div class="row" style="padding-bottom: 10px; border-bottom: 1px solid #eee">
                                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                                         <p>
                                             <i class="icon_kinhnghiem icon_24 icon-24"></i>
                                             <span class="fwb">Kinh nghiệm:</span>
-                                            <span class="xt_exp">{{hoso.so_nam_kinh_nghiem}} năm</span>
+                                            <span class="xt_exp">{{tin_td.so_nam_kinh_nghiem}} năm</span>
                                         </p>
                                         <p>
                                             <i class="icon_bangcap icon_24 icon-24"></i>
@@ -854,22 +562,22 @@
                                         <p>
                                             <i class="icon_chucvu icon_24 icon-24"></i>
                                             <span class="fwb">Tên bằng cấp: </span>
-                                            <span class="xt_bang_cap">{{hoso.ten_bang_cap}}</span>
+                                            <span class="xt_bang_cap">{{tin_td.ten_bang_cap}}</span>
                                         </p>
                                         <p>
                                             <i class="icon_diadiem icon_24 icon-24"></i>
                                             <span class="fwb">Địa điểm làm việc:</span>
-                                            <span class="xt_dia_diem">{{hoso.dia_diem_lam_viec}}</span>
+                                            <span class="xt_dia_diem">{{tin_td.dia_diem_lam_viec}}</span>
                                         </p>
                                         <p>
                                             <i class="icon_nganhnghe icon_24 icon-24"></i>
                                             <span class="fwb">Ngành nghề:</span>
-                                            <span class="xt_nganh_nghe">{{hoso.nganh_nghe}}</span>
+                                            <span class="xt_nganh_nghe">{{tin_td.nganh_nghe}}</span>
                                         </p>
                                         <p>
                                             <i class="icon_mucluong icon_24 icon-24"></i>
                                             <span class="fwb">Mức lương mong muốn:</span>
-                                            <span class="xt_salary">{{hoso.muc_luong_toi_thieu}} VND</span>
+                                            <span class="xt_salary">{{tin_td.muc_luong_toi_thieu}} VND</span>
                                         </p>
                                         <p>
                                             <i class="icon_hinhthuclamviec icon_24 icon-24"></i>
@@ -887,8 +595,7 @@
                             <div class="row xemtruoc-content text-center" style="padding: 20px;">
                                 <ul class="list-inline" style="margin-bottom: 0px;">
                                     <li>
-                                        <button type="button" class="btn btn-info btn-danghs btn_dhs">ĐĂNG HỒ
-                                            SƠ</button>
+                                        <button type="button" class="btn btn-info btn-danghs btn_dhs">ĐĂNG TIN</button>
                                     </li>
                                     <li>
                                         <button type="button" class="btn btn-info" data-dismiss="modal">CHỈNH
@@ -899,7 +606,7 @@
                         </div>
 
                         <div class="row mt15 xemtruoc-footer">
-                            <p><span class="fwb font14">Bạn gặp khó khăn? Liên hệ Hotline hỗ trợ Người tìm việc:</span>
+                            <p><span class="fwb font14">Bạn gặp khó khăn? Liên hệ Hotline hỗ trợ Nhà tuyển dụngc:</span>
                             </p>
                             <p><span>Giờ hành chính: <i>miền Bắc</i> <span class="txt-hong bold">(012) 3456 789</span>,
                                     <i>miền Nam</i> <span class="txt-hong bold">(012) 3456 789</span></span></p>
@@ -910,6 +617,10 @@
             </div>
         </div>
     </div>
+    <input type="text" name="check_val" id="check_val1" value="0" hidden>
+    <input type="text" name="check_val" id="check_val2" value="0" hidden>
+    <input type="text" name="check_val" id="check_val3" value="0" hidden>
+
 </div>
 {% endblock %}
 {% block javascript_block %}
@@ -967,30 +678,30 @@
 </script>
 <script>
     $(function () {
-        if (`{{hoso}}` != "") {
+        if (`{{tin_td}}` != "") {
             $("#thanh_pho_song").val(`{{user.dia_chi_tinh_thanh_pho}}`)
             $("#gioi_tinh").val(`{{user.gender}}`)
-            $("#tinh_trang_hn").val(`{{hoso.hon_nhan}}`)
+            $("#tinh_trang_hn").val(`{{tin_td.hon_nhan}}`)
 
-            $("#vi_tri").val(`{{hoso.vi_tri_mong_muon}}`)
-            $("#nganh_nghe_lv").val(`{{hoso.nganh_nghe}}`)
-            $("#thanh_pho_lv").val(`{{hoso.dia_diem_lam_viec}}`)
-            $("#trinh_do").val(`{{hoso.trinh_do_hoc_van}}`)
-            $("#nam_kn").val(`{{hoso.so_nam_kinh_nghiem}}`)
-            $("#hinhthuc_lv").val(`{{hoso.hinh_thuc_lam_viec}}`)
+            $("#vi_tri").val(`{{tin_td.vi_tri_mong_muon}}`)
+            $("#nganh_nghe_lv").val(`{{tin_td.nganh_nghe}}`)
+            $("#thanh_pho_lv").val(`{{tin_td.dia_diem_lam_viec}}`)
+            $("#trinh_do").val(`{{tin_td.trinh_do_hoc_van}}`)
+            $("#nam_kn").val(`{{tin_td.so_nam_kinh_nghiem}}`)
+            $("#hinhthuc_lv").val(`{{tin_td.hinh_thuc_lam_viec}}`)
 
-            $("#cty_lv").val(`{{hoso.ten_cty_tung_lam}}`)
-            $("#bang_cap").val(`{{hoso.ten_bang_cap}}`)
-            $("#dao_tao").val(`{{hoso.don_vi_dao_tao}}`)
-            $("#chuyen_nganh").val(`{{hoso.chuyen_nganh}}`)
-            $("#bat_dau").val(`{{hoso.thoi_gian_bat_dau}}`)
-            $("#ket_thuc").val(`{{hoso.thoi_gian_ket_thuc}}`)
-            $("#loai_tot_nghiep").val(`{{hoso.loai_tot_nghiep}}`)
+            $("#cty_lv").val(`{{tin_td.ten_cty_tung_lam}}`)
+            $("#bang_cap").val(`{{tin_td.ten_bang_cap}}`)
+            $("#dao_tao").val(`{{tin_td.don_vi_dao_tao}}`)
+            $("#chuyen_nganh").val(`{{tin_td.chuyen_nganh}}`)
+            $("#bat_dau").val(`{{tin_td.thoi_gian_bat_dau}}`)
+            $("#ket_thuc").val(`{{tin_td.thoi_gian_ket_thuc}}`)
+            $("#loai_tot_nghiep").val(`{{tin_td.loai_tot_nghiep}}`)
 
-            $("#ngoai_ngu").val(`{{hoso.ngoai_ngu}}`)
-            $("#trinh_do_nn").val(`{{hoso.trinh_do_ngoai_ngu}}`)
-            $("#ky_nang").val(`{{hoso.ky_nang}}`)
-            $("#so_thich").val(`{{hoso.so_thich}}`)
+            $("#ngoai_ngu").val(`{{tin_td.ngoai_ngu}}`)
+            $("#trinh_do_nn").val(`{{tin_td.trinh_do_ngoai_ngu}}`)
+            $("#ky_nang").val(`{{tin_td.ky_nang}}`)
+            $("#so_thich").val(`{{tin_td.so_thich}}`)
         }
 
         $("#luong_sal").keyup(function () {
@@ -1006,17 +717,16 @@
         // submit 1
         $("#btn_submit_acc").click(function () {
             let mydata = JSON.stringify({
-                ten_day_du: $("#ten_day_du").val(),
-                dien_thoai_lien_he: $("#dien_thoai_lien_he").val(),
-                ngay_sinh: $("#ngay_sinh").val(),
-                dia_chi_lien_he: $("#dia_chi_lien_he").val(),
-                thanh_pho_song: parseInt($("#thanh_pho_song").val()),
-                gioi_tinh: parseInt($("#gioi_tinh").val()),
-                tinh_trang_hn: parseInt($("#tinh_trang_hn").val()),
+                ten_cong_ty: $("#ten_cong_ty").val(),
+                dien_thoai_cty: $("#dien_thoai_cty").val(),
+                ng_cty: $("#ng_cty").val(),
+                dia_chi_cty: $("#dia_chi_cty").val(),
+                email_cty: $("#email_cty").val(),
+                info_cty: $("#info_cty").val(),
             });
             $.ajax({
                 type: 'POST',
-                url: '/nguoi-tim-viec/submit-info-acc/',
+                url: '/nha-tuyen-dung/submit-info-cty/',
                 data: mydata,
                 // contentType: false,
                 // processData: false,
@@ -1033,6 +743,7 @@
                     $(".xt_sdt").text($("#dien_thoai_lien_he").val())
                     $(".xt_gioi_tinh").text(data['gt'])
                     $(".xt_hon_nhan").text(data['tthn'])
+                    $("#check_val1").val(data["err"])
                 }
             }).fail(function (xhr, textStatus, errorThrown) {
                 swal("Cảnh báo!", "Thông tin bạn nhập chưa đủ, lưu thông tin thất bại!", "error");
@@ -1042,17 +753,19 @@
         // submit 2
         $("#btn_tt_conban").click(function () {
             let mydata = JSON.stringify({
-                vi_tri: $("#vi_tri").val(),
+                title_tin: $("#title_tin").val(),
                 nganh_nghe: parseInt($("#nganh_nghe_lv").val()),
                 thanh_pho_lv: parseInt($("#thanh_pho_lv").val()),
                 trinh_do: parseInt($("#trinh_do").val()),
                 nam_kn: parseInt($("#nam_kn").val()),
                 hinhthuc_lv: parseInt($("#hinhthuc_lv").val()),
                 luong_sal: $("#luong_mong_muon").val(),
+                so_luong_tuyen: parseInt($("#so_luong_tuyen").val()),
+                ngay_het_han: $("#ngay_het_han").val(),
             });
             $.ajax({
                 type: 'POST',
-                url: '/nguoi-tim-viec/submit-info-normal/',
+                url: '/nha-tuyen-dung/submit-info-normal/',
                 data: mydata,
                 // contentType: false,
                 // processData: false,
@@ -1069,6 +782,8 @@
                     $(".xt_td_ngoaingu").text(data['td_nn'])
                     $(".xt_hinh_thuc").text(data['hinh_thuc'])
                     $(".xt_salary").text($("#luong_mong_muon").val() + "VND")
+                    $("#check_val2").val(data["err"])
+
                 }
             }).fail(function (xhr, textStatus, errorThrown) {
                 swal("Cảnh báo!", "Thông tin bạn nhập chưa đủ, lưu thông tin thất bại!", "error");
@@ -1076,51 +791,18 @@
         })
 
         // submit 3
-        $("#btn_submit3").click(function () {
-            let mydata = JSON.stringify({
-                cty_lv: $("#cty_lv").val(),
-                bang_cap: $("#bang_cap").val(),
-                dao_tao: $("#dao_tao").val(),
-                chuyen_nganh: $("#chuyen_nganh").val(),
-                bat_dau: $("#bat_dau").val(),
-                ket_thuc: $("#ket_thuc").val(),
-                loai_tot_nghiep: parseInt($("#loai_tot_nghiep").val()),
-
-            });
-            $.ajax({
-                type: 'POST',
-                url: '/nguoi-tim-viec/submit-info-exp/',
-                data: mydata,
-                // contentType: false,
-                // processData: false,
-                contentType: "application/json",
-                dataType: 'json'
-            }).done(function (data, statusText, xhr) {
-                if (data["err"] == 2) {
-                    swal("Cảnh báo!", "Thông tin bạn nhập chưa đủ, lưu thông tin thất bại!", "error");
-                }
-                else if (data["err"] == 1) {
-                    swal("Thông báo!", "Bạn đã lưu thông tin tài khoản thành công!", "success");
-                    $(".xt_bang_cap").text($("#bang_cap").val())
-
-                }
-            }).fail(function (xhr, textStatus, errorThrown) {
-                swal("Cảnh báo!", "Thông tin bạn nhập chưa đủ, lưu thông tin thất bại!", "error");
-            });
-        })
-        // submit 4
-
         $("#btn_sub4").click(function () {
             let mydata = JSON.stringify({
                 ngoai_ngu: $("#ngoai_ngu").val(),
                 trinh_do_nn: parseInt($("#trinh_do_nn").val()),
-                ky_nang: $("#ky_nang").val(),
-                so_thich: $("#so_thich").val(),
+                mota_cviec: $("#mota_cviec").val(),
+                ql_cviec: $("#ql_cviec").val(),
+                yc_cviec: $("#yc_cviec").val(),
 
             });
             $.ajax({
                 type: 'POST',
-                url: '/nguoi-tim-viec/submit-info-nn/',
+                url: '/nha-tuyen-dung/submit-info-nn/',
                 data: mydata,
                 // contentType: false,
                 // processData: false,
@@ -1134,7 +816,7 @@
                     swal("Thông báo!", "Bạn đã lưu thông tin tài khoản thành công!", "success");
                     $(".xt_td_ngoaingu").text(data["tdnn"])
                     $(".xt_nn").text(data["nn_lv"])
-                    console.log(data["nn_lv"])
+                    $("#check_val3").val(data["err"])
                 }
             }).fail(function (xhr, textStatus, errorThrown) {
                 swal("Cảnh báo!", "Thông tin bạn nhập chưa đủ, lưu thông tin thất bại!", "error");
@@ -1144,20 +826,22 @@
 
         $(".btn_dhs").click(function () {
             let mydata = JSON.stringify({
-                "mana": 1
+                "check_val1": parseInt($("#check_val1").val()),
+                "check_val2": parseInt($("#check_val2").val()),
+                "check_val3": parseInt($("#check_val3").val()),
             });
             $.ajax({
                 type: 'POST',
-                url: '/nguoi-tim-viec/submit-duyeths/',
+                url: '/nha-tuyen-dung/submit-duyet-tintd/',
                 data: mydata,
                 // contentType: false,
                 // processData: false,
                 contentType: "application/json",
                 dataType: 'json'
             }).done(function (data, statusText, xhr) {
-                swal("Chúc mừng !!!", "Bạn đã đăng hồ sơ thành công! Hồ sơ đang trong quá trình kiểm duyệt, mọi thông tin sẽ gửi về  mail của bạn", "success");
+                swal("Chúc mừng !!!", "Bạn đã đăng tin thành công! Tin tuyển dụng đang trong quá trình kiểm duyệt, mọi thông tin sẽ gửi về  mail của bạn", "success");
             }).fail(function (xhr, textStatus, errorThrown) {
-                swal("Cảnh báo!", "Thông tin bạn nhập chưa đủ, lưu thông tin thất bại!", "error");
+                swal("Cảnh báo!", "Thông tin bạn nhập chưa đủ, đăng thông tin thất bại!", "error");
             });
         })
     })

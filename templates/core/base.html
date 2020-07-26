@@ -32,6 +32,17 @@
             transition: top 0.3s;
             z-index: 9999;
         }
+
+        .style_sel {
+            display: inline-block;
+            width: 100%;
+            height: 35px;
+            border: none;
+            background-color: #ffff;
+            outline: none;
+        }
+
+        .style_sel:focus {}
     </style>
     {% block css_blocl %} {% endblock %}
 
@@ -128,9 +139,7 @@
                                                 <div class="carousel-img-text">
                                                     <div class="carousel-img-text-l">
                                                         <p>Tìm kiếm công việc mơ ước cùng</p>
-                                                        <p><a href="#" target="_blank"><span style="color:#2ecc71;">SIÊU
-                                                                    VIỆT
-                                                                    GROUP</span></a></p>
+                                                        <p><a href="#" target="_blank"><span style="color:#2ecc71;">NCKIT</span></a></p>
                                                     </div>
                                                     <div class="carousel-img-text-r"> <a target="_blank" href="#"> <img
                                                                 src="{% static 'core/images/2842450_vieclam24h_1575541098.png' %}"
@@ -164,453 +173,48 @@
 
                                     <div class="row bg_white mt_18"
                                         style="width: 930px;margin: 0 auto;border-radius: 2px;box-shadow: 0 1px 7px rgba(0,0,0,.15);">
-                                        <form method="get" action="/tim-kiem-viec-lam-nhanh" id="tk_frm_submit">
+                                        <form method="GET" action="" id="tk_frm_submit">
                                             <div style="width: 85%; float: left;height: 50px">
                                                 <div class="tk-items" style="width: 50%;margin: 10px 0px;">
                                                     <input placeholder="Nhập tiêu đề, công ty, địa điểm..." type="text"
-                                                        name="hdn_tu_khoa" class="tk-input-search" id="tk-input-search"
-                                                        value="">
+                                                        name="key_job" class="tk-input-search" id="key_job" value="">
                                                 </div>
-                                                <div class="tk-items hidden" style="width: 25%;">
-                                                    <div class="tk-select tk-icon tk-select-gate">
-                                                        <div class="select2-container selectpicker box_select_filter pos_relative select-style select-style-new"
-                                                            id="s2id_tk_select_gate" style="display: inline-block;"><a
-                                                                href="#" onclick="return false;" class="select2-choice"
-                                                                tabindex="-1" style="color: rgb(149, 149, 149);"> <span
-                                                                    class="select2-chosen">Chọn loại
-                                                                    việc
-                                                                    làm</span><abbr
-                                                                    class="select2-search-choice-close"></abbr> <span
-                                                                    class="select2-arrow"><b></b></span></a><input
-                                                                class="select2-focusser select2-offscreen" type="text"
-                                                                id="s2id_autogen4">
-                                                            <div
-                                                                class="select2-drop select2-display-none tk_select_gate select2-with-searchbox">
-                                                                <div class="select2-search"> <input type="text"
-                                                                        autocomplete="off" autocorrect="off"
-                                                                        autocapitalize="off" spellcheck="false"
-                                                                        class="select2-input"> </div>
-                                                                <ul class="select2-results" tabindex="0"
-                                                                    style="width: 204px; padding-right: 10px; outline: none; overflow: hidden;">
-                                                                </ul>
-                                                                <div
-                                                                    style="position: absolute; z-index: 100; margin: 0px; padding: 0px; right: 3px; display: none; top: -4px;">
-                                                                    <div class="enscroll-track track3"
-                                                                        style="position: relative;"><a href="#"
-                                                                            class="handle3"
-                                                                            style="position: absolute; z-index: 1;">
-                                                                            <div class="top"></div>
-                                                                            <div class="bottom"></div>
-                                                                        </a></div>
-                                                                </div>
-                                                            </div>
-                                                        </div><select name="tk_select_gate"
-                                                            class="selectpicker box_select_filter pos_relative select-style select-style-new select2-offscreen"
-                                                            id="tk_select_gate" style="display: inline-block;"
+                                                <div class="tk-items"
+                                                    style="width: 25%;display: flex; justify-content: center; align-items: center;">
+                                                    <div class="tk-select tk-select-nn"
+                                                        style="width: 100%; cursor: pointer;">
+                                                        <select name="nganh_nghe" class="style_sel" id="nganh_nghe"
                                                             tabindex="-1">
-                                                            <option value="">Chọn loại việc làm</option>
-                                                            <option value="4">
-                                                                Việc làm quản lý </option>
-                                                            <option value="3">
-                                                                Việc làm chuyên môn </option>
-                                                            <option value="1">
-                                                                Việc làm lao động phổ thông </option>
-                                                            <option value="2">
-                                                                Việc làm bán thời gian </option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="tk-items" style="width: 25%;">
-                                                    <div class="tk-select tk-icon tk-select-nn">
-                                                        <div class="select2-container selectpicker box_select_filter pos_relative select-style select-style-new"
-                                                            id="s2id_tk_select_nganh_nghe_cap1"
-                                                            style="display: inline-block;"><a href="#"
-                                                                onclick="return false;" class="select2-choice"
-                                                                tabindex="-1" style="color: rgb(149, 149, 149);"> <span
-                                                                    class="select2-chosen">Tất cả
-                                                                    Ngành nghề</span><abbr
-                                                                    class="select2-search-choice-close"></abbr> <span
-                                                                    class="select2-arrow"><b></b></span></a><input
-                                                                class="select2-focusser select2-offscreen" type="text"
-                                                                id="s2id_autogen5">
-                                                            <div
-                                                                class="select2-drop select2-display-none hdn_nganh_nghe_cap1 select2-with-searchbox">
-                                                                <div class="select2-search"> <input type="text"
-                                                                        autocomplete="off" autocorrect="off"
-                                                                        autocapitalize="off" spellcheck="false"
-                                                                        class="select2-input"> </div>
-                                                                <ul class="select2-results" tabindex="0"
-                                                                    style="width: 208px; padding-right: 10px; outline: none; overflow: hidden;">
-                                                                </ul>
-                                                                <div
-                                                                    style="position: absolute; z-index: 100; margin: 0px; padding: 0px; right: 3px; display: none; top: -8px;">
-                                                                    <div class="enscroll-track track3"
-                                                                        style="position: relative;"><a href="#"
-                                                                            class="handle3"
-                                                                            style="position: absolute; z-index: 1;">
-                                                                            <div class="top"></div>
-                                                                            <div class="bottom"></div>
-                                                                        </a></div>
-                                                                </div>
-                                                            </div>
-                                                        </div><select name="hdn_nganh_nghe_cap1"
-                                                            class="selectpicker box_select_filter pos_relative select-style select-style-new select2-offscreen"
-                                                            data-select-class="nganh_nghe"
-                                                            id="tk_select_nganh_nghe_cap1"
-                                                            style="display: inline-block;" tabindex="-1">
-                                                            <option value="">Tất cả Ngành nghề</option>
-                                                            <option value="38">
-                                                                Hành chính-Văn phòng </option>
-                                                            <option value="96">
-                                                                Nhân viên kinh doanh </option>
-                                                            <option value="30">
-                                                                Kế toán-Kiểm toán </option>
-                                                            <option value="16">
-                                                                Kỹ thuật </option>
-                                                            <option value="63">
-                                                                Bán hàng </option>
-                                                            <option value="37">
-                                                                Tư vấn </option>
-                                                            <option value="8">
-                                                                Điện-Điện tử-Điện lạnh </option>
-                                                            <option value="41">
-                                                                Xây dựng </option>
-                                                            <option value="4">
-                                                                Cơ khí-Chế tạo </option>
-                                                            <option value="94">
-                                                                An ninh-Bảo vệ </option>
-                                                            <option value="49">
-                                                                Báo chí-Truyền hình </option>
-                                                            <option value="1">
-                                                                Bảo hiểm </option>
-                                                            <option value="79">
-                                                                Biên-Phiên dịch </option>
-                                                            <option value="2">
-                                                                Bưu chính </option>
-                                                            <option value="101">
-                                                                Chứng khoán- Vàng </option>
-                                                            <option value="88">
-                                                                Công nghệ cao </option>
-                                                            <option value="90">
-                                                                Công nghiệp </option>
-                                                            <option value="6">
-                                                                Dầu khí-Hóa chất </option>
-                                                            <option value="50">
-                                                                Dệt may - Da giày </option>
-                                                            <option value="7">
-                                                                Dịch vụ </option>
-                                                            <option value="9">
-                                                                Du lịch </option>
-                                                            <option value="54">
-                                                                Điện tử viễn thông </option>
-                                                            <option value="76">
-                                                                Game </option>
-                                                            <option value="10">
-                                                                Giáo dục-Đào tạo </option>
-                                                            <option value="85">
-                                                                Hàng gia dụng </option>
-                                                            <option value="57">
-                                                                Hàng hải </option>
-                                                            <option value="55">
-                                                                Hàng không </option>
-                                                            <option value="87">
-                                                                Hoá học-Sinh học </option>
-                                                            <option value="93">
-                                                                Hoạch định-Dự án </option>
-                                                            <option value="12">
-                                                                In ấn-Xuất bản </option>
-                                                            <option value="5">
-                                                                IT phần cứng/mạng </option>
-                                                            <option value="74">
-                                                                IT phần mềm </option>
-                                                            <option value="81">
-                                                                KD bất động sản </option>
-                                                            <option value="84">
-                                                                Khách sạn-Nhà hàng </option>
-                                                            <option value="40">
-                                                                Kho vận-Vật tư </option>
-                                                            <option value="15">
-                                                                Kiến trúc-TK nội thất </option>
-                                                            <option value="61">
-                                                                Kỹ thuật ứng dụng </option>
-                                                            <option value="48">
-                                                                Làm bán thời gian </option>
-                                                            <option value="26">
-                                                                Lao động phổ thông </option>
-                                                            <option value="53">
-                                                                Marketing-PR </option>
-                                                            <option value="22">
-                                                                Ngân hàng </option>
-                                                            <option value="44">
-                                                                Ngành nghề khác </option>
-                                                            <option value="62">
-                                                                Nghệ thuật - Điện ảnh </option>
-                                                            <option value="42">
-                                                                Ngoại thương-Xuất nhập khẩu </option>
-                                                            <option value="78">
-                                                                Người giúp việc </option>
-                                                            <option value="59">
-                                                                Nhân sự </option>
-                                                            <option value="17">
-                                                                Nông-Lâm-Ngư nghiệp </option>
-                                                            <option value="65">
-                                                                NV trông quán Internet </option>
-                                                            <option value="89">
-                                                                Ô tô - Xe máy </option>
-                                                            <option value="18">
-                                                                Pháp lý-Luật </option>
-                                                            <option value="92">
-                                                                Promotion Girl (PG) </option>
-                                                            <option value="28">
-                                                                Quan hệ đối ngoại </option>
-                                                            <option value="14">
-                                                                Quản trị kinh doanh </option>
-                                                            <option value="46">
-                                                                Sinh viên làm thêm </option>
-                                                            <option value="20">
-                                                                Spa-Mỹ phẩm-Trang sức </option>
-                                                            <option value="80">
-                                                                Tài chính-Đầu tư </option>
-                                                            <option value="75">
-                                                                Thiết kế đồ hoạ web </option>
-                                                            <option value="32">
-                                                                Thiết kế-Mỹ thuật </option>
-                                                            <option value="86">
-                                                                Thời trang </option>
-                                                            <option value="33">
-                                                                Thủ công mỹ nghệ </option>
-                                                            <option value="91">
-                                                                Thư ký-Trợ lý </option>
-                                                            <option value="34">
-                                                                Thực phẩm-Đồ uống </option>
-                                                            <option value="52">
-                                                                Thực tập </option>
-                                                            <option value="77">
-                                                                Thương mại điện tử </option>
-                                                            <option value="36">
-                                                                Tiếp thị-Quảng cáo </option>
-                                                            <option value="83">
-                                                                Tổ chức sự kiện-Quà tặng </option>
-                                                            <option value="39">
-                                                                Vận tải </option>
-                                                            <option value="43">
-                                                                Y tế-Dược </option>
+                                                            <option value="0">Tất cả Ngành nghề</option>
+                                                            {% for item in list_nghe_nghiep %}
+                                                            <option value="{{ item.code_job }}">{{ item.name_job }}</option>
+                                                            {% endfor %}
                                                         </select>
                                                     </div>
                                                 </div>
                                                 <div class="tk-items"
-                                                    style="width: 25%;margin-right: 0px;border: none;">
-                                                    <div class="tk-select tk-icon tk-select-tt">
-                                                        <div class="select2-container selectpicker box_select_filter pos_relative select-style select-style-new"
-                                                            id="s2id_tk_select_dia_diem" style="display: inline-block;">
-                                                            <a href="#" onclick="return false;" class="select2-choice"
-                                                                tabindex="-1" style="color: rgb(149, 149, 149);"> <span
-                                                                    class="select2-chosen">Tất cả Tỉnh
-                                                                    thành</span><abbr
-                                                                    class="select2-search-choice-close"></abbr> <span
-                                                                    class="select2-arrow"><b></b></span></a><input
-                                                                class="select2-focusser select2-offscreen" type="text"
-                                                                id="s2id_autogen6">
-                                                            <div
-                                                                class="select2-drop select2-display-none hdn_dia_diem select2-with-searchbox">
-                                                                <div class="select2-search"> <input type="text"
-                                                                        autocomplete="off" autocorrect="off"
-                                                                        autocapitalize="off" spellcheck="false"
-                                                                        class="select2-input"> </div>
-                                                                <ul class="select2-results" tabindex="0"
-                                                                    style="width: 208px; padding-right: 10px; outline: none; overflow: hidden;">
-                                                                </ul>
-                                                                <div
-                                                                    style="position: absolute; z-index: 100; margin: 0px; padding: 0px; right: 3px; display: none; top: -8px;">
-                                                                    <div class="enscroll-track track3"
-                                                                        style="position: relative;"><a href=""
-                                                                            class="handle3"
-                                                                            style="position: absolute; z-index: 1;">
-                                                                            <div class="top"></div>
-                                                                            <div class="bottom"></div>
-                                                                        </a></div>
-                                                                </div>
-                                                            </div>
-                                                        </div><select name="hdn_dia_diem"
-                                                            class="selectpicker box_select_filter pos_relative select-style select-style-new select2-offscreen"
-                                                            id="tk_select_dia_diem" style="display: inline-block;"
+                                                    style="width: 25%;display: flex; justify-content: center; align-items: center;">
+                                                    <div class="tk-select tk-select-nn"
+                                                        style="width: 100%; cursor: pointer;">
+                                                        <select name="thanh_pho" class="style_sel" id="thanh_pho"
                                                             tabindex="-1">
-                                                            <option value="">Tất cả Tỉnh thành</option>
-                                                            <option value="1">
-                                                                TP.HCM </option>
-                                                            <option value="2">
-                                                                Hà Nội </option>
-                                                            <option value="52">
-                                                                An Giang </option>
-                                                            <option value="53">
-                                                                Bà Rịa - Vũng Tàu </option>
-                                                            <option value="91">
-                                                                Bắc Giang </option>
-                                                            <option value="92">
-                                                                Bắc Kạn </option>
-                                                            <option value="93">
-                                                                Bạc Liêu </option>
-                                                            <option value="32">
-                                                                Bắc Ninh </option>
-                                                            <option value="90">
-                                                                Bến Tre </option>
-                                                            <option value="89">
-                                                                Bình Định </option>
-                                                            <option value="9">
-                                                                Bình Dương </option>
-                                                            <option value="88">
-                                                                Bình Phước </option>
-                                                            <option value="87">
-                                                                Bình Thuận </option>
-                                                            <option value="86">
-                                                                Cà Mau </option>
-                                                            <option value="21">
-                                                                Cần Thơ </option>
-                                                            <option value="85">
-                                                                Cao Bằng </option>
-                                                            <option value="84">
-                                                                Cửu Long </option>
-                                                            <option value="23">
-                                                                Đà Nẵng </option>
-                                                            <option value="83">
-                                                                Đắc Lắc </option>
-                                                            <option value="82">
-                                                                Đắc Nông </option>
-                                                            <option value="81">
-                                                                Điện Biên </option>
-                                                            <option value="19">
-                                                                Đồng Nai </option>
-                                                            <option value="80">
-                                                                Đồng Tháp </option>
-                                                            <option value="79">
-                                                                Gia Lai </option>
-                                                            <option value="78">
-                                                                Hà Giang </option>
-                                                            <option value="77">
-                                                                Hà Nam </option>
-                                                            <option value="76">
-                                                                Hà Tĩnh </option>
-                                                            <option value="27">
-                                                                Hải Dương </option>
-                                                            <option value="22">
-                                                                Hải Phòng </option>
-                                                            <option value="75">
-                                                                Hậu Giang </option>
-                                                            <option value="74">
-                                                                Hòa Bình </option>
-                                                            <option value="26">
-                                                                Hưng Yên </option>
-                                                            <option value="73">
-                                                                Khánh Hòa </option>
-                                                            <option value="72">
-                                                                Kiên Giang </option>
-                                                            <option value="71">
-                                                                Kon Tum </option>
-                                                            <option value="70">
-                                                                Lai Châu </option>
-                                                            <option value="67">
-                                                                Lâm Đồng </option>
-                                                            <option value="69">
-                                                                Lạng Sơn </option>
-                                                            <option value="68">
-                                                                Lào Cai </option>
-                                                            <option value="66">
-                                                                Long An </option>
-                                                            <option value="96">
-                                                                Miền Bắc </option>
-                                                            <option value="98">
-                                                                Miền Nam </option>
-                                                            <option value="97">
-                                                                Miền Trung </option>
-                                                            <option value="65">
-                                                                Nam Định </option>
-                                                            <option value="64">
-                                                                Nghệ An </option>
-                                                            <option value="63">
-                                                                Ninh Bình </option>
-                                                            <option value="62">
-                                                                Ninh Thuận </option>
-                                                            <option value="99">
-                                                                Nước ngoài </option>
-                                                            <option value="61">
-                                                                Phú Thọ </option>
-                                                            <option value="60">
-                                                                Phú Yên </option>
-                                                            <option value="59">
-                                                                Quảng Bình </option>
-                                                            <option value="58">
-                                                                Quảng Nam </option>
-                                                            <option value="30">
-                                                                Quảng Ngãi </option>
-                                                            <option value="57">
-                                                                Quảng Ninh </option>
-                                                            <option value="56">
-                                                                Quảng Trị </option>
-                                                            <option value="55">
-                                                                Sóc Trăng </option>
-                                                            <option value="54">
-                                                                Sơn La </option>
-                                                            <option value="51">
-                                                                Tây Ninh </option>
-                                                            <option value="50">
-                                                                Thái Bình </option>
-                                                            <option value="49">
-                                                                Thái Nguyên </option>
-                                                            <option value="48">
-                                                                Thanh Hóa </option>
-                                                            <option value="94">
-                                                                Thừa Thiên Huế </option>
-                                                            <option value="47">
-                                                                Tiền Giang </option>
-                                                            <option value="95">
-                                                                Toàn quốc </option>
-                                                            <option value="46">
-                                                                Trà Vinh </option>
-                                                            <option value="45">
-                                                                Tuyên Quang </option>
-                                                            <option value="44">
-                                                                Vĩnh Long </option>
-                                                            <option value="43">
-                                                                Vĩnh Phúc </option>
-                                                            <option value="42">
-                                                                Yên Bái </option>
+                                                            <option value="0">Tất cả Tỉnh thành</option>
+                                                            {% for item in list_thanh_pho %}
+                                                            <option value="{{ item.code }}">{{ item.name }}</option>
+                                                            {% endfor %}
                                                         </select>
                                                     </div>
                                                 </div>
                                                 <div class="clearfix"></div>
                                             </div>
                                             <div style="width: 15%; float: left;height: 50px">
-                                                <button onclick="tk_btn_search();"
-                                                    data-loading-text="Tìm việc <i class='fa fa-circle-o-notch fa-spin'></i>"
-                                                    id="tk-btn-search" type="button"
-                                                    class="btn btn-loading btn-primary tk-btn-search tk-icon"
+                                                <button id="btn_search" type="button" class="btn btn-success"
                                                     style="width: 100%;height: 100%;font-size: 16px;">
                                                     Tìm việc
                                                 </button>
                                             </div>
                                             <div class="clearfix"></div>
                                         </form>
-                                        <div class="modal fade" id="tk_frm_submit_rq">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-body" style="padding-bottom: 20px;">
-                                                        <div class="row">
-                                                            <button type="button" class="close" data-dismiss="modal"
-                                                                aria-hidden="true">×</button>
-                                                        </div>
-                                                        <div class="row text-center">
-                                                            <p>Vui lòng chọn <span style="color: #00999f;">Loại việc
-                                                                    làm</span> mà bạn muốn tìm kiếm.</p>
-                                                        </div>
-                                                        <div class="row text-center mt_6">
-                                                            <button type="button" class="btn btn-default"
-                                                                data-dismiss="modal"
-                                                                style="padding: 5px 40px;color: #00999f;">OK</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -806,21 +410,34 @@
     <script type="text/javascript" src="{% static 'core/js/jquery.validate.min.js' %}"></script>
     <script src="{% static 'core/js/sweetalert.min.js' %}"></script>
     <script src="{% static 'core/js/loadingjs.js' %}"></script>
-    <!-- <script>
-        if ($(window).width() > 992) {
-            $(window).scroll(function () {
-                if ($(this).scrollTop() > 350) {
-                    $('#nvarbar_menudes').addClass("fixed-top");
-                    // add padding top to show content behind navbar
-                    $('body').css('padding-top', $('#navbar_top').outerHeight() + 'px');
-                } else {
-                    $('#nvarbar_menudes').removeClass("fixed-top");
-                    // remove padding top from body
-                    $('body').css('padding-top', '0');
-                }
-            });
-        } // end if
-    </script> -->
+    <script src="{% static 'core/js/base.js' %}"></script>
+
+    <script>
+        $(function () {
+            $("#btn_search").click(function () {
+                parent=$("#tk_frm_submit")
+                let key_job = parent.find("#key_job").val()
+                let nganh_nghe = parent.find("#nganh_nghe").val()
+                let thanh_pho = parent.find("#thanh_pho").val()
+                let mydata = JSON.stringify({
+                    key_job: key_job,
+                    nganh_nghe:parseInt(nganh_nghe),
+                    thanh_pho:parseInt(thanh_pho),
+                });
+                $.ajax({
+                    type: 'POST',
+                    url: '/tim-viec-lam-nangcao/',
+                    data: mydata,
+                    contentType: "application/json",
+                    dataType: 'json'
+                }).done(function (data, statusText, xhr) {
+                    location.assign(`{% url 'seeker:find_job' %}`)
+                }).fail(function (xhr, textStatus, errorThrown) {
+                    swal("Chú ý!", "Lỗi kết nối!", "error");
+                });
+            })
+        })
+    </script>
     {% block javascript_block %} {% endblock %}
 
 </body>

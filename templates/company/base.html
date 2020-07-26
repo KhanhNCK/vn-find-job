@@ -211,12 +211,21 @@
          top: 12px;
          right: -4px;
       }
+
       .icn_cong_head_chuyenmon {
          margin-left: 10px;
       }
 
       .icn_cong_head_phothong {
          margin-left: 20px;
+      }
+      .style_sel {
+         display: inline-block;
+         width: 100%;
+         height: 35px;
+         border: none;
+         background-color: #ffff;
+         outline: none;
       }
    </style>
    {% block css_blocl %} {% endblock %}
@@ -237,22 +246,22 @@
                   </div>
                </div>
                <div class="menu_cong_header floatLeft pos_absolute" style="max-width: 640px;">
-                  <a class="bt_head_cong floatLeft " href="{% url 'seeker:viec_lam_mana' %}" data-toggle="tooltip"
+                  <a class="bt_head_cong mana floatLeft " href="{% url 'seeker:viec_lam_mana' %}" data-toggle="tooltip"
                      data-placement="bottom" title="Cổng việc làm Quản lý" style="margin-left: 28px;">
                      <div class="icn_cong_menu icn_cong_head_quanly mt_10"></div>
                      <div class="title_cong_menu w_100">Quản lý</div>
                   </a>
-                  <a class="bt_head_cong floatLeft " href="{% url 'seeker:viec_lam_full' %}" data-toggle="tooltip"
+                  <a class="bt_head_cong full floatLeft " href="{% url 'seeker:viec_lam_full' %}" data-toggle="tooltip"
                      data-placement="bottom" title="Cổng việc làm Fulltime" style="margin-left: 28px;">
                      <div class="icn_cong_menu icn_cong_head_chuyenmon mt_10"></div>
                      <div class="title_cong_menu w_100">Fulltime</div>
                   </a>
-                  <a class="bt_head_cong floatLeft " href="{% url 'seeker:viec_lam_free' %}" data-toggle="tooltip"
+                  <a class="bt_head_cong free floatLeft " href="{% url 'seeker:viec_lam_free' %}" data-toggle="tooltip"
                      data-placement="bottom" title="Cổng việc làm Freelandcer" style="margin-left: 28px;">
                      <div class="icn_cong_menu icn_cong_head_phothong mt_10"></div>
                      <div class="title_cong_menu w_100">Freelandcer</div>
                   </a>
-                  <a class="bt_head_cong floatLeft " href="{% url 'seeker:viec_lam_part' %}" data-toggle="tooltip"
+                  <a class="bt_head_cong part floatLeft " href="{% url 'seeker:viec_lam_part' %}" data-toggle="tooltip"
                      data-placement="bottom" title="Cổng việc làm Parttime" style="margin-left: 28px;">
                      <div class="icn_cong_menu icn_cong_head_sinhvien mt_10" style="margin-left: 20px;"></div>
                      <div class="title_cong_menu w_100" style="margin-left: 6px">Parttime</div>
@@ -319,7 +328,8 @@
                            <div class="line-break02 w232"></div>
                         </div>
                         <div class="block-content  ml12 mr14">
-                           <a href="" class="btn btn-pink btn-lg btn-creat-hs font16"
+                           <a href="{% url 'company:tao-tin-tuyen-dung' %}"
+                              class="btn btn-pink btn-lg btn-creat-hs font16"
                               style="display: flex; justify-content: center; align-items: center;">
                               <i class="fas fa-paper-plane"></i>TẠO TIN TUYỂN DỤNG
                            </a>
@@ -455,7 +465,7 @@
                                     789</span>
                               </p>
                               <p class="mb4"><span>Miền Nam:</span> <span class="text_pink bold">(012) 3456
-                                 789</span>
+                                    789</span>
                               </p>
                            </div>
                         </div>
@@ -467,7 +477,129 @@
          <!-- col main -->
          <div class="show-content w_100 box_right">
             <div id="cols-right" class="bg_grey" style="height: 830px;">
-               {% block content %} {% endblock %}
+               <div class="content_cols-right pt_16 pl_24 pb_24">
+                  {% block content %} {% endblock %}
+                  <div class="slideshow-container mt24 text-center">
+                     <div class="box_filter_content w_100 mt_16 pos_relative" id="box_search_ntd"
+                        style="margin-bottom:30px;height:425px">
+                        <div class="box-cam-nang box-news-hot">
+                           <div>
+                              <h2 class="tit-cam-nang">CẩM NANG TUYểN DụNG</h2>
+                           </div>
+                           <div class="list-news-hot row" style="margin-top:20px;">
+                              <a class="news" target="_blank" href="">
+                                 <div style="height: 160px;">
+                                    <img style="height: 100%;width: 100%"
+                                       src="{% static 'company/tuyendung/hr-la-gi-cac-vi-tri-trong-nganh-hr-bao-gom-nhung-gi-hinh-2-280x186.jpg' %}"
+                                       alt="Bạn đã biết cách tạo động lực giúp nhân viên làm việc..."
+                                       title="Bạn đã biết cách tạo động lực giúp nhân viên làm việc...">
+                                 </div>
+                                 <div class="txt-tit" style="line-height: 1.4;padding: 0px 5px 10px 10px;">
+                                    <h3 class="title mb0 txt-3-line title-cam-nang"
+                                       style="font-size: 16px !important;margin-bottom:15px !important;">Bạn đã biết
+                                       cách tạo động lực giúp nhân viên làm việc...</h3>
+                                    <div class="txt-descript txt-3-line mt5">Đối với một nhà lãnh đạo hay quản lý,
+                                       nhân viên&nbsp;là tài sản quan trọng giúp xây dựng và phát triển doanh nghiệp,
+                                       họ&nbsp;cũng&nbsp;là...</div>
+                                 </div>
+                              </a>
+                              <a class="news" target="_blank" href="">
+                                 <div style="height: 160px;">
+                                    <img style="height: 100%;width: 100%"
+                                       src="{% static 'company/tuyendung/cq5dam.web_.1280.1280.jpeg' %}"
+                                       alt="4 tố chất không thể thiếu ở một nhà lãnh đạo thực thụ"
+                                       title="4 tố chất không thể thiếu ở một nhà lãnh đạo thực thụ">
+                                 </div>
+                                 <div class="txt-tit" style="line-height: 1.4;padding: 0px 5px 10px 10px;">
+                                    <h3 class="title mb0 txt-3-line title-cam-nang"
+                                       style="font-size: 16px !important;margin-bottom:15px !important;">4 tố chất
+                                       không thể thiếu ở một nhà lãnh đạo thực thụ</h3>
+                                    <div class="txt-descript txt-3-line mt5">Đa số mọi người đều nghĩ đến&nbsp;kinh
+                                       nghiệm chuyên môn hay khả năng giám sát, điều hành,...là các yếu tố cần ở
+                                       một...</div>
+                                 </div>
+                              </a>
+                              <a class="news" target="_blank" href="">
+                                 <div style="height: 160px;">
+                                    <img style="height: 100%;width: 100%"
+                                       src="{% static 'company/tuyendung/988919f81523e8e4303f5c74d45c3095x-280x186.jpg' %}"
+                                       alt="4 yếu tố nhận diện ứng viên phù hợp với vị trí chăm..."
+                                       title="4 yếu tố nhận diện ứng viên phù hợp với vị trí chăm...">
+                                 </div>
+                                 <div class="txt-tit" style="line-height: 1.4;padding: 0px 5px 10px 10px;">
+                                    <h3 class="title mb0 txt-3-line title-cam-nang"
+                                       style="font-size: 16px !important;margin-bottom:15px !important;">4 yếu tố
+                                       nhận diện ứng viên phù hợp với vị trí chăm...</h3>
+                                    <div class="txt-descript txt-3-line mt5">Nhân viên chăm sóc khách hàng là một
+                                       phần không thể thiếu đối với bất kỳ công ty dịch vụ nào. Tuy nhiên, việc
+                                       tuyển...</div>
+                                 </div>
+                              </a>
+                           </div>
+                           <div class="mt5 cam_nang_td" style="margin-top:20px !important;">
+                              <a target="_blank" href="" class="btn btn-view">
+                                 <i class="icon icon-add" aria-hidden="true"></i>
+                                 <span>Xem thêm Cẩm nang tuyển dụng</span>
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="box_alert_content_dangkytuvan w_100 mt_24 font16">
+                        <div class="pt_10 txt-ghi">
+                           Để tuyển dụng hoặc tìm việc hiệu quả, vui lòng <span class="bold">ĐĂNG KÝ TƯ VẤN</span> để
+                           được hỗ trợ ngay
+                        </div>
+                        <div class=" pb_14 pr_14 pl_14">
+                           <div class="col_list_left floatLeft">
+                              <a href="nha-tuyen-dung-dang-ky-tu-van"
+                                 class="btn btn-ntd-dky-tuvan btn-lg w340 fs18 pl_8" rel="nofollow">
+                                 Nhà tuyển dụng đăng ký tư vấn
+                              </a>
+                           </div>
+                           <div class="col_list_right floatLeft">
+                              <a href="nguoi-tim-viec-dang-ky-tu-van"
+                                 class="btn btn-ntv-dky-tuvan btn-lg w340 fs18 pl_8" rel="nofollow">
+                                 Người tìm việc đăng ký tư vấn
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="row mt_24 ">
+                        <div class="box_tab pl_0 pr_0">
+                           <div class="panel no-border box_tab">
+                              <div class="panel-heading bg_blue title_box_panel">
+                                 <div class="panel-title fwb">
+                                    <i class="icon_24 icon-call icon-24"></i> Hotline cho nhà tuyển dụng
+                                 </div>
+                                 <div class="tools">
+                                    <a class="ico" href="nha-tuyen-dung#"></a>
+                                 </div>
+                              </div>
+                              <div class="panel-body">
+                                 <div class="hr_header">
+                                    <div class="hr"></div>
+                                    <div class="title">
+                                       <span class="bg-white bold font16 text_blue">
+                                          Miền Bắc:<span class="bg-white text_pink font24 bold">(0123) 456 789</span>
+                                       </span>
+                                    </div>
+                                 </div>
+
+                                 <div class="hr_header">
+                                    <div class="hr"></div>
+                                    <div class="title">
+                                       <span class="bg-white bold font16 text_blue">
+                                          Miền Nam:<span class="bg-white text_pink font24 bold">(0123) 456 789</span>
+                                       </span>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
                <div class="w_100 footer_tags pt_16 pb_16" style="padding: 5%;">
                   <div class="content_cols-right content_center_970_aigo" style="color: #898989;">
                      <div class="row ds_tags">
@@ -533,6 +665,7 @@
       <script type="text/javascript" src="{% static 'core/js/jquery.validate.min.js' %}"></script>
       <script src="{% static 'core/js/sweetalert.min.js' %}"></script>
       <script src="{% static 'core/js/loadingjs.js' %}"></script>
+      <script src="{% static 'core/js/base.js' %}"></script>
       <script>
          $(function () {
             $(".tab-video").click(function () {

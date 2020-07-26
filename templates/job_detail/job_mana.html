@@ -4,7 +4,7 @@
 {% endblock %}
 
 {% block content %}
-<div class="content_cols-right pt_16 pl_24 pb_24">
+<div class="">
     <div class="breadcrum">
         <div class="breadcrum-l">
             <span class="glyphicon glyphicon-home breadcrum-icon-home"></span>
@@ -12,20 +12,13 @@
         <div class="breadcrum-r">
             <ul class="breadcrum-ul" itemscope="" itemtype="http://schema.org/BreadcrumbList">
                 <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-                    <a href="https://vieclam24h.vn/" itemprop="item">
+                    <a href="/" itemprop="item">
                         <span itemprop="name">Trang chủ</span>
                     </a>
                     <span class="glyphicon glyphicon-menu-right breadcrum-icon-menu"></span>
                     <meta itemprop="position" content="1">
                 </li>
-                <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-                    <a href="https://vieclam24h.vn/viec-lam-quan-ly" itemprop="item">
-                        <span itemprop="name">Cổng ứng viên</span>
-                    </a>
-                    <span class="glyphicon glyphicon-menu-right breadcrum-icon-menu"></span>
-                    <meta itemprop="position" content="2">
-                </li>
-                <li>Việc làm tuyển gấp </li>
+                <li>Việc làm quản lý </li>
             </ul>
         </div>
         <div class="clearfix"></div>
@@ -62,6 +55,8 @@
                 </div>
                 <div class="list_item_two bg_white">
                     <div>
+
+                        {% if job_mana == None %}
                         <div class="list-items ">
                             <div class="detail-link pos_relative">
                                 <div class="pos_absolute w30">
@@ -74,20 +69,12 @@
                                 </div>
                                 <div class="content_list_item_line w_100">
                                     <span class="title-blockjob-main truncate-ellipsis font14 pos_relative pr_28">
-                                        <a title="Quản Lý Bán Hàng - Tại Big C Nam Định - Lương Up To 20 Triệu"
-                                            href="/ban-hang/quan-ly-ban-hang-tai-nam-dinh-c63p0id3147916.html"
-                                            class="text_grey2">
-                                            <i class="hot-icon icon-24 icon_24"></i>Quản Lý Bán Hàng - Tại Big C Nam
-                                            Định - Lương Up To 20 Triệu
-                                        </a>
+                                        Xin lỗi chưa có tin tuyển dụng
                                     </span>
-                                    <span class="title-blockjob-sub truncate-ellipsis font14 text_grey"><a
-                                            href="https://vieclam24h.vn/danh-sach-tin-tuyen-dung-cong-ty-tnhh-phat-trien-nguyen-cat-tap-doan-bach-tuong-phat-ntd5322769p1.html"
-                                            class="text_grey"
-                                            title="Công Ty TNHH Phát Triển Nguyên Cát - Tập đoàn Bách Tường Phát">Công
-                                            Ty TNHH Phát Triển Nguyên Cát - Tập đoàn Bách Tường...</a></span>
+                                    <span class="title-blockjob-sub truncate-ellipsis font14 text_grey"><a href=""
+                                            class="text_grey" title="">Xin lỗi</a></span>
                                 </div>
-                                <div class="pos_absolute list_note_icon">
+                                <!-- <div class="pos_absolute list_note_icon">
                                     <div class="note_mucluong text-center font12 text_black floatLeft"
                                         data-toggle="tooltip" data-placement="bottom" title=""
                                         data-original-title="Mức lương">
@@ -104,646 +91,95 @@
                                         data-original-title="Hạn nộp hồ sơ">
                                         <i class="icon_select_box icon_time_list icon_24 icon-24 pos_relative"></i><br>
                                         31/07/2020 </div>
-                                </div>
+                                </div> -->
                                 <div class="line_list"></div>
                             </div>
                         </div>
+                        {% else %}
+                        {% for it in list_mana %}
                         <div class="list-items ">
                             <div class="detail-link pos_relative">
                                 <div class="pos_absolute w30">
-                                    <a class="bookmark-link"
-                                        href="/taikhoan/login_ntv?referral_url=aHR0cHM6Ly92aWVjbGFtMjRoLnZuL3ZpZWMtbGFtLXR1eWVuLWdhcC5odG1sP3NvcnQ9aGFuX25vcA,,"
-                                        data-idtin="3146869" data-idnganh="30" data-toggle="tooltip"
-                                        data-placement="bottom" title="Lưu việc làm"><i
+                                    <a class="bookmark-link" href="" data-idtin="3146869" data-idnganh="30"
+                                        data-toggle="tooltip" data-placement="bottom" title="Lưu việc làm"><i
                                             class="icon-star-line icon-24 icon_24 "></i></a>
 
                                 </div>
                                 <div class="content_list_item_line w_100">
                                     <span class="title-blockjob-main truncate-ellipsis font14 pos_relative pr_28">
-                                        <a title="Phó Phòng Kế Toán"
-                                            href="/ke-toan-kiem-toan/pho-phong-ke-toan-c30p0id3146869.html"
-                                            class="text_grey2">
-                                            Phó Phòng Kế Toán
+                                        <a title="{{it.caption_tin_tuc}}" href="" class="text_grey2">
+                                            {{it.caption_tin_tuc}}
                                         </a>
                                     </span>
                                     <span class="title-blockjob-sub truncate-ellipsis font14 text_grey"><a
-                                            href="https://vieclam24h.vn/danh-sach-tin-tuyen-dung-cong-ty-tnhh-trong-dong-thang-long-ntd4997964p1.html"
-                                            class="text_grey" title="Công ty TNHH Trống Đồng Thăng Long">Công ty TNHH
-                                            Trống Đồng Thăng Long</a></span>
+                                            href="{% url 'seeker:tin_tuyen_dung_url' it.slug %}" class="text_grey"
+                                            title="{{it.congty}}">{{it.congty}}</a></span>
                                 </div>
                                 <div class="pos_absolute list_note_icon">
                                     <div class="note_mucluong text-center font12 text_black floatLeft"
                                         data-toggle="tooltip" data-placement="bottom" title=""
                                         data-original-title="Mức lương">
                                         <i class="icon_select_box icon_moneybox2 icon_24 icon-24 pos_relative"></i><br>
-                                        10 – 15 triệu </div>
+                                        {{it.muc_luong}} VND </div>
                                     <div class="note_mucluong text-center font12 text_black floatLeft "
                                         data-toggle="tooltip" data-placement="bottom" title=""
-                                        data-original-title="Hà Nội">
+                                        data-original-title="{{it.nghe_nghiep}}">
                                         <i class="icon_select_box icon_local_list icon_24 icon-24 pos_relative"></i><br>
-                                        <span class="onecol_province">Hà Nội</span>
-                                    </div>
-                                    <div class="note_mucluong text-center font12 text_black floatLeft"
-                                        data-toggle="tooltip" data-placement="bottom" title=""
-                                        data-original-title="Hạn nộp hồ sơ">
-                                        <i class="icon_select_box icon_time_list icon_24 icon-24 pos_relative"></i><br>
-                                        31/07/2020 </div>
-                                </div>
-                                <div class="line_list"></div>
-                            </div>
-                        </div>
-                        <div class="list-items ">
-                            <div class="detail-link pos_relative">
-                                <div class="pos_absolute w30">
-                                    <a class="bookmark-link"
-                                        href="/taikhoan/login_ntv?referral_url=aHR0cHM6Ly92aWVjbGFtMjRoLnZuL3ZpZWMtbGFtLXR1eWVuLWdhcC5odG1sP3NvcnQ9aGFuX25vcA,,"
-                                        data-idtin="3143842" data-idnganh="84" data-toggle="tooltip"
-                                        data-placement="bottom" title="Lưu việc làm"><i
-                                            class="icon-star-line icon-24 icon_24 "></i></a>
-
-                                </div>
-                                <div class="content_list_item_line w_100">
-                                    <span class="title-blockjob-main truncate-ellipsis font14 pos_relative pr_28">
-                                        <a title="Tổng Quản Lý Khách Sạn Thu Nhập Trên 40 Triệu"
-                                            href="/khach-san-nha-hang/tong-quan-ly-khach-san-thu-nhap-tren-40-trieu-c84p0id3143842.html"
-                                            class="text_grey2">
-                                            Tổng Quản Lý Khách Sạn Thu Nhập Trên 40 Triệu
-                                        </a>
-                                    </span>
-                                    <span class="title-blockjob-sub truncate-ellipsis font14 text_grey"><a
-                                            href="https://vieclam24h.vn/danh-sach-tin-tuyen-dung-cong-ty-co-phan-tap-doan-dau-tu-xay-dung-va-du-lich-bao-son-ntd6035201p1.html"
-                                            class="text_grey"
-                                            title="Công ty Cổ phần Tập đoàn đầu tư xây dựng và du lịch Bảo Sơn">Công ty
-                                            Cổ phần Tập đoàn đầu tư xây dựng và du lịch...</a></span>
-                                </div>
-                                <div class="pos_absolute list_note_icon">
-                                    <div class="note_mucluong text-center font12 text_black floatLeft"
-                                        data-toggle="tooltip" data-placement="bottom" title=""
-                                        data-original-title="Mức lương">
-                                        <i class="icon_select_box icon_moneybox2 icon_24 icon-24 pos_relative"></i><br>
-                                        40 – 50 triệu </div>
-                                    <div class="note_mucluong text-center font12 text_black floatLeft "
-                                        data-toggle="tooltip" data-placement="bottom" title=""
-                                        data-original-title="Hà Nội">
-                                        <i class="icon_select_box icon_local_list icon_24 icon-24 pos_relative"></i><br>
-                                        <span class="onecol_province">Hà Nội</span>
+                                        <span class="onecol_province">{{it.nghe_nghiep}}</span>
                                     </div>
                                     <div class="note_mucluong text-center font12 text_black floatLeft"
                                         data-toggle="tooltip" data-placement="bottom" title=""
                                         data-original-title="Hạn nộp hồ sơ">
                                         <i class="icon_select_box icon_time_list icon_24 icon-24 pos_relative"></i><br>
-                                        24/07/2020 </div>
+                                        {{it.ngay_het_han}} </div>
                                 </div>
                                 <div class="line_list"></div>
                             </div>
                         </div>
-                        <div class="list-items ">
-                            <div class="detail-link pos_relative">
-                                <div class="pos_absolute w30">
-                                    <a class="bookmark-link"
-                                        href="/taikhoan/login_ntv?referral_url=aHR0cHM6Ly92aWVjbGFtMjRoLnZuL3ZpZWMtbGFtLXR1eWVuLWdhcC5odG1sP3NvcnQ9aGFuX25vcA,,"
-                                        data-idtin="3145895" data-idnganh="43" data-toggle="tooltip"
-                                        data-placement="bottom" title="Lưu việc làm"><i
-                                            class="icon-star-line icon-24 icon_24 "></i></a>
-
-                                </div>
-                                <div class="content_list_item_line w_100">
-                                    <span class="title-blockjob-main truncate-ellipsis font14 pos_relative pr_28">
-                                        <a title="Quản Lý Trình Dược Viên OTC Miền Bắc"
-                                            href="/y-te-duoc/quan-ly-trinh-duoc-vien-otc-mien-bac-c43p0id3145895.html"
-                                            class="text_grey2">
-                                            Quản Lý Trình Dược Viên OTC Miền Bắc
-                                        </a>
-                                    </span>
-                                    <span class="title-blockjob-sub truncate-ellipsis font14 text_grey"><a
-                                            href="https://vieclam24h.vn/danh-sach-tin-tuyen-dung-cong-ty-co-phan-duoc-pham-tien-loc-ntd970906p1.html"
-                                            class="text_grey" title="Công ty Cổ phần dược phẩm Tiến Lộc">Công ty Cổ phần
-                                            dược phẩm Tiến Lộc</a></span>
-                                </div>
-                                <div class="pos_absolute list_note_icon">
-                                    <div class="note_mucluong text-center font12 text_black floatLeft"
-                                        data-toggle="tooltip" data-placement="bottom" title="Mức lương">
-                                        <i class="icon_select_box icon_moneybox2 icon_24 icon-24 pos_relative"></i><br>
-                                        10 – 15 triệu </div>
-                                    <div class="note_mucluong text-center font12 text_black floatLeft "
-                                        data-toggle="tooltip" data-placement="bottom"
-                                        title="Bắc Ninh, Ninh Bình, Nam Định, Hà Nam, Bắc Giang">
-                                        <i class="icon_select_box icon_local_list icon_24 icon-24 pos_relative"></i><br>
-                                        <span class="onecol_province">Bắc Ninh, Ninh Bình,...</span>
-                                    </div>
-                                    <div class="note_mucluong text-center font12 text_black floatLeft"
-                                        data-toggle="tooltip" data-placement="bottom" title=""
-                                        data-original-title="Hạn nộp hồ sơ">
-                                        <i class="icon_select_box icon_time_list icon_24 icon-24 pos_relative"></i><br>
-                                        25/07/2020 </div>
-                                </div>
-                                <div class="line_list"></div>
-                            </div>
-                        </div>
-                        <div class="list-items ">
-                            <div class="detail-link pos_relative">
-                                <div class="pos_absolute w30">
-                                    <a class="bookmark-link"
-                                        href="/taikhoan/login_ntv?referral_url=aHR0cHM6Ly92aWVjbGFtMjRoLnZuL3ZpZWMtbGFtLXR1eWVuLWdhcC5odG1sP3NvcnQ9aGFuX25vcA,,"
-                                        data-idtin="3146418" data-idnganh="41" data-toggle="tooltip"
-                                        data-placement="bottom" title="Lưu việc làm"><i
-                                            class="icon-star-line icon-24 icon_24 "></i></a>
-
-                                </div>
-                                <div class="content_list_item_line w_100">
-                                    <span class="title-blockjob-main truncate-ellipsis font14 pos_relative pr_28">
-                                        <a title="Chỉ Huy Trưởng Công Trình"
-                                            href="/xay-dung/chi-huy-truong-cong-trinh-c41p0id3146418.html"
-                                            class="text_grey2">
-                                            Chỉ Huy Trưởng Công Trình
-                                        </a>
-                                    </span>
-                                    <span class="title-blockjob-sub truncate-ellipsis font14 text_grey"><a
-                                            href="https://vieclam24h.vn/danh-sach-tin-tuyen-dung-cong-ty-co-phan-tap-doan-dau-tu-xay-dung-a-dong-hpp-ntd5253718p1.html"
-                                            class="text_grey"
-                                            title="Công Ty Cổ Phần Tập Đoàn Đầu Tư Xây Dựng Á Đông HPP">Công Ty Cổ Phần
-                                            Tập Đoàn Đầu Tư Xây Dựng Á Đông...</a></span>
-                                </div>
-                                <div class="pos_absolute list_note_icon">
-                                    <div class="note_mucluong text-center font12 text_black floatLeft"
-                                        data-toggle="tooltip" data-placement="bottom" title="Mức lương">
-                                        <i class="icon_select_box icon_moneybox2 icon_24 icon-24 pos_relative"></i><br>
-                                        20 – 30 triệu </div>
-                                    <div class="note_mucluong text-center font12 text_black floatLeft "
-                                        data-toggle="tooltip" data-placement="bottom" title="TP.HCM, Hà Nội">
-                                        <i class="icon_select_box icon_local_list icon_24 icon-24 pos_relative"></i><br>
-                                        <span class="onecol_province">TP.HCM, Hà Nội,...</span>
-                                    </div>
-                                    <div class="note_mucluong text-center font12 text_black floatLeft"
-                                        data-toggle="tooltip" data-placement="bottom" title="Hạn nộp hồ sơ">
-                                        <i class="icon_select_box icon_time_list icon_24 icon-24 pos_relative"></i><br>
-                                        24/07/2020 </div>
-                                </div>
-                                <div class="line_list"></div>
-                            </div>
-                        </div>
-                        <div class="list-items ">
-                            <div class="detail-link pos_relative">
-                                <div class="pos_absolute w30">
-                                    <a class="bookmark-link"
-                                        href="/taikhoan/login_ntv?referral_url=aHR0cHM6Ly92aWVjbGFtMjRoLnZuL3ZpZWMtbGFtLXR1eWVuLWdhcC5odG1sP3NvcnQ9aGFuX25vcA,,"
-                                        data-idtin="3116885" data-idnganh="14" data-toggle="tooltip"
-                                        data-placement="bottom" title="Lưu việc làm"><i
-                                            class="icon-star-line icon-24 icon_24 "></i></a>
-
-                                </div>
-                                <div class="content_list_item_line w_100">
-                                    <span class="title-blockjob-main truncate-ellipsis font14 pos_relative pr_28">
-                                        <a title="Quản Lý Dịch Vụ Nhà Hàng Khách Sạn"
-                                            href="/khach-san-nha-hang/quan-ly-nha-hang-c84p0id3116885.html"
-                                            class="text_grey2">
-                                            Quản Lý Dịch Vụ Nhà Hàng Khách Sạn
-                                        </a>
-                                    </span>
-                                    <span class="title-blockjob-sub truncate-ellipsis font14 text_grey"><a
-                                            href="https://vieclam24h.vn/danh-sach-tin-tuyen-dung-cong-ty-cp-dau-tu-xnk-tay-do-ntd4233679p1.html"
-                                            class="text_grey" title="Công ty CP Đầu tư XNK Tây Đô">Công ty CP Đầu tư XNK
-                                            Tây Đô</a></span>
-                                </div>
-                                <div class="pos_absolute list_note_icon">
-                                    <div class="note_mucluong text-center font12 text_black floatLeft"
-                                        data-toggle="tooltip" data-placement="bottom" title="Mức lương">
-                                        <i class="icon_select_box icon_moneybox2 icon_24 icon-24 pos_relative"></i><br>
-                                        20 – 30 triệu </div>
-                                    <div class="note_mucluong text-center font12 text_black floatLeft "
-                                        data-toggle="tooltip" data-placement="bottom" title="Hà Nội">
-                                        <i class="icon_select_box icon_local_list icon_24 icon-24 pos_relative"></i><br>
-                                        <span class="onecol_province">Hà Nội</span>
-                                    </div>
-                                    <div class="note_mucluong text-center font12 text_black floatLeft"
-                                        data-toggle="tooltip" data-placement="bottom" title="Hạn nộp hồ sơ">
-                                        <i class="icon_select_box icon_time_list icon_24 icon-24 pos_relative"></i><br>
-                                        25/07/2020 </div>
-                                </div>
-                                <div class="line_list"></div>
-                            </div>
-                        </div>
-                        <div class="list-items ">
-                            <div class="detail-link pos_relative">
-                                <div class="pos_absolute w30">
-                                    <a class="bookmark-link"
-                                        href="/taikhoan/login_ntv?referral_url=aHR0cHM6Ly92aWVjbGFtMjRoLnZuL3ZpZWMtbGFtLXR1eWVuLWdhcC5odG1sP3NvcnQ9aGFuX25vcA,,"
-                                        data-idtin="3147336" data-idnganh="84" data-toggle="tooltip"
-                                        data-placement="bottom" title="Lưu việc làm"><i
-                                            class="icon-star-line icon-24 icon_24 "></i></a>
-
-                                </div>
-                                <div class="content_list_item_line w_100">
-                                    <span class="title-blockjob-main truncate-ellipsis font14 pos_relative pr_28">
-                                        <a title="[Tiniworld / Tinipark] Giám Sát Trung Tâm"
-                                            href="/khach-san-nha-hang/tiniworld-tinipark-giam-sat-trung-tam-c84p0id3147336.html"
-                                            class="text_grey2">
-                                            [Tiniworld / Tinipark] Giám Sát Trung Tâm
-                                        </a>
-                                    </span>
-                                    <span class="title-blockjob-sub truncate-ellipsis font14 text_grey"><a
-                                            href="https://vieclam24h.vn/danh-sach-tin-tuyen-dung-cong-ty-co-phan-thuong-mai-dich-vu-thieu-nhi-moi-n-kid-corp-ntd3051279p1.html"
-                                            class="text_grey"
-                                            title="Công ty Cổ Phần Thương Mại Dịch Vụ Thiếu Nhi Mới (N KID Corp)">Công
-                                            ty Cổ Phần Thương Mại Dịch Vụ Thiếu Nhi Mới...</a></span>
-                                </div>
-                                <div class="pos_absolute list_note_icon">
-                                    <div class="note_mucluong text-center font12 text_black floatLeft"
-                                        data-toggle="tooltip" data-placement="bottom" title=""
-                                        data-original-title="Mức lương">
-                                        <i class="icon_select_box icon_moneybox2 icon_24 icon-24 pos_relative"></i><br>
-                                        7 – 10 triệu </div>
-                                    <div class="note_mucluong text-center font12 text_black floatLeft "
-                                        data-toggle="tooltip" data-placement="bottom" title="Hà Nội, Nghệ An">
-                                        <i class="icon_select_box icon_local_list icon_24 icon-24 pos_relative"></i><br>
-                                        <span class="onecol_province">Hà Nội, Nghệ An,...</span>
-                                    </div>
-                                    <div class="note_mucluong text-center font12 text_black floatLeft"
-                                        data-toggle="tooltip" data-placement="bottom" title="Hạn nộp hồ sơ">
-                                        <i class="icon_select_box icon_time_list icon_24 icon-24 pos_relative"></i><br>
-                                        30/07/2020 </div>
-                                </div>
-                                <div class="line_list"></div>
-                            </div>
-                        </div>
-                        <div class="list-items ">
-                            <div class="detail-link pos_relative">
-                                <div class="pos_absolute w30">
-                                    <a class="bookmark-link"
-                                        href="/taikhoan/login_ntv?referral_url=aHR0cHM6Ly92aWVjbGFtMjRoLnZuL3ZpZWMtbGFtLXR1eWVuLWdhcC5odG1sP3NvcnQ9aGFuX25vcA,,"
-                                        data-idtin="3147083" data-idnganh="53" data-toggle="tooltip"
-                                        data-placement="bottom" title="Lưu việc làm"><i
-                                            class="icon-star-line icon-24 icon_24 "></i></a>
-
-                                </div>
-                                <div class="content_list_item_line w_100">
-                                    <span class="title-blockjob-main truncate-ellipsis font14 pos_relative pr_28">
-                                        <a title="Trưởng Phòng Trade – Marketing"
-                                            href="/marketing-pr/truong-phong-trade-marketing-c53p0id3147083.html"
-                                            class="text_grey2">
-                                            Trưởng Phòng Trade – Marketing
-                                        </a>
-                                    </span>
-                                    <span class="title-blockjob-sub truncate-ellipsis font14 text_grey"><a
-                                            href="https://vieclam24h.vn/danh-sach-tin-tuyen-dung-cong-ty-tnhh-thuong-mai-va-dich-vu-dai-phat-ntd6079401p1.html"
-                                            class="text_grey" title="Công Ty TNHH Thương Mại Và Dịch Vụ Đại Phát">Công
-                                            Ty TNHH Thương Mại Và Dịch Vụ Đại Phát</a></span>
-                                </div>
-                                <div class="pos_absolute list_note_icon">
-                                    <div class="note_mucluong text-center font12 text_black floatLeft"
-                                        data-toggle="tooltip" data-placement="bottom" title="Mức lương">
-                                        <i class="icon_select_box icon_moneybox2 icon_24 icon-24 pos_relative"></i><br>
-                                        15 – 20 triệu </div>
-                                    <div class="note_mucluong text-center font12 text_black floatLeft "
-                                        data-toggle="tooltip" data-placement="bottom"
-                                        title="Ninh Bình, Nam Định, Hà Nam">
-                                        <i class="icon_select_box icon_local_list icon_24 icon-24 pos_relative"></i><br>
-                                        <span class="onecol_province">Ninh Bình, Nam Định,...</span>
-                                    </div>
-                                    <div class="note_mucluong text-center font12 text_black floatLeft"
-                                        data-toggle="tooltip" data-placement="bottom" title="Hạn nộp hồ sơ">
-                                        <i class="icon_select_box icon_time_list icon_24 icon-24 pos_relative"></i><br>
-                                        27/07/2020 </div>
-                                </div>
-                                <div class="line_list"></div>
-                            </div>
-                        </div>
-                        <div class="list-items ">
-                            <div class="detail-link pos_relative">
-                                <div class="pos_absolute w30">
-                                    <a class="bookmark-link"
-                                        href="/taikhoan/login_ntv?referral_url=aHR0cHM6Ly92aWVjbGFtMjRoLnZuL3ZpZWMtbGFtLXR1eWVuLWdhcC5odG1sP3NvcnQ9aGFuX25vcA,,"
-                                        data-idtin="3147377" data-idnganh="7" data-toggle="tooltip"
-                                        data-placement="bottom" title="Lưu việc làm"><i
-                                            class="icon-star-line icon-24 icon_24 "></i></a>
-
-                                </div>
-                                <div class="content_list_item_line w_100">
-                                    <span class="title-blockjob-main truncate-ellipsis font14 pos_relative pr_28">
-                                        <a title="(Aden Việt Nam) Giám Sát Dịch Vụ Vệ Sinh Tại Gia Lâm - Hà Nội"
-                                            href="/dich-vu/giam-sat-dich-vu-ve-sinh-c7p0id3147377.html"
-                                            class="text_grey2">
-                                            (Aden Việt Nam) Giám Sát Dịch Vụ Vệ Sinh Tại Gia Lâm - Hà Nội
-                                        </a>
-                                    </span>
-                                    <span class="title-blockjob-sub truncate-ellipsis font14 text_grey"><a
-                                            href="https://vieclam24h.vn/danh-sach-tin-tuyen-dung-cong-ty-tnhh-aden-services-viet-nam-chi-nhanh-ha-noi-ntd1726007p1.html"
-                                            class="text_grey"
-                                            title="Công ty TNHH ADEN Services Việt Nam - Chi nhánh Hà Nội">Công ty TNHH
-                                            ADEN Services Việt Nam - Chi nhánh Hà Nội</a></span>
-                                </div>
-                                <div class="pos_absolute list_note_icon">
-                                    <div class="note_mucluong text-center font12 text_black floatLeft"
-                                        data-toggle="tooltip" data-placement="bottom" title="Mức lương">
-                                        <i class="icon_select_box icon_moneybox2 icon_24 icon-24 pos_relative"></i><br>
-                                        10 – 15 triệu </div>
-                                    <div class="note_mucluong text-center font12 text_black floatLeft "
-                                        data-toggle="tooltip" data-placement="bottom" title="Hà Nội, Hưng Yên">
-                                        <i class="icon_select_box icon_local_list icon_24 icon-24 pos_relative"></i><br>
-                                        <span class="onecol_province">Hà Nội, Hưng Yên,...</span>
-                                    </div>
-                                    <div class="note_mucluong text-center font12 text_black floatLeft"
-                                        data-toggle="tooltip" data-placement="bottom" title="Hạn nộp hồ sơ">
-                                        <i class="icon_select_box icon_time_list icon_24 icon-24 pos_relative"></i><br>
-                                        30/07/2020 </div>
-                                </div>
-                                <div class="line_list"></div>
-                            </div>
-                        </div>
-                        <div class="list-items ">
-                            <div class="detail-link pos_relative">
-                                <div class="pos_absolute w30">
-                                    <a class="bookmark-link"
-                                        href="/taikhoan/login_ntv?referral_url=aHR0cHM6Ly92aWVjbGFtMjRoLnZuL3ZpZWMtbGFtLXR1eWVuLWdhcC5odG1sP3NvcnQ9aGFuX25vcA,,"
-                                        data-idtin="3146493" data-idnganh="40" data-toggle="tooltip"
-                                        data-placement="bottom" title="Lưu việc làm"><i
-                                            class="icon-star-line icon-24 icon_24 "></i></a>
-
-                                </div>
-                                <div class="content_list_item_line w_100">
-                                    <span class="title-blockjob-main truncate-ellipsis font14 pos_relative pr_28">
-                                        <a title="Quản Lý Kho Vận"
-                                            href="/vat-tu-thiet-bi/quan-ly-kho-van-c40p0id3146493.html"
-                                            class="text_grey2">
-                                            Quản Lý Kho Vận
-                                        </a>
-                                    </span>
-                                    <span class="title-blockjob-sub truncate-ellipsis font14 text_grey"><a
-                                            href="https://vieclam24h.vn/danh-sach-tin-tuyen-dung-cong-ty-tnhh-cong-nghe-pham-ba-dinh-ntd2834032p1.html"
-                                            class="text_grey" title="Công ty TNHH Công nghệ phẩm Ba Đình">Công ty TNHH
-                                            Công nghệ phẩm Ba Đình</a></span>
-                                </div>
-                                <div class="pos_absolute list_note_icon">
-                                    <div class="note_mucluong text-center font12 text_black floatLeft"
-                                        data-toggle="tooltip" data-placement="bottom" title="Mức lương">
-                                        <i class="icon_select_box icon_moneybox2 icon_24 icon-24 pos_relative"></i><br>
-                                        10 – 15 triệu </div>
-                                    <div class="note_mucluong text-center font12 text_black floatLeft "
-                                        data-toggle="tooltip" data-placement="bottom" title="Hà Nội">
-                                        <i class="icon_select_box icon_local_list icon_24 icon-24 pos_relative"></i><br>
-                                        <span class="onecol_province">Hà Nội</span>
-                                    </div>
-                                    <div class="note_mucluong text-center font12 text_black floatLeft"
-                                        data-toggle="tooltip" data-placement="bottom" title="Hạn nộp hồ sơ">
-                                        <i class="icon_select_box icon_time_list icon_24 icon-24 pos_relative"></i><br>
-                                        22/07/2020 </div>
-                                </div>
-                                <div class="line_list"></div>
-                            </div>
-                        </div>
-                        <div class="list-items ">
-                            <div class="detail-link pos_relative">
-                                <div class="pos_absolute w30">
-                                    <a class="bookmark-link"
-                                        href="/taikhoan/login_ntv?referral_url=aHR0cHM6Ly92aWVjbGFtMjRoLnZuL3ZpZWMtbGFtLXR1eWVuLWdhcC5odG1sP3NvcnQ9aGFuX25vcA,,"
-                                        data-idtin="3146663" data-idnganh="15" data-toggle="tooltip"
-                                        data-placement="bottom" title="Lưu việc làm"><i
-                                            class="icon-star-line icon-24 icon_24 "></i></a>
-
-                                </div>
-                                <div class="content_list_item_line w_100">
-                                    <span class="title-blockjob-main truncate-ellipsis font14 pos_relative pr_28">
-                                        <a title="Trưởng Phòng Thiết Kế Nội Thất - Lương 20-30tr/th"
-                                            href="/kien-truc-tk-noi-that/truong-phong-thiet-ke-noi-that-luong-20-30tr-th-c15p0id3146663.html"
-                                            class="text_grey2">
-                                            Trưởng Phòng Thiết Kế Nội Thất - Lương 20-30tr/th
-                                        </a>
-                                    </span>
-                                    <span class="title-blockjob-sub truncate-ellipsis font14 text_grey"><a
-                                            href="https://vieclam24h.vn/danh-sach-tin-tuyen-dung-cong-ty-co-phan-viets-power-ntd2833633p1.html"
-                                            class="text_grey" title="Công ty cổ phần Việt's Power">Công ty cổ phần
-                                            Việt's Power</a></span>
-                                </div>
-                                <div class="pos_absolute list_note_icon">
-                                    <div class="note_mucluong text-center font12 text_black floatLeft"
-                                        data-toggle="tooltip" data-placement="bottom" title="Mức lương">
-                                        <i class="icon_select_box icon_moneybox2 icon_24 icon-24 pos_relative"></i><br>
-                                        20 – 30 triệu </div>
-                                    <div class="note_mucluong text-center font12 text_black floatLeft "
-                                        data-toggle="tooltip" data-placement="bottom" title="Hà Nội">
-                                        <i class="icon_select_box icon_local_list icon_24 icon-24 pos_relative"></i><br>
-                                        <span class="onecol_province">Hà Nội</span>
-                                    </div>
-                                    <div class="note_mucluong text-center font12 text_black floatLeft"
-                                        data-toggle="tooltip" data-placement="bottom" title=""
-                                        data-original-title="Hạn nộp hồ sơ">
-                                        <i class="icon_select_box icon_time_list icon_24 icon-24 pos_relative"></i><br>
-                                        31/07/2020 </div>
-                                </div>
-                                <div class="line_list"></div>
-                            </div>
-                        </div>
-                        <div class="list-items ">
-                            <div class="detail-link pos_relative">
-                                <div class="pos_absolute w30">
-                                    <a class="bookmark-link"
-                                        href="/taikhoan/login_ntv?referral_url=aHR0cHM6Ly92aWVjbGFtMjRoLnZuL3ZpZWMtbGFtLXR1eWVuLWdhcC5odG1sP3NvcnQ9aGFuX25vcA,,"
-                                        data-idtin="3146578" data-idnganh="38" data-toggle="tooltip"
-                                        data-placement="bottom" title="Lưu việc làm"><i
-                                            class="icon-star-line icon-24 icon_24 "></i></a>
-
-                                </div>
-                                <div class="content_list_item_line w_100">
-                                    <span class="title-blockjob-main truncate-ellipsis font14 pos_relative pr_28">
-                                        <a title="Phó Phòng Hành Chính Nhân Sự"
-                                            href="/hanh-chinh-van-phong/pho-phong-hcns-c38p0id3146578.html"
-                                            class="text_grey2">
-                                            Phó Phòng Hành Chính Nhân Sự
-                                        </a>
-                                    </span>
-                                    <span class="title-blockjob-sub truncate-ellipsis font14 text_grey"><a
-                                            href="https://vieclam24h.vn/danh-sach-tin-tuyen-dung-cong-ty-cp-bio-pham-ntd4280191p1.html"
-                                            class="text_grey" title="Công ty CP BIO - PHAM">Công ty CP BIO -
-                                            PHAM</a></span>
-                                </div>
-                                <div class="pos_absolute list_note_icon">
-                                    <div class="note_mucluong text-center font12 text_black floatLeft"
-                                        data-toggle="tooltip" data-placement="bottom" title="Mức lương">
-                                        <i class="icon_select_box icon_moneybox2 icon_24 icon-24 pos_relative"></i><br>
-                                        10 – 15 triệu </div>
-                                    <div class="note_mucluong text-center font12 text_black floatLeft "
-                                        data-toggle="tooltip" data-placement="bottom" title="Hà Nội">
-                                        <i class="icon_select_box icon_local_list icon_24 icon-24 pos_relative"></i><br>
-                                        <span class="onecol_province">Hà Nội</span>
-                                    </div>
-                                    <div class="note_mucluong text-center font12 text_black floatLeft"
-                                        data-toggle="tooltip" data-placement="bottom" title="Hạn nộp hồ sơ">
-                                        <i class="icon_select_box icon_time_list icon_24 icon-24 pos_relative"></i><br>
-                                        30/07/2020 </div>
-                                </div>
-                                <div class="line_list"></div>
-                            </div>
-                        </div>
-                        <div class="list-items ">
-                            <div class="detail-link pos_relative">
-                                <div class="pos_absolute w30">
-                                    <a class="bookmark-link"
-                                        href="/taikhoan/login_ntv?referral_url=aHR0cHM6Ly92aWVjbGFtMjRoLnZuL3ZpZWMtbGFtLXR1eWVuLWdhcC5odG1sP3NvcnQ9aGFuX25vcA,,"
-                                        data-idtin="3145919" data-idnganh="53" data-toggle="tooltip"
-                                        data-placement="bottom" title="Lưu việc làm"><i
-                                            class="icon-star-line icon-24 icon_24 "></i></a>
-
-                                </div>
-                                <div class="content_list_item_line w_100">
-                                    <span class="title-blockjob-main truncate-ellipsis font14 pos_relative pr_28">
-                                        <a title="Trưởng Nhãn Hàng – Brand Manager (Thu Nhập Từ 20 - 50 Tr / Tháng)"
-                                            href="/marketing-pr/truong-nhan-hang-brand-manager-c53p0id3145919.html"
-                                            class="text_grey2">
-                                            Trưởng Nhãn Hàng – Brand Manager (Thu Nhập Từ 20 - 50 Tr / Tháng)
-                                        </a>
-                                    </span>
-                                    <span class="title-blockjob-sub truncate-ellipsis font14 text_grey"><a
-                                            href="https://vieclam24h.vn/danh-sach-tin-tuyen-dung-cong-ty-tnhh-thanh-dat-trieu-son-ntd3213245p1.html"
-                                            class="text_grey" title="Công ty TNHH Thành Đạt Triệu Sơn">Công ty TNHH
-                                            Thành Đạt Triệu Sơn</a></span>
-                                </div>
-                                <div class="pos_absolute list_note_icon">
-                                    <div class="note_mucluong text-center font12 text_black floatLeft"
-                                        data-toggle="tooltip" data-placement="bottom" title="Mức lương">
-                                        <i class="icon_select_box icon_moneybox2 icon_24 icon-24 pos_relative"></i><br>
-                                        20 – 30 triệu </div>
-                                    <div class="note_mucluong text-center font12 text_black floatLeft "
-                                        data-toggle="tooltip" data-placement="bottom" title="Hà Nội">
-                                        <i class="icon_select_box icon_local_list icon_24 icon-24 pos_relative"></i><br>
-                                        <span class="onecol_province">Hà Nội</span>
-                                    </div>
-                                    <div class="note_mucluong text-center font12 text_black floatLeft"
-                                        data-toggle="tooltip" data-placement="bottom" title="Hạn nộp hồ sơ">
-                                        <i class="icon_select_box icon_time_list icon_24 icon-24 pos_relative"></i><br>
-                                        26/07/2020 </div>
-                                </div>
-                            </div>
-                        </div>
+                        {% endfor %}
+                        {% endif %}
 
                     </div>
                 </div>
 
                 <div class="box_pagination_footer text-center">
+                    {% if list_mana.has_other_pages %}
+                    <ul class="pagination">
+                        {% if list_mana.has_previous %}
+                        <li class="page-item" style="height: 30px;">
+                            <a class="page-link" href="?page={{ list_mana.previous_page_number }}">
+                                <i class="fas fa-chevron-left"></i>
+                            </a>
+                        </li>
+                        {% else %}
+                        <li class="page-item disabled" style="height: 30px;"><span style="height: 100%;"><i class="fas fa-chevron-left"></i></span>
+                        </li>
+                        {% endif %}
+
+                        {% for it in list_mana.paginator.page_range %}
+                        {% if list_mana.number == it %}
+                        <li class="page-item active" style="height: 30px;"><span class="page-link" style="height: 100%;">{{it}}</span></li>
+                        {% else %}
+                        <li class="page-item " style="height: 30px;"><a class="page-link" style="height: 100%;" href="?page={{it}}">{{it}}</a></li>
+                        {% endif %}
+                        {% endfor %}
+
+                        {% if list_mana.has_next %}
+                        <li class="page-item" style="height: 30px;">
+                            <a class="page-link" style="height: 100%;" href="?page={{ list_mana.next_page_number }}">
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+                        </li>
+                        {% else %}
+                        <li class="disabled" style="height: 30px;"><span style="height: 100%;"><i class="fas fa-chevron-right"></i></span>
+                        </li>
+                        {% endif %}
+
+                    </ul>
+                    {% endif %}
                 </div>
             </div>
         </div>
-
-        <div class="slideshow-container mt24 text-center">
-            <div class="box_filter_content w_100 mt_16 pos_relative" id="box_search_ntd"
-                style="margin-bottom:30px;height:425px">
-                <div class="box-cam-nang box-news-hot">
-                    <div>
-                        <h2 class="tit-cam-nang">CẩM NANG TUYểN DụNG</h2>
-                    </div>
-                    <div class="list-news-hot row" style="margin-top:20px;">
-                        <a class="news" target="_blank" href="">
-                            <div style="height: 160px;">
-                                <img style="height: 100%;width: 100%"
-                                    src="{% static 'company/tuyendung/hr-la-gi-cac-vi-tri-trong-nganh-hr-bao-gom-nhung-gi-hinh-2-280x186.jpg' %}"
-                                    alt="Bạn đã biết cách tạo động lực giúp nhân viên làm việc..."
-                                    title="Bạn đã biết cách tạo động lực giúp nhân viên làm việc...">
-                            </div>
-                            <div class="txt-tit" style="line-height: 1.4;padding: 0px 5px 10px 10px;">
-                                <h3 class="title mb0 txt-3-line title-cam-nang"
-                                    style="font-size: 16px !important;margin-bottom:15px !important;">Bạn đã biết
-                                    cách tạo động lực giúp nhân viên làm việc...</h3>
-                                <div class="txt-descript txt-3-line mt5">Đối với một nhà lãnh đạo hay quản lý,
-                                    nhân viên&nbsp;là tài sản quan trọng giúp xây dựng và phát triển doanh nghiệp,
-                                    họ&nbsp;cũng&nbsp;là...</div>
-                            </div>
-                        </a>
-                        <a class="news" target="_blank" href="">
-                            <div style="height: 160px;">
-                                <img style="height: 100%;width: 100%"
-                                    src="{% static 'company/tuyendung/cq5dam.web_.1280.1280.jpeg' %}"
-                                    alt="4 tố chất không thể thiếu ở một nhà lãnh đạo thực thụ"
-                                    title="4 tố chất không thể thiếu ở một nhà lãnh đạo thực thụ">
-                            </div>
-                            <div class="txt-tit" style="line-height: 1.4;padding: 0px 5px 10px 10px;">
-                                <h3 class="title mb0 txt-3-line title-cam-nang"
-                                    style="font-size: 16px !important;margin-bottom:15px !important;">4 tố chất
-                                    không thể thiếu ở một nhà lãnh đạo thực thụ</h3>
-                                <div class="txt-descript txt-3-line mt5">Đa số mọi người đều nghĩ đến&nbsp;kinh
-                                    nghiệm chuyên môn hay khả năng giám sát, điều hành,...là các yếu tố cần ở
-                                    một...</div>
-                            </div>
-                        </a>
-                        <a class="news" target="_blank" href="">
-                            <div style="height: 160px;">
-                                <img style="height: 100%;width: 100%"
-                                    src="{% static 'company/tuyendung/988919f81523e8e4303f5c74d45c3095x-280x186.jpg' %}"
-                                    alt="4 yếu tố nhận diện ứng viên phù hợp với vị trí chăm..."
-                                    title="4 yếu tố nhận diện ứng viên phù hợp với vị trí chăm...">
-                            </div>
-                            <div class="txt-tit" style="line-height: 1.4;padding: 0px 5px 10px 10px;">
-                                <h3 class="title mb0 txt-3-line title-cam-nang"
-                                    style="font-size: 16px !important;margin-bottom:15px !important;">4 yếu tố
-                                    nhận diện ứng viên phù hợp với vị trí chăm...</h3>
-                                <div class="txt-descript txt-3-line mt5">Nhân viên chăm sóc khách hàng là một
-                                    phần không thể thiếu đối với bất kỳ công ty dịch vụ nào. Tuy nhiên, việc
-                                    tuyển...</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="mt5 cam_nang_td" style="margin-top:20px !important;">
-                        <a target="_blank" href="" class="btn btn-view">
-                            <i class="icon icon-add" aria-hidden="true"></i>
-                            <span>Xem thêm Cẩm nang tuyển dụng</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="box_alert_content_dangkytuvan w_100 mt_24 font16">
-                <div class="pt_10 txt-ghi">
-                    Để tuyển dụng hoặc tìm việc hiệu quả, vui lòng <span class="bold">ĐĂNG KÝ TƯ VẤN</span> để
-                    được hỗ trợ ngay
-                </div>
-                <div class=" pb_14 pr_14 pl_14">
-                    <div class="col_list_left floatLeft">
-                        <a href="nha-tuyen-dung-dang-ky-tu-van" class="btn btn-ntd-dky-tuvan btn-lg w340 fs18 pl_8"
-                            rel="nofollow">
-                            Nhà tuyển dụng đăng ký tư vấn
-                        </a>
-                    </div>
-                    <div class="col_list_right floatLeft">
-                        <a href="nguoi-tim-viec-dang-ky-tu-van" class="btn btn-ntv-dky-tuvan btn-lg w340 fs18 pl_8"
-                            rel="nofollow">
-                            Người tìm việc đăng ký tư vấn
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="row mt_24 ">
-                <div class="box_tab pl_0 pr_0">
-                    <div class="panel no-border box_tab">
-                        <div class="panel-heading bg_blue title_box_panel">
-                            <div class="panel-title fwb">
-                                <i class="icon_24 icon-call icon-24"></i> Hotline cho nhà tuyển dụng
-                            </div>
-                            <div class="tools">
-                                <a class="ico" href="nha-tuyen-dung#"></a>
-                            </div>
-                        </div>
-                        <div class="panel-body">
-                            <div class="hr_header">
-                                <div class="hr"></div>
-                                <div class="title">
-                                    <span class="bg-white bold font16 text_blue">
-                                        Miền Bắc:<span class="bg-white text_pink font24 bold">(0123) 456 789</span>
-                                    </span>
-                                </div>
-                            </div>
-
-                            <div class="hr_header">
-                                <div class="hr"></div>
-                                <div class="title">
-                                    <span class="bg-white bold font16 text_blue">
-                                        Miền Nam:<span class="bg-white text_pink font24 bold">(0123) 456 789</span>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
     </div>
 
 </div>
