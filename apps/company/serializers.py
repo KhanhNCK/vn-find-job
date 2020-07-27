@@ -58,7 +58,8 @@ class SubmitDuyetTinTuyenDungAPISer(serializers.Serializer):
 
 
 class FeedbackTinTuyenDungManaSer(serializers.Serializer):
-    check_val1 = serializers.IntegerField()
-    check_val2 = serializers.IntegerField()
-    check_val3 = serializers.IntegerField()
-
+    code_tin = serializers.CharField()
+    tag_search = serializers.CharField()
+    slug = serializers.CharField()
+    status_tin = serializers.IntegerField()
+    secret = serializers.CharField()

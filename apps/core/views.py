@@ -11,7 +11,7 @@ from . import serializers as core_serializers
 import json
 import requests
 from apps.company import models as company_models
-
+from apps.company.tasks import gui_tin_tuyen_dung_mana
 # Create your views here.
 
 

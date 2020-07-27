@@ -14,6 +14,7 @@ from apps.core import models as core_models
 from apps.seeker import models as seeker_models
 from apps.users.models import User
 from apps.company.tasks import gui_tin_tuyen_dung_mana
+from django.conf import settings
 
 # Create your views here.
 
@@ -333,7 +334,7 @@ class SubmitDuyetTinTuyenDungAPI(APIView):
 
             cong_ty=company_models.CongTy.objects.create(ten_cong_ty=ten_cong_ty,code_cong_ty=code_cong_ty,dia_chi=dia_chi_cty,
                                                         sdt_lienhe=dien_thoai_cty,mail_lien_he=email_cty,name_lien_he=ng_cty,thongtin_cty=info_cty)
-            tin_tuyen_dung=company_models.TinTuyenDung.objects.create(user=user,congty=cong_ty,caption_tin_tuc=title_tin,nganh_nghe=nganh_nghe,muc_luong=luong_sal,
+            tin_tuyen_dung=company_models.TinTuyenDung.objects.create(user=user,congty=cong_ty,code_tin=code_tin,caption_tin_tuc=title_tin,nganh_nghe=nganh_nghe,muc_luong=luong_sal,
                                                                 so_nam_kinh_nghiem=nam_kn,dia_diem_lam_viec=thanh_pho_lv,hinh_thuc_lam_viec=hinhthuc_lv,
                                                                 trinh_do_hoc_van=trinh_do,ngoai_ngu=ngoai_ngu,trinh_do_ngoai_ngu=trinh_do_nn,so_luong_tuyen=so_luong_tuyen,
                                                                 mota_congviec=mota_cviec,quyenloi_congviec=ql_cviec,yeucau_congviec=yc_cviec,ngay_het_han=ngay_het_han)
@@ -348,7 +349,30 @@ class FeedbackTinTuyenDungMana(APIView):
     renderer_classes = (JSONRenderer, TemplateHTMLRenderer, )
     def post(self, request, format=None):
         valid_data = validate_data(company_serializers.FeedbackTinTuyenDungManaSer, request.data)
-        ten_day_du = valid_data.get('ten_day_du')
 
-  
-        return Response(1, status=status.HTTP_200_OK)
+        code_tin = valid_data.get('code_tin')
+        tag_search = valid_data.get('tag_search')
+        slug = valid_data.get('slug')
+        status_tin = valid_data.get('status_tin')
+        secret = valid_data.get("secret")
+
+        data_dict = dict()
+
+        data_dict["code_tin"] = code_tin
+        data_dict["tag_search"] = tag_search
+        data_dict["slug"] = slug
+        data_dict["status_tin"] = status_tin
+        data_dict["secret"] = secret
+
+        if validate_response(request.data, settings.SECURITY_KEY_MANA_JOB):
+            if company_models.TinTuyenDung.objects.filter(code_tin=code_tin).exists():
+                tintd=company_models.TinTuyenDung.objects.get(code_tin=code_tin)
+                tintd.tag_search=tag_search
+                tintd.slug=slug
+                tintd.status_tin=status_tin
+                tintd.save()
+                return Response(1, status=status.HTTP_200_OK)
+            else:
+                return Response(1, status=status.HTTP_400_BAD_REQUEST)
+        else:
+            return Response(0,status=status.HTTP_403_FORBIDDEN)

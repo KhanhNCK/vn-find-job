@@ -16,6 +16,14 @@ def get_data_tin_tuyendung(id):
     data_dict["sdt"] = tin_tuyendung.user.sdt
     data_dict["loai_user"] = tin_tuyendung.user.loai_user
 
+    data_dict["ten_cong_ty"] = tin_tuyendung.congty.ten_cong_ty
+    data_dict["code_cong_ty"] = tin_tuyendung.congty.code_cong_ty
+    data_dict["dia_chi"] = tin_tuyendung.congty.dia_chi
+    data_dict["sdt_lienhe"] = tin_tuyendung.congty.sdt_lienhe
+    data_dict["mail_lien_he"] = tin_tuyendung.congty.mail_lien_he
+    data_dict["name_lien_he"] = tin_tuyendung.congty.name_lien_he
+    data_dict["thongtin_cty"] = tin_tuyendung.congty.thongtin_cty
+
     data_dict["code_tin"] = tin_tuyendung.code_tin
     data_dict["caption_tin_tuc"] = tin_tuyendung.caption_tin_tuc
     data_dict["nganh_nghe"] = tin_tuyendung.nganh_nghe
@@ -32,9 +40,6 @@ def get_data_tin_tuyendung(id):
     data_dict["quyenloi_congviec"] = tin_tuyendung.quyenloi_congviec
     data_dict["yeucau_congviec"] = tin_tuyendung.yeucau_congviec
     data_dict["ngay_het_han"] = tin_tuyendung.ngay_het_han.strftime('%Y-%m-%d')
-
-
-
 
     return data_dict
 

@@ -23,11 +23,13 @@ def gui_tin_tuyen_dung_mana(id):
     tin_td = TinTuyenDung.objects.get(id=id)
     data = get_data_tin_tuyendung(id)
     hashdata = get_request_hash_data(data,settings.SECURITY_KEY_MANA_JOB)
-    url = settings.MANAGER_URL + "quanlycongtacvien/user-register-ctv/"
+    url = settings.MANAGER_URL + "company/api-nhan-tin-tuyendung/"
     r = requests.post(url, json=hashdata)
     if r.status_code==200:
         tin_td.is_send_mana = True
         tin_td.save()
+    print(r.status_code)
+    print(hashdata)
 
 
 @shared_task

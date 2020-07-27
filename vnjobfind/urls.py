@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path, include
 from apps.users import views as user_views
 from django.conf.urls import handler404, handler500 ,handler403
+from django.conf.urls.static import static
+from django.conf import settings
 
 handler404 = "apps.core.views.Error404Page"
 handler500 = "apps.core.views.Error500Page"
@@ -31,4 +33,4 @@ urlpatterns = [
     path('nha-tuyen-dung/', include('apps.company.urls')),
     path('', include('apps.users.urls')),
 
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

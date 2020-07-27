@@ -228,5 +228,5 @@ EXPIRED_TOKEN_CONFIRM_EMAIL_TIME = 86400
 
 SECURITY_KEY_MANA_JOB="KHANHNCKIT-123456789"
 
-MANAGER_URL="http://mana.nckit.xyz/"
+MANAGER_URL="http://manager.nckit.xyz/"
 JOB_URL="http://nckit.xyz/"
